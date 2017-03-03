@@ -1,0 +1,16 @@
+/bootstrap
+/modules
+/storage
+/tests
+/vendor
+
+.env
+.travis.yml
+artisan
+CHANGELOG.md
+composer.json
+composer.lock
+index.php
+phpunit.xml
+README.md
+server.php
