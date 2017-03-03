@@ -1,0 +1,14 @@
+version: '2'
+services:
+  web:
+    image: webdevops/php-apache-dev:debian-8
+    ports:
+      - "80:80"
+    volumes:
+      - ./../..:/var/www/bsouetre
+      - ./php.ini:/opt/docker/etc/php/php.ini
+      - ./bsouetre.conf:/opt/docker/etc/httpd/vhost.common.d/50-bsouetre.conf
+    environment:
+      - ALLOW_OVERRIDE=true
+      - WEB_DOCUMENT_ROOT=/var/www/bsouetre
+      - WEB_ALIAS_DOMAIN=bsouetre.dev
