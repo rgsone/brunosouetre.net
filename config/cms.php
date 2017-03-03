@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'activeTheme' => 'demo',
+    'activeTheme' => 'bsouetre',
 
     /*
     |--------------------------------------------------------------------------
@@ -36,7 +36,7 @@ return [
     |
     */
 
-    'backendUri' => 'qg',
+    'backendUri' => env( 'BACKEND_URI' ),
 
     /*
     |--------------------------------------------------------------------------
@@ -49,7 +49,7 @@ return [
     |
     */
 
-    'backendTimezone' => 'UTC',
+    'backendTimezone' => 'Europe/Paris',
 
     /*
     |--------------------------------------------------------------------------
@@ -110,7 +110,7 @@ return [
     |
     */
 
-    'enableRoutesCache' => env('ROUTES_CACHE', false),
+    'enableRoutesCache' => env( 'ROUTES_CACHE', true ),
 
     /*
     |--------------------------------------------------------------------------
@@ -150,7 +150,7 @@ return [
     |
     */
 
-    'enableAssetCache' => env('ASSET_CACHE', false),
+    'enableAssetCache' => env( 'ASSET_CACHE', true ),
 
     /*
     |--------------------------------------------------------------------------
@@ -265,7 +265,7 @@ return [
     |
     */
 
-    'linkPolicy' => env('LINK_POLICY', 'detect'),
+    'linkPolicy' => env( 'LINK_POLICY', 'detect' ),
 
     /*
     |--------------------------------------------------------------------------
@@ -301,6 +301,6 @@ return [
     |
     */
 
-    'enableCsrfProtection' => env('ENABLE_CSRF', false),
+    'enableCsrfProtection' => env( 'ENABLE_CSRF', true ),
 
 ];

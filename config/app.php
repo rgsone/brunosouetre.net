@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'url' => env( 'APP_URL', 'http://bsouetre.dev' ),
+    'url' => env( 'APP_URL', 'http://www.brunosouetre.net' ),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Paris',
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fr',
 
     /*
     |--------------------------------------------------------------------------
@@ -81,7 +81,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'no9dsO71JU61hbmfozm8vDk4wbFYCqUh'),
+    'key' => env( 'APP_KEY' ),
 
     'cipher' => 'AES-256-CBC',
 

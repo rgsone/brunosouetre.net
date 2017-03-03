@@ -16,22 +16,22 @@ return [
 
     'mailgun' => [
         'domain' => '',
-        'secret' => '',
+        'secret' => ''
     ],
 
     'mandrill' => [
-        'secret' => '',
+        'secret' => ''
     ],
 
     'ses' => [
         'key' => '',
         'secret' => '',
-        'region' => 'us-east-1',
+        'region' => 'us-east-1'
     ],
 
     'stripe' => [
         'model'  => 'User',
-        'secret' => '',
-    ],
+        'secret' => ''
+    ]
 
 ];
