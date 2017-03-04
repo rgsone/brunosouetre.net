@@ -1,0 +1,14 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+  name:
+    label: 'Nom du lien'
+    span: left
+    required: true
+  url:
+    label: 'Url du lien'
+    span: right
+    required: true
+    placeholder: 'http://'
