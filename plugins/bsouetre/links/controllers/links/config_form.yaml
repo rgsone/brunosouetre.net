@@ -1,0 +1,28 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: 'Lien'
+# Model Form Field configuration
+form: $/bsouetre/links/models/link/fields.yaml
+# Model Class name
+modelClass: BSouetre\Links\Models\Link
+# Default redirect location
+defaultRedirect: bsouetre/links/links
+# Create page
+create:
+  title: 'Ajouter un lien'
+  redirect: bsouetre/links/links/update/:id
+  redirectClose: bsouetre/links/links
+  flashSave: 'Le lien a bien été créé !'
+# Update page
+update:
+  title: 'Editer le lien'
+  redirect: bsouetre/links/links
+  redirectClose: bsouetre/links/links
+  flashSave: 'Le lien a bien été mis à jour !'
+  flashDelete: 'Le lien a bien été supprimé !'
+# Preview page
+preview:
+    title: 'Aperçu'
