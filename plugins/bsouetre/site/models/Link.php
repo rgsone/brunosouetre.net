@@ -1,19 +1,19 @@
 <?php
 
-namespace BSouetre\Links\Models;
+namespace BSouetre\Site\Models;
 
-use Model;
+use October\Rain\Database\Model;
 use October\Rain\Database\Traits\Validation;
 
 /**
  * Class Link
- * @package BSouetre\Links\Models
+ * @package BSouetre\Site\Models
  */
 class Link extends Model
 {
 	use Validation;
 
-    public $table = 'bsouetre_links_links';
+    public $table = 'bsouetre_site_links';
 
     protected $guarded = ['*'];
     protected $fillable = [];

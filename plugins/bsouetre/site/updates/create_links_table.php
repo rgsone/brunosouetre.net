@@ -1,16 +1,20 @@
 <?php
 
-namespace BSouetre\Links\Updates;
+namespace BSouetre\Site\Updates;
 
 use October\Rain\Database\Schema\Blueprint;
 use October\Rain\Database\Updates\Migration;
 use October\Rain\Support\Facades\Schema;
 
+/**
+ * Class CreateLinksTable
+ * @package BSouetre\Site\Updates
+ */
 class CreateLinksTable extends Migration
 {
     public function up()
     {
-        Schema::create( 'bsouetre_links_links', function( Blueprint $table ) {
+        Schema::create( 'bsouetre_site_links', function( Blueprint $table ) {
 
         	$table->engine = 'InnoDB';
 
@@ -23,6 +27,6 @@ class CreateLinksTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists( 'bsouetre_links_links' );
+        Schema::dropIfExists( 'bsouetre_site_links' );
     }
 }

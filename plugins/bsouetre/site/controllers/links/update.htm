@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
 <ul>
-	<li><a href="<?= Backend::url('bsouetre/links/links') ?>">Liens</a></li>
+	<li><a href="<?= Backend::url('bsouetre/site/links') ?>">Liens</a></li>
 	<li><?= e($this->pageTitle) ?></li>
 </ul>
 <?php Block::endPut() ?>
@@ -18,22 +18,30 @@
                 <button
                     type="submit"
                     data-request="onSave"
+                    data-request-data="redirect:0"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Création..."
+                    data-load-indicator="Mis à jour..."
                     class="btn btn-primary">
-                    Créer
+                    Modifier
                 </button>
                 <button
                     type="button"
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Création..."
+                    data-load-indicator="Mis à jour..."
                     class="btn btn-default">
-                    Créer et revenir à la liste
+                    Modifier et revenir à la liste
+                </button>
+                <button
+                    type="button"
+                    class="oc-icon-trash-o btn-icon danger pull-right"
+                    data-request="onDelete"
+                    data-load-indicator="Suppression..."
+                    data-request-confirm="Supprimer ?">
                 </button>
                 <span class="btn-text">
-                    ou <a href="<?= Backend::url('bsouetre/links/links') ?>">Annuler</a>
+                    ou <a href="<?= Backend::url('bsouetre/site/links') ?>">Annuler</a>
                 </span>
             </div>
         </div>
@@ -42,7 +50,7 @@
 
 <?php else: ?>
 
-<p class="flash-message static error"><?= e($this->fatalError) ?></p>
-<p><a href="<?= Backend::url('bsouetre/links/links') ?>" class="btn btn-default">Retour à la liste des liens</a></p>
+	<p class="flash-message static error"><?= e($this->fatalError) ?></p>
+	<p><a href="<?= Backend::url('bsouetre/site/links') ?>" class="btn btn-default">Retour à la liste des liens</a></p>
 
 <?php endif ?>

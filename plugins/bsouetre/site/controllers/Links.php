@@ -1,13 +1,13 @@
 <?php
 
-namespace BSouetre\Links\Controllers;
+namespace BSouetre\Site\Controllers;
 
 use Backend\Classes\Controller;
 use Backend\Facades\BackendMenu;
 
 /**
  * Class Links
- * @package BSouetre\Links\Controllers
+ * @package BSouetre\Site\Controllers
  */
 class Links extends Controller
 {
@@ -19,12 +19,12 @@ class Links extends Controller
     public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
 
-	public $requiredPermissions = [ 'bsouetre.links.access_links' ];
+	public $requiredPermissions = [ 'bsouetre.site.access_links' ];
 
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext( 'BSouetre.Links', 'links', 'links' );
+        BackendMenu::setContext( 'BSouetre.Site', 'site', 'links' );
 		$this->pageTitle = 'Gestion des liens';
     }
 }

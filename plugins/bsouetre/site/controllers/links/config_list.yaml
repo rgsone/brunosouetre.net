@@ -4,11 +4,11 @@
 
 title: 'Gérer les liens'
 
-list: $/bsouetre/links/models/link/columns.yaml
+list: $/bsouetre/site/models/link/columns.yaml
 
-modelClass: BSouetre\Links\Models\Link
+modelClass: BSouetre\Site\Models\Link
 
-recordUrl: bsouetre/links/links/update/:id
+recordUrl: bsouetre/site/links/update/:id
 noRecordsMessage: backend::lang.list.no_records
 recordsPerPage: 50
 
