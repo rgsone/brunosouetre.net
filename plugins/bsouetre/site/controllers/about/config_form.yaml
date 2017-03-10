@@ -1,0 +1,7 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+form: $/bsouetre/site/models/about/fields.yaml
+modelClass: BSouetre\Site\Models\About
+defaultRedirect: bsouetre/site/about

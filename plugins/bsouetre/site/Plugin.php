@@ -14,10 +14,10 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name' => 'Brun Souetre Portfolio',
-            'description' => 'Gestion du portfolio',
+            'name' => 'BrunoSouetreSite',
+            'description' => 'Gestion du site/portfolio',
             'author' => 'rgsone',
-            'icon' => 'icon-leaf'
+            'icon' => 'icon-desktop'
         ];
     }
 
@@ -27,6 +27,10 @@ class Plugin extends PluginBase
 			'bsouetre.site.access_links' => [
 				'tab' => 'Site',
 				'label' => 'Gestion des liens'
+			],
+			'bsouetre.site.access_about' => [
+				'tab' => 'Site',
+				'label' => 'Gestion de la page à propos'
 			],
 			'bsouetre.site.access_projects' => [
 				'tab' => 'Site',
@@ -42,7 +46,7 @@ class Plugin extends PluginBase
 
                 'label' => 'Site',
                 'url' => Backend::url( 'bsouetre/site/links' ),
-                'icon' => 'icon-leaf',
+                'icon' => 'icon-desktop',
                 'permissions' => [ 'bsouetre.site.*' ],
                 'order' => 500,
 
@@ -52,6 +56,12 @@ class Plugin extends PluginBase
 						'icon' => 'icon-link',
 						'url' => Backend::url( 'bsouetre/site/links' ),
 						'permissions' => [ 'bsouetre.site.access_links' ]
+					],
+					'about' => [
+						'label' => 'À Propos',
+						'icon' => 'icon-info-circle',
+						'url' => Backend::url( 'bsouetre/site/about' ),
+						'permissions' => [ 'bsouetre.site.access_about' ]
 					]
 				]
 
