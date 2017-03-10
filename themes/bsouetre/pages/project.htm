@@ -1,0 +1,15 @@
+title = "bsouetre / project"
+url = "/projet/:name|^[a-z0-9\-]{1,}$"
+layout = "base"
+meta_title = "Bruno Souêtre — Graphiste"
+meta_description = "Bruno Souêtre Portfolio"
+is_hidden = 0
+==
+<?
+function onStart()
+{
+    $this[ 'projectSlugName' ] = $this->param( 'name' );
+}
+?>
+==
+<h3>bsouetre > projet : {{ projectSlugName }}</h3>
