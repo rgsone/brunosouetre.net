@@ -1,0 +1,15 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+  name:
+    label: 'Tag'
+  posts:
+    label: 'Nombre de projets tagués'
+    select: >
+      (
+        select count(*)
+        from bsouetre_site_project_tag
+        where bsouetre_site_project_tag.tag_id = bsouetre_site_tags.id
+      )
