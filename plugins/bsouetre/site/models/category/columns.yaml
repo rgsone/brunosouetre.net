@@ -1,0 +1,14 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+  color:
+    label: 'Couleur'
+    type: partial
+    path: ~/plugins/bsouetre/site/models/category/_category_color_column.htm
+  name:
+    label: 'Catégorie'
+    searchable: true
+  description:
+    label: 'Description'

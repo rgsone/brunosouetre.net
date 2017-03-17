@@ -1,0 +1,23 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+  name:
+    label: 'Nom de la catégorie'
+    span: left
+    required: true
+  description:
+    label: 'Description'
+    commentAbove: 'À titre informatif'
+    type: textarea
+    size: small
+    span: left
+  color:
+    label: 'Couleur de la catégorie'
+    commentAbove: 'Utiliser sur le site (dans les fond par exemple)'
+    type: colorpicker
+    availableColors:
+      - '#0000cc'
+      - '#cc0000'
+
