@@ -5,7 +5,6 @@
 title: 'Gérer les liens'
 
 list: $/bsouetre/site/models/link/columns.yaml
-
 modelClass: BSouetre\Site\Models\Link
 
 recordUrl: bsouetre/site/links/update/:id

@@ -18,11 +18,11 @@ create:
   flashSave: 'Le lien a bien été créé !'
 # Update page
 update:
-  title: 'Editer le lien'
+  title: 'Modifier le lien'
   redirect: bsouetre/site/links
   redirectClose: bsouetre/site/links
   flashSave: 'Le lien a bien été mis à jour !'
   flashDelete: 'Le lien a bien été supprimé !'
 # Preview page
 preview:
-    title: 'Aperçu'
+  title: 'Aperçu'
