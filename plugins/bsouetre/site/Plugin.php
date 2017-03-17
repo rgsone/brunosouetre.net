@@ -35,6 +35,10 @@ class Plugin extends PluginBase
 			'bsouetre.site.access_projects' => [
 				'tab' => 'Site',
 				'label' => 'Gestion des projets'
+			],
+			'bsouetre.site.access_categories' => [
+				'tab' => 'Site',
+				'label' => 'Gestion des categories'
 			]
         ];
     }
@@ -51,18 +55,28 @@ class Plugin extends PluginBase
                 'order' => 500,
 
 				'sideMenu' => [
+
+					'categories' => [
+						'label' => 'Catégories',
+						'icon' => 'icon-tags',
+						'url' => Backend::url( 'bsouetre/site/categories' ),
+						'permissions' => [ 'bsouetre.site.access_catagories' ]
+					],
+
 					'links' => [
 						'label' => 'Liens',
 						'icon' => 'icon-link',
 						'url' => Backend::url( 'bsouetre/site/links' ),
 						'permissions' => [ 'bsouetre.site.access_links' ]
 					],
+
 					'about' => [
 						'label' => 'À Propos',
 						'icon' => 'icon-info-circle',
 						'url' => Backend::url( 'bsouetre/site/about' ),
 						'permissions' => [ 'bsouetre.site.access_about' ]
 					]
+
 				]
 
             ]

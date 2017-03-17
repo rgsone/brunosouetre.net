@@ -1,0 +1,41 @@
+<?php Block::put('breadcrumb') ?>
+
+	<ul>
+		<li><a href="<?= Backend::url('bsouetre/site/categories') ?>">Catégories</a></li>
+		<li><?= e($this->pageTitle) ?></li>
+	</ul>
+
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+	<?= Form::open(['class' => 'layout']) ?>
+
+		<div class="layout-row">
+			<?= $this->formRender() ?>
+		</div>
+
+		<div class="form-buttons">
+			<div class="loading-indicator-container">
+				<button type="submit" data-request="onSave" data-request-data="redirect:0" data-hotkey="ctrl+s, cmd+s" data-load-indicator="Mise à jour..." class="btn btn-primary">
+					Modifier
+				</button>
+				<button type="button" data-request="onSave" data-request-data="close:1" data-hotkey="ctrl+enter, cmd+enter" data-load-indicator="Mise à jour..." class="btn btn-default">
+					Modifier et revenir à la liste
+				</button>
+				<button type="button" class="oc-icon-trash-o btn-icon danger pull-right" data-request="onDelete" data-load-indicator="Suppression..." data-request-confirm="Supprimer ?">
+				</button>
+				<span class="btn-text">
+					ou <a href="<?= Backend::url('bsouetre/site/categories') ?>">Annuler</a>
+				</span>
+			</div>
+		</div>
+
+	<?= Form::close() ?>
+
+<?php else: ?>
+
+	<p class="flash-message static error"><?= e($this->fatalError) ?></p>
+	<p><a href="<?= Backend::url('bsouetre/site/categories') ?>" class="btn btn-default">Retourner à la liste des catégories</a></p>
+
+<?php endif ?>
