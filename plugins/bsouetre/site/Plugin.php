@@ -3,6 +3,7 @@
 namespace BSouetre\Site;
 
 use Backend\Facades\Backend;
+use Illuminate\Support\Facades\DB;
 use System\Classes\PluginBase;
 
 /**
@@ -39,6 +40,10 @@ class Plugin extends PluginBase
 			'bsouetre.site.access_categories' => [
 				'tab' => 'Site',
 				'label' => 'Gestion des categories'
+			],
+			'bsouetre.site.access_tags' => [
+				'tab' => 'Site',
+				'label' => 'Gestion des tags'
 			]
         ];
     }
@@ -58,9 +63,16 @@ class Plugin extends PluginBase
 
 					'categories' => [
 						'label' => 'Catégories',
-						'icon' => 'icon-tags',
+						'icon' => 'icon-tag',
 						'url' => Backend::url( 'bsouetre/site/categories' ),
 						'permissions' => [ 'bsouetre.site.access_catagories' ]
+					],
+
+					'tags' => [
+						'label' => 'Tags',
+						'icon' => 'icon-tags',
+						'url' => Backend::url( 'bsouetre/site/tags' ),
+						'permissions' => [ 'bsouetre.site.access_tags' ]
 					],
 
 					'links' => [
@@ -82,5 +94,11 @@ class Plugin extends PluginBase
             ]
         ];
     }
+
+    public function boot()
+	{
+		if ( config( 'database.default' ) == 'sqlite' )
+			DB::statement( DB::raw( 'PRAGMA foreign_keys=1' ) );
+	}
 
 }
