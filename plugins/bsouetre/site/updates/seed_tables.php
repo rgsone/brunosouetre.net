@@ -31,18 +31,18 @@ class SeedTables extends Seeder
 
 		Category::create([
 			'name' => 'En cours',
-			'color' => '#86FF4E',
+			'color' => '#86ff4e',
 			'description' => 'Projets/travaux en cours'
 		]);
 
 		Category::create([
 			'name' => 'Images en vrac',
-			'color' => '#FF4E00'
+			'color' => '#ff4e00'
 		]);
 
 		Category::create([
 			'name' => 'Projets',
-			'color' => '#1420CC'
+			'color' => '#1420cc'
 		]);
 	}
 }
