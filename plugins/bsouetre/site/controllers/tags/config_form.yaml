@@ -1,0 +1,28 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: 'Tag'
+# Model Form Field configuration
+form: $/bsouetre/site/models/tag/fields.yaml
+# Model Class name
+modelClass: BSouetre\Site\Models\Tag
+# Default redirect location
+defaultRedirect: bsouetre/site/tags
+# Create page
+create:
+  title: 'Ajouter un tag'
+  redirect: bsouetre/site/tags/update/:id
+  redirectClose: bsouetre/site/tags
+  flashSave: 'Le tag a bien été créé !'
+# Update page
+update:
+  title: 'Modifier le tag'
+  redirect: bsouetre/site/tags
+  redirectClose: bsouetre/site/tags
+  flashSave: 'Le tag a bien été mis à jour !'
+  flashDelete: 'Le tag a bien été supprimé !'
+# Preview page
+preview:
+  title: 'Aperçu'
