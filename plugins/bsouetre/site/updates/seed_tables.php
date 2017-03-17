@@ -2,6 +2,7 @@
 
 namespace BSouetre\Site\Updates;
 
+use BSouetre\Site\Models\Category;
 use BSouetre\Site\Models\Link;
 use October\Rain\Database\Updates\Seeder;
 
@@ -9,6 +10,8 @@ class SeedTables extends Seeder
 {
 	public function run()
 	{
+		## Add base links
+
 		Link::create([
 			'name' => 'rgsone',
 			'url' => 'http://rgsone.com'
@@ -22,6 +25,24 @@ class SeedTables extends Seeder
 		Link::create([
 			'name' => 'Galerie 400%',
 			'url' => 'http://www.400pourcent.net'
+		]);
+
+		## Add base categories
+
+		Category::create([
+			'name' => 'En cours',
+			'color' => '#86FF4E',
+			'description' => 'Projets/travaux en cours'
+		]);
+
+		Category::create([
+			'name' => 'Images en vrac',
+			'color' => '#FF4E00'
+		]);
+
+		Category::create([
+			'name' => 'Projets',
+			'color' => '#1420CC'
 		]);
 	}
 }
