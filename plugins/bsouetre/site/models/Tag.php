@@ -3,6 +3,7 @@
 namespace BSouetre\Site\Models;
 
 use October\Rain\Database\Model;
+use October\Rain\Database\Traits\Sluggable;
 use October\Rain\Database\Traits\Validation;
 
 /**
@@ -12,6 +13,7 @@ use October\Rain\Database\Traits\Validation;
 class Tag extends Model
 {
 	use Validation;
+	use Sluggable;
 
     public $table = 'bsouetre_site_tags';
 
@@ -28,13 +30,21 @@ class Tag extends Model
 		]
 	];
 
+	protected $slugs = [ 'slug' => 'name' ];
+
 	public $rules = [
-		'name' => 'required|between:1,512|unique:bsouetre_site_tags'
+		'name' => 'required|between:1,100|unique:bsouetre_site_tags'
 	];
 
 	public $customMessages = [
 		'name.required' => 'Le nom n\'est pas renseigné.',
-		'name.between' => 'Le nom est trop long (512 caractéres maximum).',
+		'name.between' => 'Le nom est trop long (100 caractéres maximum).',
 		'name.unique' => 'Le nom existe déjà.'
 	];
+
+	public function beforeSave()
+	{
+		$this->slug = null;
+		$this->slugAttributes();
+	}
 }

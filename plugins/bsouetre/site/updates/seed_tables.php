@@ -4,6 +4,7 @@ namespace BSouetre\Site\Updates;
 
 use BSouetre\Site\Models\Category;
 use BSouetre\Site\Models\Link;
+use BSouetre\Site\Models\Tag;
 use October\Rain\Database\Updates\Seeder;
 
 class SeedTables extends Seeder
@@ -27,7 +28,7 @@ class SeedTables extends Seeder
 			'url' => 'http://www.400pourcent.net'
 		]);
 
-		## Add base categories
+		## Add few categories
 
 		Category::create([
 			'name' => 'En cours',
@@ -44,5 +45,13 @@ class SeedTables extends Seeder
 			'name' => 'Projets',
 			'color' => '#1420cc'
 		]);
+
+		## Add few tags
+
+		Tag::create([ 'name' => 'le pass' ]);
+		Tag::create([ 'name' => 'médiathéque de roubaix' ]);
+		Tag::create([ 'name' => 'affiche' ]);
+		Tag::create([ 'name' => 'in situ' ]);
+		Tag::create([ 'name' => 'édition' ]);
 	}
 }
