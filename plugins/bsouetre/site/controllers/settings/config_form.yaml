@@ -1,0 +1,9 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+form: $/bsouetre/site/models/setting/fields.yaml
+modelClass: BSouetre\Site\Models\Setting
+defaultRedirect: bsouetre/site/settings
+update:
+  flashSave: 'Les paramétres ont bien été mis à jour !'

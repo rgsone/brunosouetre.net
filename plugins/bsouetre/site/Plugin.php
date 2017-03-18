@@ -33,6 +33,10 @@ class Plugin extends PluginBase
 				'tab' => 'Site',
 				'label' => 'Gestion de la page à propos'
 			],
+			'bsouetre.site.access_settings' => [
+				'tab' => 'Site',
+				'label' => 'Gestion des paramétres du site'
+			],
 			'bsouetre.site.access_projects' => [
 				'tab' => 'Site',
 				'label' => 'Gestion des projets'
@@ -87,6 +91,13 @@ class Plugin extends PluginBase
 						'icon' => 'icon-info-circle',
 						'url' => Backend::url( 'bsouetre/site/about' ),
 						'permissions' => [ 'bsouetre.site.access_about' ]
+					],
+
+					'settings' => [
+						'label' => 'Paramétres du site',
+						'icon' => 'icon-cog',
+						'url' => Backend::url( 'bsouetre/site/settings' ),
+						'permissions' => [ 'bsouetre.site.access_settings' ]
 					]
 
 				]
@@ -97,6 +108,7 @@ class Plugin extends PluginBase
 
     public function boot()
 	{
+		# set foreign keys management in sqlite
 		if ( config( 'database.default' ) == 'sqlite' )
 			DB::statement( DB::raw( 'PRAGMA foreign_keys=1' ) );
 	}
