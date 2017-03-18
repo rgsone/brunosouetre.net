@@ -26,10 +26,10 @@ class Link extends Model
 	];
 
 	public $customMessages = [
-		'name.required' => 'Un nom pour le lien doit être renseigné.',
-		'name.between' => 'Le nom du lien doit comporter 512 caractéres maximum.',
-		'url.required' => 'Une url doit être renseignée.',
-		'url.between' => 'L\'url doit comporter 512 caractéres maximum.',
-		'url.url' => 'L\'url doit être valide.'
+		'name.required' => 'Le nom doit être renseigné.',
+		'name.between' => 'Le nom est trop long (512 caractéres maximum).',
+		'url.required' => 'L\'url doit être renseignée.',
+		'url.between' => 'L\'url est trop longue (512 caractéres maximum).',
+		'url.url' => 'L\'url n\'est pas valide.'
 	];
 }

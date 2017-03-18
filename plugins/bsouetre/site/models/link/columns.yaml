@@ -4,8 +4,8 @@
 
 columns:
   name:
-    label: 'Nom du lien'
+    label: 'Nom'
     searchable: true
   url:
-    label: 'Url du lien'
+    label: 'Url'
     searchable: true

@@ -4,11 +4,11 @@
 
 fields:
   name:
-    label: 'Nom du lien'
+    label: 'Nom'
     span: left
     required: true
   url:
-    label: 'Url du lien'
+    label: 'Url'
     span: right
     required: true
     placeholder: 'http://'
