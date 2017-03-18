@@ -16,7 +16,12 @@ class CreateProjectsTable extends Migration
 
             $table->increments( 'id' );
             $table->string( 'title', 1024 );
-            $table->string( 'slug' )->unique();
+            $table->string( 'slug' )->unique()->index();
+            $table->text( 'content' )->nullable();
+            $table->integer( 'category_id', false, true )->index()->nullable();
+            $table->boolean( 'published' )->default( true );
+            $table->boolean( 'private' )->default( false );
+            $table->dateTime( 'date' );
 
             $table->timestamps();
 

@@ -4,14 +4,17 @@ namespace BSouetre\Site\Updates;
 
 use BSouetre\Site\Models\Category;
 use BSouetre\Site\Models\Link;
+use BSouetre\Site\Models\Project;
 use BSouetre\Site\Models\Tag;
+use Carbon\Carbon;
 use October\Rain\Database\Updates\Seeder;
+use October\Rain\Support\Facades\Config;
 
 class SeedTables extends Seeder
 {
 	public function run()
 	{
-		## Add base links
+		## Add few links
 
 		Link::create([
 			'name' => 'rgsone',
@@ -53,5 +56,17 @@ class SeedTables extends Seeder
 		Tag::create([ 'name' => 'affiche' ]);
 		Tag::create([ 'name' => 'in situ' ]);
 		Tag::create([ 'name' => 'édition' ]);
+
+		## Add test project
+
+		Project::create([
+			'title' => 'PARTIcipe présent',
+			'content' => 'Une invitation à produire  
+une affiche autour de cette question :  
+"Quelle affiche rêveriez-vous que le parti communiste vous commande ?"
+
+Présentée dans l’exposition [PARTIcipe présent](http://www.pcf.fr/58455) présentée à la fête de l\'Humanité 2014',
+			'date' => Carbon::createFromDate( 2014, 9, 12, Config::get( 'app.timezone' ) )->toDateTimeString()
+		]);
 	}
 }
