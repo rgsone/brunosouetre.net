@@ -3,6 +3,43 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+  title:
+    label: 'Titre'
+    required: true
+  content:
+    label: 'Contenu de la page du projet'
+    required: true
+    type: markdown
+    size: giant
+    mode: split
+secondaryTabs:
+  fields:
+    category:
+      label: 'Catégorie'
+      type: relation
+      nameFrom: name
+      emptyOption: 'Aucune catégorie associée'
+    tags:
+      label: 'Tags'
+      type: taglist
+      mode: relation
+      separator: space
+      nameFrom: name
+    date:
+      label: 'Date'
+      type: datepicker
+      mode: date
+      minDate: 1980-01-01
+      maxDate: 2100-12-31
+    published:
+      label: 'Publié sur le site'
+      type: checkbox
+      default: true
+    cover_thumb:
+      label: 'Vignette'
+      commentAbove: 'Affichée sur la home est dans les archives. Formats acceptés : gif, jpg, jpeg, png'
+      type: fileupload
+      mode: image
+      fileTypes: gif,jpg,jpeg,png
+      mimeTypes: gif,jpg,jpeg,png
+      useCaption: false

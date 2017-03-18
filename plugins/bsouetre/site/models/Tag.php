@@ -17,8 +17,7 @@ class Tag extends Model
 
     public $table = 'bsouetre_site_tags';
 
-    protected $guarded = ['*'];
-    protected $fillable = [];
+    protected $fillable = [ 'name' ];
 
 	public $timestamps = false;
 

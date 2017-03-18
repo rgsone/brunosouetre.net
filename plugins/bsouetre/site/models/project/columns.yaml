@@ -3,6 +3,17 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
-        searchable: true
+  title:
+    label: 'Titre du projet'
+    searchable: true
+  category_id:
+    label: 'Catégorie'
+    relation: category
+    valueFrom: name
+  date:
+    label: 'Date'
+    searchable: true
+    type: datetime
+    format: m/Y
+  published:
+    label: 'Publié'
