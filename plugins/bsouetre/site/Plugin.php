@@ -79,6 +79,13 @@ class Plugin extends PluginBase
 						'permissions' => [ 'bsouetre.site.access_tags' ]
 					],
 
+					'projects' => [
+						'label' => 'Projets',
+						'icon' => 'icon-archive',
+						'url' => Backend::url( 'bsouetre/site/projects' ),
+						'permissions' => [ 'bsouetre.site.access_projects' ]
+					],
+
 					'links' => [
 						'label' => 'Liens',
 						'icon' => 'icon-link',
