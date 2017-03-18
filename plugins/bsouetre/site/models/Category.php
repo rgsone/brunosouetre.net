@@ -3,6 +3,7 @@
 namespace BSouetre\Site\Models;
 
 use October\Rain\Database\Model;
+use October\Rain\Database\Traits\Sluggable;
 use October\Rain\Database\Traits\Validation;
 
 /**
@@ -12,6 +13,7 @@ use October\Rain\Database\Traits\Validation;
 class Category extends Model
 {
 	use Validation;
+	use Sluggable;
 
     public $table = 'bsouetre_site_categories';
 
@@ -20,15 +22,11 @@ class Category extends Model
 
 	public $timestamps = false;
 
-    public $hasOne = [];
-    public $hasMany = [];
-    public $belongsTo = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
+    public $hasMany = [
+		'projects' => [ 'BSouetre\Site\Models\Project', 'key' => 'category_id' ]
+	];
+
+	protected $slugs = [ 'slug' => 'name' ];
 
 	public $rules = [
 		'name' => 'required|between:1,255',
@@ -42,4 +40,21 @@ class Category extends Model
 		'color.between' => 'Le format de définition de la couleur est incorrect.',
 		'description.between' => 'La description doit comporter 1024 caractéres maximum.',
 	];
+
+	public function beforeDelete()
+	{
+		# set to null all references in others tables
+		foreach ( $this->projects as $project )
+		{
+			$project->category_id = null;
+			$spotZone->save();
+		}
+	}
+
+	public function beforeSave()
+	{
+		# regenerate slug
+		$this->slug = null;
+		$this->slugAttributes();
+	}
 }
