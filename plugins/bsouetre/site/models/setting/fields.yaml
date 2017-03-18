@@ -1,0 +1,9 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+  email:
+    label: 'Email'
+    commentAbove: 'Utilisé sur le site comme adresse de contact'
+    span: left
