@@ -21,7 +21,7 @@ class CreateCategoriesTable extends Migration
 
         	$table->increments( 'id' );
         	$table->string( 'name', 255 );
-			//$table->string( 'slug' )->nullable()->index();
+			$table->string( 'slug' )->unique()->index();
         	$table->string( 'color', 10 )->default( '#000066' );
 			$table->string( 'description', 1024 )->nullable();
 
