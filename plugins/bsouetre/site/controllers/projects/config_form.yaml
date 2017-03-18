@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Project
+
+# Model Form Field configuration
+form: $/bsouetre/site/models/project/fields.yaml
+
+# Model Class name
+modelClass: BSouetre\Site\Models\Project
+
+# Default redirect location
+defaultRedirect: bsouetre/site/projects
+
+# Create page
+create:
+    title: Create Project
+    redirect: bsouetre/site/projects/update/:id
+    redirectClose: bsouetre/site/projects
+
+# Update page
+update:
+    title: Edit Project
+    redirect: bsouetre/site/projects
+    redirectClose: bsouetre/site/projects
+
+# Preview page
+preview:
+    title: Preview Project

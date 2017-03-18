@@ -1,0 +1,9 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+  date:
+    label: 'Filter par date'
+    type: daterange
+    conditions: date >= ':after' AND date <= ':before'
