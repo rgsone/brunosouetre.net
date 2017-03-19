@@ -5,8 +5,8 @@
 columns:
   name:
     label: 'Tag'
-  posts:
-    label: 'Nombre de projets tagués'
+  projects:
+    label: 'Nombre de projets sous ce tag'
     select: >
       (
         select count(*)
