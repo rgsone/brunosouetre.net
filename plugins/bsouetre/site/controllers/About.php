@@ -24,7 +24,6 @@ class About extends Controller
     {
         parent::__construct();
         BackendMenu::setContext( 'BSouetre.Site', 'site', 'about' );
-		$this->pageTitle = 'Gestion du contenu de la page';
     }
 
 	public function index()
