@@ -25,6 +25,5 @@ class Links extends Controller
     {
         parent::__construct();
         BackendMenu::setContext( 'BSouetre.Site', 'site', 'links' );
-		$this->pageTitle = 'Gestion des liens';
     }
 }

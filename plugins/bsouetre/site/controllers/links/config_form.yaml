@@ -15,14 +15,14 @@ create:
   title: 'Ajouter un lien'
   redirect: bsouetre/site/links/update/:id
   redirectClose: bsouetre/site/links
-  flashSave: 'Le lien a bien été créé !'
+  flashSave: 'Lien créé avec succés !'
 # Update page
 update:
   title: 'Modifier le lien'
   redirect: bsouetre/site/links
   redirectClose: bsouetre/site/links
-  flashSave: 'Le lien a bien été mis à jour !'
-  flashDelete: 'Le lien a bien été supprimé !'
+  flashSave: 'Lien mis à jour avec succés !'
+  flashDelete: 'Lien supprimé avec succés !'
 # Preview page
 preview:
   title: 'Aperçu'
