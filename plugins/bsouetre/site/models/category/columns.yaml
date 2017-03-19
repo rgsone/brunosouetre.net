@@ -7,6 +7,7 @@ columns:
     label: 'Couleur'
     type: partial
     path: ~/plugins/bsouetre/site/models/category/_category_color_column.htm
+    width: '150px'
   name:
     label: 'Catégorie'
     searchable: true

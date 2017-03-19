@@ -35,10 +35,10 @@ class Category extends Model
 	];
 
 	public $customMessages = [
-		'name.required' => 'Un nom doit être renseigné.',
-		'name.between' => 'Le nom doit comporter 255 caractéres maximum.',
+		'name.required' => 'Le nom doit être renseigné.',
+		'name.between' => 'Le nom est trop long (255 caractéres maximum).',
 		'color.between' => 'Le format de définition de la couleur est incorrect.',
-		'description.between' => 'La description doit comporter 1024 caractéres maximum.',
+		'description.between' => 'La description est trop longue (1024 caractéres maximum).',
 	];
 
 	public function beforeDelete()
@@ -47,7 +47,7 @@ class Category extends Model
 		foreach ( $this->projects as $project )
 		{
 			$project->category_id = null;
-			$spotZone->save();
+			$project->save();
 		}
 	}
 

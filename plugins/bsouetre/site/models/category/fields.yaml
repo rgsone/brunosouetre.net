@@ -4,7 +4,7 @@
 
 fields:
   name:
-    label: 'Nom de la catégorie'
+    label: 'Nom'
     span: left
     required: true
   description:
@@ -14,7 +14,7 @@ fields:
     size: small
     span: left
   color:
-    label: 'Couleur de la catégorie'
+    label: 'Couleur'
     commentAbove: 'Utiliser sur le site (pour les fonds d''image par exemple)'
     type: colorpicker
     availableColors:
