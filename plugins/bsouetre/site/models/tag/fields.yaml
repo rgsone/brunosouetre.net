@@ -4,5 +4,5 @@
 
 fields:
   name:
-    label: 'Tag'
+    label: 'Nom'
     span: left

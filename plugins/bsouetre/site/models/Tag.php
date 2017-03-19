@@ -36,13 +36,14 @@ class Tag extends Model
 	];
 
 	public $customMessages = [
-		'name.required' => 'Le nom n\'est pas renseigné.',
+		'name.required' => 'Le nom doit être renseigné.',
 		'name.between' => 'Le nom est trop long (100 caractéres maximum).',
 		'name.unique' => 'Le nom existe déjà.'
 	];
 
 	public function beforeSave()
 	{
+		# regenerate slug
 		$this->slug = null;
 		$this->slugAttributes();
 	}
