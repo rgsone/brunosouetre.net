@@ -6,5 +6,5 @@ form: $/bsouetre/site/models/about/fields.yaml
 modelClass: BSouetre\Site\Models\About
 defaultRedirect: bsouetre/site/about
 update:
-  title: 'Modifer la page - À Propos -'
-  flashSave: 'Page - À Propos - mise à jour avec succés !'
+  title: 'Modifer le contenu de la page'
+  flashSave: 'Contenu mis à jour avec succés !'
