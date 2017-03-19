@@ -25,7 +25,5 @@ class Tags extends Controller
     {
         parent::__construct();
         BackendMenu::setContext( 'BSouetre.Site', 'site', 'tags' );
-		$this->pageTitle = 'Gestion des tags';
-
 	}
 }

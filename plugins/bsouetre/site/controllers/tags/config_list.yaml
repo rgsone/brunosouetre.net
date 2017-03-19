@@ -5,6 +5,7 @@
 title: 'Gérer les tags'
 
 list: $/bsouetre/site/models/tag/columns.yaml
+
 modelClass: BSouetre\Site\Models\Tag
 
 recordUrl: bsouetre/site/tags/update/:id

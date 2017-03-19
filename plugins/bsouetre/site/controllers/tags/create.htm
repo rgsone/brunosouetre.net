@@ -8,7 +8,6 @@
 <?php Block::endPut() ?>
 
 <?php if (!$this->fatalError): ?>
-
 	<?= Form::open(['class' => 'layout']) ?>
 
 		<div class="layout-row">
@@ -23,17 +22,14 @@
 				<button type="button" data-request="onSave" data-request-data="close:1" data-hotkey="ctrl+enter, cmd+enter" data-load-indicator="Création..." class="btn btn-default">
 					Créer et revenir à la liste
 				</button>
-				<span class="btn-text">
-					ou <a href="<?= Backend::url('bsouetre/site/tags') ?>">Annuler</a>
-				</span>
+				<span class="btn-text"> ou <a href="<?= Backend::url('bsouetre/site/tags') ?>">revenir à la liste</a></span>
 			</div>
 		</div>
 
 	<?= Form::close() ?>
-
 <?php else: ?>
 
 	<p class="flash-message static error"><?= e($this->fatalError) ?></p>
-	<p><a href="<?= Backend::url('bsouetre/site/tags') ?>" class="btn btn-default">Revenir à la liste des tags</a></p>
+	<p><a href="<?= Backend::url('bsouetre/site/tags') ?>" class="btn btn-default">Retour à la liste des tags</a></p>
 
 <?php endif ?>
