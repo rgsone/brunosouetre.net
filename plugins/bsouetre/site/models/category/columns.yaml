@@ -13,3 +13,11 @@ columns:
     searchable: true
   description:
     label: 'Description'
+  projects:
+    label: 'Nombre de projets dans cette catégorie'
+    select: >
+      (
+        select count(*)
+        from bsouetre_site_projects
+        where bsouetre_site_projects.category_id = bsouetre_site_categories.id
+      )
