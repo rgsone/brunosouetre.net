@@ -6,4 +6,5 @@ form: $/bsouetre/site/models/setting/fields.yaml
 modelClass: BSouetre\Site\Models\Setting
 defaultRedirect: bsouetre/site/settings
 update:
-  flashSave: 'Les paramétres ont bien été mis à jour !'
+  title: 'Modifer les paramètres du site'
+  flashSave: 'Paramètres mis à jour avec succés !'

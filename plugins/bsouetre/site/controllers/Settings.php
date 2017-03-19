@@ -24,7 +24,6 @@ class Settings extends Controller
     {
         parent::__construct();
         BackendMenu::setContext( 'BSouetre.Site', 'site', 'settings' );
-		$this->pageTitle = 'Paramétres du site';
     }
 
 	public function index()
