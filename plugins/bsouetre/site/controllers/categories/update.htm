@@ -8,7 +8,6 @@
 <?php Block::endPut() ?>
 
 <?php if (!$this->fatalError): ?>
-
 	<?= Form::open(['class' => 'layout']) ?>
 
 		<div class="layout-row">
@@ -25,14 +24,11 @@
 				</button>
 				<button type="button" class="oc-icon-trash-o btn-icon danger pull-right" data-request="onDelete" data-load-indicator="Suppression..." data-request-confirm="Supprimer ?">
 				</button>
-				<span class="btn-text">
-					ou <a href="<?= Backend::url('bsouetre/site/categories') ?>">Annuler</a>
-				</span>
+				<span class="btn-text"> ou <a href="<?= Backend::url('bsouetre/site/categories') ?>">revenir à la liste</a></span>
 			</div>
 		</div>
 
 	<?= Form::close() ?>
-
 <?php else: ?>
 
 	<p class="flash-message static error"><?= e($this->fatalError) ?></p>

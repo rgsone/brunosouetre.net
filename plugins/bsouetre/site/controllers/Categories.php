@@ -25,6 +25,5 @@ class Categories extends Controller
     {
         parent::__construct();
         BackendMenu::setContext( 'BSouetre.Site', 'site', 'categories' );
-		$this->pageTitle = 'Gestion des catégories';
     }
 }
