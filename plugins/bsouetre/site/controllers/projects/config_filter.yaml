@@ -4,6 +4,6 @@
 
 scopes:
   date:
-    label: 'Filter par date'
+    label: 'Filtrer par date'
     type: daterange
     conditions: date >= ':after' AND date <= ':before'

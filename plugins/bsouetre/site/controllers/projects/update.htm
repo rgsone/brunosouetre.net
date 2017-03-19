@@ -1,56 +1,51 @@
 <?php Block::put('breadcrumb') ?>
-    <ul>
-        <li><a href="<?= Backend::url('bsouetre/site/projects') ?>">Projects</a></li>
-        <li><?= e($this->pageTitle) ?></li>
-    </ul>
+
+	<ul>
+		<li><a href="<?= Backend::url('bsouetre/site/projects') ?>">Projets</a></li>
+		<li><?= e($this->pageTitle) ?></li>
+	</ul>
+
 <?php Block::endPut() ?>
 
 <?php if (!$this->fatalError): ?>
+	<?php Block::put('form-contents') ?>
 
-    <?= Form::open(['class' => 'layout']) ?>
+		<div class="layout-row">
+			<?= $this->formRenderOutsideFields() ?>
+		</div>
+		<div class="layout-row">
+			<?= $this->formRenderPrimaryTabs() ?>
+		</div>
 
-        <div class="layout-row">
-            <?= $this->formRender() ?>
-        </div>
+		<div class="form-buttons">
+			<div class="loading-indicator-container">
+				<button type="submit" data-request="onSave" data-request-data="redirect:0" data-hotkey="ctrl+s, cmd+s" data-load-indicator="Mise à jour..." class="btn btn-primary">
+					Modifier
+				</button>
+				<button type="button" data-request="onSave" data-request-data="close:1" data-hotkey="ctrl+enter, cmd+enter" data-load-indicator="Mise à jour..." class="btn btn-default">
+					Modifier et revenir à la liste
+				</button>
+				<button type="button" class="oc-icon-trash-o btn-icon danger pull-right" data-request="onDelete" data-load-indicator="Suppression..." data-request-confirm="Supprimer ?"></button>
+				<span class="btn-text"> ou <a href="<?= Backend::url('bsouetre/site/projects') ?>">revenir à la liste</a></span>
+				</div>
+		</div>
 
-        <div class="form-buttons">
-            <div class="loading-indicator-container">
-                <button
-                    type="submit"
-                    data-request="onSave"
-                    data-request-data="redirect:0"
-                    data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Saving Project..."
-                    class="btn btn-primary">
-                    <u>S</u>ave
-                </button>
-                <button
-                    type="button"
-                    data-request="onSave"
-                    data-request-data="close:1"
-                    data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Saving Project..."
-                    class="btn btn-default">
-                    Save and Close
-                </button>
-                <button
-                    type="button"
-                    class="oc-icon-trash-o btn-icon danger pull-right"
-                    data-request="onDelete"
-                    data-load-indicator="Deleting Project..."
-                    data-request-confirm="Delete this project?">
-                </button>
-                <span class="btn-text">
-                    or <a href="<?= Backend::url('bsouetre/site/projects') ?>">Cancel</a>
-                </span>
-            </div>
-        </div>
+	<?php Block::endPut() ?>
 
-    <?= Form::close() ?>
+	<?php Block::put('form-sidebar') ?>
 
+		<div class="hide-tabs"><?= $this->formRenderSecondaryTabs() ?></div>
+
+	<?php Block::endPut() ?>
+
+	<?php Block::put('body') ?>
+		<?= Form::open(['class'=>'layout stretch']) ?>
+			<?= $this->makeLayout('form-with-sidebar') ?>
+		<?= Form::close() ?>
+	<?php Block::endPut() ?>
 <?php else: ?>
 
-    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('bsouetre/site/projects') ?>" class="btn btn-default">Return to projects list</a></p>
+	<p class="flash-message static error"><?= e($this->fatalError) ?></p>
+	<p><a href="<?= Backend::url('bsouetre/site/projects') ?>" class="btn btn-default">Retour à la liste des projets</a></p>
 
 <?php endif ?>
