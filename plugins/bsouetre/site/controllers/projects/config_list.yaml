@@ -11,7 +11,7 @@ recordUrl: bsouetre/site/projects/update/:id
 noRecordsMessage: backend::lang.list.no_records
 recordsPerPage: 30
 
-showSetup: true
+showSetup: false
 showSorting: true
 showCheckboxes: true
 

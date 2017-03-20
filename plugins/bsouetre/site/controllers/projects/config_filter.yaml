@@ -7,3 +7,9 @@ scopes:
     label: 'Filtrer par date'
     type: daterange
     conditions: date >= ':after' AND date <= ':before'
+  published:
+    label: 'Tous / Non-publié / Publié'
+    type: switch
+    conditions:
+      - published <> true
+      - published = true

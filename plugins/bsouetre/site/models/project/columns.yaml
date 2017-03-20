@@ -4,16 +4,16 @@
 
 columns:
   title:
-    label: 'Titre du projet'
+    label: 'Projet'
     searchable: true
-  category_id:
-    label: 'Catégorie'
-    relation: category
-    valueFrom: name
   date:
     label: 'Date'
     searchable: true
     type: datetime
     format: m/Y
+  category_id:
+    label: 'Catégorie'
+    relation: category
+    valueFrom: name
   published:
     label: 'Publié'
