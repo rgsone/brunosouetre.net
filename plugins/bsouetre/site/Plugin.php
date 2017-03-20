@@ -22,6 +22,16 @@ class Plugin extends PluginBase
         ];
     }
 
+	public function registerComponents()
+	{
+		return [
+			'BSouetre\Site\Components\HomePage' => 'homePage',
+			'BSouetre\Site\Components\ArchivesPage' => 'archivesPage',
+			'BSouetre\Site\Components\ProjectPage' => 'projectPage',
+			'BSouetre\Site\Components\AboutPage' => 'aboutPage'
+		];
+	}
+
     public function registerPermissions()
     {
         return [
@@ -58,7 +68,7 @@ class Plugin extends PluginBase
             'site' => [
 
                 'label' => 'Site',
-                'url' => Backend::url( 'bsouetre/site/links' ),
+                'url' => Backend::url( 'bsouetre/site/projects' ),
                 'icon' => 'icon-desktop',
                 'permissions' => [ 'bsouetre.site.*' ],
                 'order' => 500,
