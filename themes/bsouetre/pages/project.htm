@@ -4,12 +4,25 @@ layout = "base"
 meta_title = "Bruno Souêtre — Graphiste"
 meta_description = "Bruno Souêtre Portfolio"
 is_hidden = 0
+
+[projectPage]
 ==
-<?
-function onStart()
+<?php
+
+function onEnd()
 {
-    $this[ 'projectSlugName' ] = $this->param( 'name' );
+	$this->meta_title .= ' | ' . $this->project->title;
 }
+
 ?>
 ==
-<h3>bsouetre > projet : {{ projectSlugName }}</h3>
+<nav>
+	<ul>
+		<li><a href="{{ nav.home.url }}">{{ nav.home.title }}</a></li>
+		<li><a href="{{ nav.archives.url }}">{{ nav.archives.title }}</a></li>
+		<li><a href="{{ nav.about.url }}">{{ nav.about.title }}</a></li>
+	</ul>
+</nav>
+<h2>{{ project.title }}</h2>
+<p>{{ project.date|date("m/Y") }}</p>
+{{ project.content|md }}

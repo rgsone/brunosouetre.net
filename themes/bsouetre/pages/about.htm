@@ -4,5 +4,17 @@ layout = "base"
 meta_title = "Bruno Souêtre — Graphiste / À propos"
 meta_description = "Bruno Souêtre Portfolio > À propos"
 is_hidden = 0
+
+[aboutPage]
 ==
-<h3>bsouetre > à propos</h3>
+<h3>{{ this.page.title }}</h3>
+<nav>
+	<ul>
+		<li><a href="{{ nav.home.url }}">{{ nav.home.title }}</a></li>
+		<li><a href="{{ nav.archives.url }}">{{ nav.archives.title }}</a></li>
+		<li><a href="{{ nav.contact.url }}">{{ nav.contact.title }}</a></li>
+	</ul>
+</nav>
+<div>
+	{{ content|md }}
+</div>

@@ -4,5 +4,21 @@ layout = "base"
 meta_title = "Bruno Souêtre — Graphiste / Archives"
 meta_description = "Bruno Souêtre Portfolio > Archives"
 is_hidden = 0
+
+[archivesPage]
 ==
-<h3>bsouetre > archives</h3>
+<h3>{{ this.page.title }}</h3>
+<nav>
+	<ul>
+		<li><a href="{{ nav.home.url }}">{{ nav.home.title }}</a></li>
+		<li><a href="{{ nav.about.url }}">{{ nav.about.title }}</a></li>
+		<li><a href="{{ nav.contact.url }}">{{ nav.contact.title }}</a></li>
+	</ul>
+</nav>
+<div>
+	<ul>
+		{% for project in projects %}
+		<li><a href="{{ project.url }}">{{ project.title }}</a></li>
+		{% endfor %}
+	</ul>
+</div>

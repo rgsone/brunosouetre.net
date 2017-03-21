@@ -2,6 +2,7 @@
 
 namespace BSouetre\Site\Models;
 
+use Cms\Classes\Controller;
 use October\Rain\Database\Model;
 use October\Rain\Database\Traits\Sluggable;
 use October\Rain\Database\Traits\Validation;
@@ -60,5 +61,14 @@ class Project extends Model
 		# set category_id to null if not exist and is empty
 		if ( !isset( $this->category_id ) || empty( $this->category_id ) )
 			$this->category_id = null;
+	}
+
+	/**
+	 * @param string $pageName
+	 * @param Controller $controller
+	 */
+	public function setUrl( $pageName, $controller )
+	{
+		$this->url = $controller->pageUrl( $pageName, [ 'name' => $this->slug ] );
 	}
 }

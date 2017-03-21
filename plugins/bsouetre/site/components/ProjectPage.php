@@ -47,7 +47,12 @@ class ProjectPage extends ComponentBase
 		}
 
 		# inject var in page
-		$this->page['slug'] = $this->currentSlug;
 		$this->page['project'] = $project;
+		$this->page[ 'nav' ] = [
+			'home' => [ 'title' => 'Accueil', 'url' => $this->controller->pageUrl( 'home' ) ],
+			'archives' => [ 'title' => 'Archives', 'url' => $this->controller->pageUrl( 'archives' ) ],
+			'about' => [ 'title' => 'À Propos', 'url' => $this->controller->pageUrl( 'about' ) ],
+			'contact' => [ 'title' => 'Contact', 'url' => $this->controller->pageUrl( 'contact' ) ]
+		];
 	}
 }
