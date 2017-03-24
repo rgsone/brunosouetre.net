@@ -6,7 +6,7 @@ columns:
   name:
     label: 'Tag'
   projects:
-    label: 'Nombre de projets sous ce tag'
+    label: 'Nombre de projets'
     select: >
       (
         select count(*)

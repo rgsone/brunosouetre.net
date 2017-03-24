@@ -1,2 +1,14 @@
+<?php Block::put('breadcrumb') ?>
+
+	<ul>
+		<li>Tags</li>
+		<li>
+				<span class="text-info">
+					<strong><?= BSouetre\Site\Models\Tag::count() ?></strong> Tag(s)
+				</span>
+		</li>
+	</ul>
+
+<?php Block::endPut() ?>
 
 <?= $this->listRender() ?>
