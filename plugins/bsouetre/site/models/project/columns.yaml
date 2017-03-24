@@ -33,3 +33,11 @@ columns:
     label: 'Status'
     type: partial
     path: ~/plugins/bsouetre/site/models/project/_status_column.htm
+  private:
+    label: 'Privé/Public'
+    type: partial
+    path: ~/plugins/bsouetre/site/models/project/_private_column.htm
+  featured:
+    label: 'Séléctionné'
+    type: partial
+    path: ~/plugins/bsouetre/site/models/project/_featured_column.htm
