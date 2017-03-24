@@ -21,7 +21,10 @@ class CreateProjectsTable extends Migration
             $table->integer( 'category_id', false, true )->index()->nullable();
             $table->boolean( 'published' )->default( true );
             $table->boolean( 'private' )->default( false );
+            $table->boolean( 'featured' )->default( false );
             $table->dateTime( 'date' );
+            $table->boolean( 'show_date' )->default( false );
+            $table->string( 'date_format', 1 )->default( 1 );
 
             $table->timestamps();
 
