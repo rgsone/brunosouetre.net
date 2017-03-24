@@ -3,6 +3,7 @@
 namespace BSouetre\Site\Models;
 
 use Cms\Classes\Controller;
+use Cms\Classes\Page;
 use October\Rain\Database\Model;
 use October\Rain\Database\Traits\Sluggable;
 use October\Rain\Database\Traits\Validation;
@@ -70,5 +71,10 @@ class Project extends Model
 	public function setUrl( $pageName, $controller )
 	{
 		$this->url = $controller->pageUrl( $pageName, [ 'name' => $this->slug ] );
+	}
+
+	public function getPreviewAttribute()
+	{
+		return Page::url( 'project', [ 'name' => $this->slug ] );
 	}
 }

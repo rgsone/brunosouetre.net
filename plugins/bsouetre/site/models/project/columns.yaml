@@ -3,6 +3,13 @@
 # ===================================
 
 columns:
+  preview:
+    label: 'Aperçu'
+    type: partial
+    path: ~/plugins/bsouetre/site/models/project/_preview_column.htm
+    searchable: false
+    clickable: false
+    width: '120px'
   title:
     label: 'Projet'
     searchable: true
