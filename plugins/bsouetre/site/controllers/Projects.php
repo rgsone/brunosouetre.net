@@ -28,8 +28,15 @@ class Projects extends Controller
 	public function create( $context = null )
 	{
 		$this->bodyClass = 'compact-container';
-		return $this->asExtension('FormController')->create( $context );
+		return $this->asExtension( 'FormController' )->create( $context );
 	}
+
+	public function update( $recordId = null, $context = null )
+	{
+		$this->bodyClass = 'compact-container';
+		return $this->asExtension( 'FormController' )->update( $recordId, $context );
+	}
+
 
 	public function listOverrideColumnValue( $record, $columnName, $definition = null )
 	{
@@ -37,10 +44,5 @@ class Projects extends Controller
 		# check if the project is bind to an existing category
 		if ( $columnName === 'category_id' && empty( $record->category_id ) )
 			return '<span style="color: red;">Ce projet n\'est associé à aucune catégorie</span>';
-
-		# override published column
-		# convert 1 or 0 value to 'yes' or 'no'
-		if ( $columnName === 'published' )
-			return ( $record->published < 1 ) ? 'non' : 'oui';
 	}
 }

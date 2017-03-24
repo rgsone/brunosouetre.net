@@ -8,8 +8,15 @@ columns:
     type: partial
     path: ~/plugins/bsouetre/site/models/project/_preview_column.htm
     searchable: false
+    sortable: false
     clickable: false
     width: '120px'
+  thumb:
+    label: 'Vignette'
+    type: partial
+    path: ~/plugins/bsouetre/site/models/project/_thumb_column.htm
+    sortable: false
+    searchable: false
   title:
     label: 'Projet'
     searchable: true
@@ -23,4 +30,6 @@ columns:
     relation: category
     valueFrom: name
   published:
-    label: 'Publié'
+    label: 'Status'
+    type: partial
+    path: ~/plugins/bsouetre/site/models/project/_status_column.htm
