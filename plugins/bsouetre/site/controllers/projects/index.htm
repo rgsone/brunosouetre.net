@@ -1,2 +1,20 @@
+<?php Block::put('breadcrumb') ?>
+
+	<ul>
+		<li>Projets</li>
+		<li>
+			<span class="text-info"><strong><?= BSouetre\Site\Models\Project::where( 'published', true )->count() ?></strong> publié(s)</span>
+			&nbsp; | &nbsp;
+			<span class="text-warning"><strong><?= BSouetre\Site\Models\Project::where( 'published', false )->count() ?></strong> non-publié(s)</span>
+			&nbsp; > &nbsp;
+			<span class="text-info"><strong><?= BSouetre\Site\Models\Project::where( 'private', true )->count() ?></strong> privé(s)</span>
+			&nbsp; | &nbsp;
+			<span class="text-warning"><strong><?= BSouetre\Site\Models\Project::where( 'private', false )->count() ?></strong> public(s)</span>
+			&nbsp; > &nbsp;
+			<span class="text-info"><strong><?= BSouetre\Site\Models\Project::where( 'featured', true )->count() ?></strong> sélectionné(s) sur la page d'accueil</span>
+		</li>
+	</ul>
+
+<?php Block::endPut() ?>
 
 <?= $this->listRender() ?>
