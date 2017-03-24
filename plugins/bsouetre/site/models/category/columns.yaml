@@ -3,18 +3,15 @@
 # ===================================
 
 columns:
-  color:
-    label: 'Couleur'
-    type: partial
-    path: ~/plugins/bsouetre/site/models/category/_category_color_column.htm
-    width: '150px'
   name:
     label: 'Catégorie'
+    type: partial
+    path: ~/plugins/bsouetre/site/models/category/_name_column.htm
     searchable: true
   description:
     label: 'Description'
   projects:
-    label: 'Nombre de projets dans cette catégorie'
+    label: 'Nombre de projets'
     select: >
       (
         select count(*)
