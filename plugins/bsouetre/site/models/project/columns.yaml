@@ -3,14 +3,6 @@
 # ===================================
 
 columns:
-  preview:
-    label: 'Aperçu'
-    type: partial
-    path: ~/plugins/bsouetre/site/models/project/_preview_column.htm
-    searchable: false
-    sortable: false
-    clickable: false
-    width: '120px'
   thumb:
     label: 'Vignette'
     type: partial
@@ -41,3 +33,11 @@ columns:
     label: 'Séléctionné'
     type: partial
     path: ~/plugins/bsouetre/site/models/project/_featured_column.htm
+  preview:
+    label: 'Aperçu'
+    type: partial
+    path: ~/plugins/bsouetre/site/models/project/_preview_column.htm
+    searchable: false
+    sortable: false
+    clickable: false
+    width: '160px'
