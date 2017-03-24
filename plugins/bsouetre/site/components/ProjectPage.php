@@ -37,10 +37,10 @@ class ProjectPage extends ComponentBase
 	{
 		$this->currentSlug = $this->property( 'slug' );
 
-		# get project from slug if exist and is published
+		# get project from slug if exist
 		try {
 			/** @var Project $project */
-			$project = Project::where( 'slug', $this->currentSlug )->where( 'published', true )->firstOrFail();
+			$project = Project::where( 'slug', $this->currentSlug )->firstOrFail();
 		} catch ( \Exception $e ) {
 			$this->setStatusCode( 404 );
 			return $this->controller->run( '404' );

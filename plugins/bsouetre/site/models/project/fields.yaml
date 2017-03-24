@@ -6,6 +6,11 @@ fields:
   title:
     label: 'Titre'
     required: true
+  published:
+    label: 'Publié sur le site'
+    commentAbove: 'Si publié, le projet sera listé dans les archives, le cas échéant non mais le projet restera accessible depuis son URL'
+    type: checkbox
+    default: true
   content:
     label: 'Contenu de la page du projet'
     required: true
@@ -31,13 +36,9 @@ secondaryTabs:
       mode: date
       minDate: 1980-01-01
       maxDate: 2100-12-31
-    published:
-      label: 'Publié sur le site'
-      type: checkbox
-      default: true
     cover_thumb:
       label: 'Vignette'
-      commentAbove: 'Affichée sur la home est dans les archives. Formats acceptés : gif, jpg, jpeg, png'
+      commentAbove: 'Affichée sur l''accueil et dans les archives. Minimum 450px de largeur & 250px de hauteur. Formats acceptés : gif, jpg, jpeg, png'
       type: fileupload
       mode: image
       fileTypes: gif,jpg,jpeg,png
