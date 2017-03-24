@@ -2,8 +2,16 @@
 #  Form Field Definitions
 # ===================================
 
-fields:
-  email:
-    label: 'Email'
-    commentAbove: 'Utilisé sur le site comme adresse de contact'
-    span: left
+tabs:
+  fields:
+    about_content:
+      tab: 'Page À Propos'
+      label: 'Contenu de la page'
+      type: markdown
+      size: giant
+      mode: split
+    email:
+      tab: 'Page Contact'
+      label: 'Email'
+      commentAbove: 'Utilisé sur le site comme adresse de contact'
+      span: left

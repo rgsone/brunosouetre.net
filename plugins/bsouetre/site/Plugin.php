@@ -28,7 +28,6 @@ class Plugin extends PluginBase
 			'BSouetre\Site\Components\HomePage' => 'homePage',
 			'BSouetre\Site\Components\ArchivesPage' => 'archivesPage',
 			'BSouetre\Site\Components\ProjectPage' => 'projectPage',
-			'BSouetre\Site\Components\AboutPage' => 'aboutPage',
 			'BSouetre\Site\Components\ContactPage' => 'contactPage'
 		];
 	}
@@ -39,10 +38,6 @@ class Plugin extends PluginBase
 			'bsouetre.site.access_links' => [
 				'tab' => 'Site',
 				'label' => 'Gestion des liens'
-			],
-			'bsouetre.site.access_about' => [
-				'tab' => 'Site',
-				'label' => 'Gestion de la page à propos'
 			],
 			'bsouetre.site.access_settings' => [
 				'tab' => 'Site',
@@ -102,13 +97,6 @@ class Plugin extends PluginBase
 						'icon' => 'icon-link',
 						'url' => Backend::url( 'bsouetre/site/links' ),
 						'permissions' => [ 'bsouetre.site.access_links' ]
-					],
-
-					'about' => [
-						'label' => 'À Propos',
-						'icon' => 'icon-info-circle',
-						'url' => Backend::url( 'bsouetre/site/about' ),
-						'permissions' => [ 'bsouetre.site.access_about' ]
 					],
 
 					'settings' => [
