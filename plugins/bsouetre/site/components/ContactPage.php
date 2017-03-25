@@ -26,12 +26,13 @@ class ContactPage extends ComponentBase
 
 	public function onRun()
 	{
-		$this->page[ 'contact_email' ] = Setting::get( 'email' );
+		$this->page[ 'email' ] = Setting::get( 'email' );
+
 		$this->page[ 'nav' ] = [
-			'home' => [ 'title' => 'Accueil', 'url' => $this->controller->pageUrl( 'home' ) ],
-			'archives' => [ 'title' => 'Archives', 'url' => $this->controller->pageUrl( 'archives' ) ],
-			'about' => [ 'title' => 'À Propos', 'url' => $this->controller->pageUrl( 'about' ) ],
-			'contact' => [ 'title' => 'Contact', 'url' => $this->controller->pageUrl( 'contact' ) ]
+			'home' => [ 'url' => $this->controller->pageUrl( 'home' ) ],
+			'archives' => [ 'url' => $this->controller->pageUrl( 'archives' ) ],
+			'about' => [ 'url' => $this->controller->pageUrl( 'about' ) ],
+			'contact' => [ 'url' => $this->controller->pageUrl( 'contact' ) ]
 		];
 	}
 }

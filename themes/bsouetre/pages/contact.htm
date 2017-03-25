@@ -2,19 +2,20 @@ title = "bsouetre / contact"
 url = "/contact"
 layout = "base"
 meta_title = "Bruno Souêtre — Graphiste / Contact"
-meta_description = "Bruno Souêtre Portfolio > Contact"
+meta_description = "Contacter Bruno Souêtre"
 is_hidden = 0
 
 [contactPage]
 ==
-<h3>{{ this.page.title }}</h3>
 <nav>
 	<ul>
-		<li><a href="{{ nav.home.url }}">{{ nav.home.title }}</a></li>
-		<li><a href="{{ nav.archives.url }}">{{ nav.archives.title }}</a></li>
-		<li><a href="{{ nav.about.url }}">{{ nav.about.title }}</a></li>
+		<li><a href="{{ nav.home.url }}">Accueil</a></li>
+		<li><a href="{{ nav.archives.url }}">Archives</a></li>
+		<li><a href="{{ nav.about.url }}">À Propos</a></li>
 	</ul>
 </nav>
-<div>
-	<a href="mailto:{{ contact_email }}">{{ contact_email }}</a>
-</div>
+<section>
+	<h1>Me Contacter</h1>
+	<p><a href="mailto:{{ email }}">{{ email }}</a></p>
+	<p>91 bd Faidherbe F-59400 Cambrai<br>tél. 03 27 78 39 80 </p>
+</section>
