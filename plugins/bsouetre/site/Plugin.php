@@ -28,6 +28,7 @@ class Plugin extends PluginBase
 			'BSouetre\Site\Components\HomePage' => 'homePage',
 			'BSouetre\Site\Components\ArchivesPage' => 'archivesPage',
 			'BSouetre\Site\Components\ProjectPage' => 'projectPage',
+			'BSouetre\Site\Components\AboutPage' => 'aboutPage',
 			'BSouetre\Site\Components\ContactPage' => 'contactPage'
 		];
 	}

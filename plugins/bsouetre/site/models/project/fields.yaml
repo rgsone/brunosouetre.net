@@ -14,7 +14,7 @@ tabs:
       required: true
       type: markdown
       size: giant
-      mode: split
+      mode: tab
     cover_thumb:
       tab: 'Vignette'
       label: 'Vignette'
@@ -59,7 +59,7 @@ secondaryTabs:
       label: 'Tags'
       type: taglist
       mode: relation
-      separator: space
+      separator: comma
       nameFrom: name
     date:
       label: 'Date'
