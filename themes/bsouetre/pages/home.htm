@@ -2,16 +2,32 @@ title = "bsouetre / home"
 url = "/"
 layout = "base"
 meta_title = "Bruno Souêtre — Graphiste / Bonjour !"
-meta_description = "Bruno Souêtre Portfolio"
+meta_description = "Bonjour ! Bienvenue sur le site de Bruno Souêtre graphiste à Cambrai."
 is_hidden = 0
 
 [homePage]
 ==
-<h3>{{ this.page.title }}</h3>
 <nav>
 	<ul>
-		<li><a href="{{ nav.archives.url }}">{{ nav.archives.title }}</a></li>
-		<li><a href="{{ nav.about.url }}">{{ nav.about.title }}</a></li>
-		<li><a href="{{ nav.contact.url }}">{{ nav.contact.title }}</a></li>
+		<li><a href="{{ nav.archives.url }}">Archives</a></li>
+		<li><a href="{{ nav.about.url }}">À Propos</a></li>
+		<li><a href="{{ nav.contact.url }}">Contact</a></li>
 	</ul>
 </nav>
+{% if highlighted.activated %}
+<section>
+	<a href="{{ highlighted.url }}">
+		<img src="{{ highlighted.img }}" alt="{{ highlighted.desc }}">
+	</a>
+	<p>{{ highlighted.desc }}</p>
+</section>
+{% endif %}
+<section>
+	{% for project in selected_projects %}
+		{% if project.private and is_auth_user %}
+			<p><a href="{{ project.url }}">{{ project.title }}</a></p>
+		{% elseif not project.private %}
+			<p><a href="{{ project.url }}">{{ project.title }}</a></p>
+		{% endif %}
+	{% endfor %}
+</section>
