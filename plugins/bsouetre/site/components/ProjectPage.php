@@ -2,8 +2,10 @@
 
 namespace BSouetre\Site\Components;
 
-use Cms\Classes\ComponentBase;
+use Backend\Facades\BackendAuth;
 use BSouetre\Site\Models\Project;
+use Cms\Classes\ComponentBase;
+use October\Rain\Support\Facades\Config;
 
 /**
  * Class ProjectPage
@@ -38,6 +40,7 @@ class ProjectPage extends ComponentBase
 		$this->currentSlug = $this->property( 'slug' );
 
 		# get project from slug if exist
+
 		try {
 			/** @var Project $project */
 			$project = Project::where( 'slug', $this->currentSlug )->firstOrFail();
@@ -46,13 +49,25 @@ class ProjectPage extends ComponentBase
 			return $this->controller->run( '404' );
 		}
 
-		# inject var in page
-		$this->page['project'] = $project;
+		# check if private and if an user is auth
+
+		if ( $project->private && BackendAuth::getUser() == null )
+		{
+			$this->setStatusCode( 403 );
+			return $this->controller->run( 'error' );
+		}
+
+		# inject vars
+
+		$this->page[ 'project' ] = $project;
+
+		$this->page[ 'date_format' ] = Config::get( 'bsouetre.site::date_format.' . $project->date_format, 'm/Y' );
+
 		$this->page[ 'nav' ] = [
-			'home' => [ 'title' => 'Accueil', 'url' => $this->controller->pageUrl( 'home' ) ],
-			'archives' => [ 'title' => 'Archives', 'url' => $this->controller->pageUrl( 'archives' ) ],
-			'about' => [ 'title' => 'À Propos', 'url' => $this->controller->pageUrl( 'about' ) ],
-			'contact' => [ 'title' => 'Contact', 'url' => $this->controller->pageUrl( 'contact' ) ]
+			'home' => [ 'url' => $this->controller->pageUrl( 'home' ) ],
+			'archives' => [ 'url' => $this->controller->pageUrl( 'archives' ) ],
+			'about' => [ 'url' => $this->controller->pageUrl( 'about' ) ],
+			'contact' => [ 'url' => $this->controller->pageUrl( 'contact' ) ]
 		];
 	}
 }

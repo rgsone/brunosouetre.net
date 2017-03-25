@@ -2,7 +2,7 @@ title = "bsouetre / project"
 url = "/projet/:name|^[a-z0-9\-]{1,}$"
 layout = "base"
 meta_title = "Bruno Souêtre — Graphiste"
-meta_description = "Bruno Souêtre Portfolio"
+meta_description = "Projet"
 is_hidden = 0
 
 [projectPage]
@@ -11,18 +11,31 @@ is_hidden = 0
 
 function onEnd()
 {
-	$this->meta_title .= ' | ' . $this->project->title;
+	$this->meta_title .= ' / ' . $this->project->title;
+	$this->meta_description .= ' : ' . $this->project->title;
 }
 
 ?>
 ==
 <nav>
 	<ul>
-		<li><a href="{{ nav.home.url }}">{{ nav.home.title }}</a></li>
-		<li><a href="{{ nav.archives.url }}">{{ nav.archives.title }}</a></li>
-		<li><a href="{{ nav.about.url }}">{{ nav.about.title }}</a></li>
+		<li><a href="{{ nav.home.url }}">Accueil</a></li>
+		<li><a href="{{ nav.archives.url }}">Archives</a></li>
+		<li><a href="{{ nav.about.url }}">À Propos</a></li>
 	</ul>
 </nav>
-<h2>{{ project.title }}</h2>
-<p>{{ project.date|date("m/Y") }}</p>
-{{ project.content|md }}
+<section>
+	<h1>{{ project.title }}</h1>
+	{% if project.show_date %}
+		<p>{{ project.date|date( date_format ) }}</p>
+	{% endif %}
+	{% if project.category %}<p><a href="{{ project.category.slug }}">{{ project.category.name }}</a></p>{% endif %}
+	{% if project.tags %}
+		<p>
+			{% for tag in project.tags %}
+				<a href="{{ tag.slug }}">{{ tag.name }}</a>{%if not loop.last %}, {% endif %}
+			{% endfor %}
+		</p>
+	{% endif %}
+	{{ project.content|md }}
+</section>
