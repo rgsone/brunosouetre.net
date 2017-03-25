@@ -1,20 +1,28 @@
 title = "bsouetre / about"
 url = "/a-propos"
 layout = "base"
-meta_title = "Bruno Souêtre — Graphiste / À propos"
-meta_description = "Bruno Souêtre Portfolio > À propos"
+meta_title = "Bruno Souêtre — Graphiste / À Propos"
+meta_description = "À propos de Bruno Souêtre"
 is_hidden = 0
 
 [aboutPage]
 ==
-<h3>{{ this.page.title }}</h3>
 <nav>
 	<ul>
-		<li><a href="{{ nav.home.url }}">{{ nav.home.title }}</a></li>
-		<li><a href="{{ nav.archives.url }}">{{ nav.archives.title }}</a></li>
-		<li><a href="{{ nav.contact.url }}">{{ nav.contact.title }}</a></li>
+		<li><a href="{{ nav.home.url }}">Accueil</a></li>
+		<li><a href="{{ nav.archives.url }}">Archives</a></li>
+		<li><a href="{{ nav.contact.url }}">Contact</a></li>
 	</ul>
 </nav>
-<div>
+<section>
+	<h1>À Propos</h1>
 	{{ content|md }}
-</div>
+</section>
+<section>
+	<h3>Copinage</h3>
+	<ul>
+		{% for link in links %}
+			<li><a href="{{ link.url }}">{{ link.name }}</a></li>
+		{% endfor %}
+	</ul>
+</section>
