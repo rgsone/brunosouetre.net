@@ -28,13 +28,6 @@ class HomePage extends ComponentBase
 
 	public function onRun()
 	{
-		$this->page[ 'highlighted' ] = [
-			'activated' => (boolean)Setting::get( 'highlighted_item_activated', false ),
-			'img' => Setting::instance()->highlighted_item_img->getPath(),
-			'desc' => Setting::get( 'highlighted_item_desc' ),
-			'url' => Setting::get( 'highlighted_item_url' )
-		];
-
 		/** @var Collection $projects */
 		$projects =  Project::where( 'published', true )
 			->where( 'featured', true )
@@ -44,15 +37,15 @@ class HomePage extends ComponentBase
 		foreach ( $projects as $project )
 			$project->setUrl( 'project', $this->controller );
 
+		# inject vars
+
 		$this->page[ 'selected_projects' ] = $projects;
-
 		$this->page[ 'is_auth_user' ] = BackendAuth::getUser();
-
-		$this->page[ 'nav' ] = [
-			'home' => [ 'url' => $this->controller->pageUrl( 'home' ) ],
-			'archives' => [ 'url' => $this->controller->pageUrl( 'archives' ) ],
-			'about' => [ 'url' => $this->controller->pageUrl( 'about' ) ],
-			'contact' => [ 'url' => $this->controller->pageUrl( 'contact' ) ]
+		$this->page[ 'highlighted' ] = [
+			'activated' => (boolean)Setting::get( 'highlighted_item_activated', false ),
+			'img' => Setting::instance()->highlighted_item_img->getPath(),
+			'desc' => Setting::get( 'highlighted_item_desc' ),
+			'url' => Setting::get( 'highlighted_item_url' )
 		];
 	}
 }

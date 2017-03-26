@@ -29,11 +29,5 @@ class AboutPage extends ComponentBase
 	{
 		$this->page[ 'content' ] = Setting::get( 'about_content' );
 		$this->page[ 'links' ] = Link::orderBy( 'name', 'asc' )->get();
-		$this->page[ 'nav' ] = [
-			'home' => [ 'url' => $this->controller->pageUrl( 'home' ) ],
-			'archives' => [ 'url' => $this->controller->pageUrl( 'archives' ) ],
-			'about' => [ 'url' => $this->controller->pageUrl( 'about' ) ],
-			'contact' => [ 'url' => $this->controller->pageUrl( 'contact' ) ]
-		];
 	}
 }

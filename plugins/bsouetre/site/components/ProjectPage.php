@@ -60,14 +60,6 @@ class ProjectPage extends ComponentBase
 		# inject vars
 
 		$this->page[ 'project' ] = $project;
-
 		$this->page[ 'date_format' ] = Config::get( 'bsouetre.site::date_format.' . $project->date_format, 'm/Y' );
-
-		$this->page[ 'nav' ] = [
-			'home' => [ 'url' => $this->controller->pageUrl( 'home' ) ],
-			'archives' => [ 'url' => $this->controller->pageUrl( 'archives' ) ],
-			'about' => [ 'url' => $this->controller->pageUrl( 'about' ) ],
-			'contact' => [ 'url' => $this->controller->pageUrl( 'contact' ) ]
-		];
 	}
 }
