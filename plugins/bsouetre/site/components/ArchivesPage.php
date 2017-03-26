@@ -2,9 +2,14 @@
 
 namespace BSouetre\Site\Components;
 
+use Backend\Facades\BackendAuth;
+use BSouetre\Site\Models\Category;
 use BSouetre\Site\Models\Project;
+use BSouetre\Site\Models\Tag;
+use Carbon\Carbon;
 use Cms\Classes\ComponentBase;
 use October\Rain\Database\Collection;
+use October\Rain\Support\Facades\Config;
 
 /**
  * Class ArchivesPage
@@ -28,23 +33,26 @@ class ArchivesPage extends ComponentBase
 	public function onRun()
 	{
 		/** @var Collection $projects */
-		$projects = Project::where( 'published', true )
-			->orderBy( 'date', 'desc' )
-			->get();
+		$projects = Project::where( 'published', true )->orderBy( 'date', 'desc' )->get();
+		$isAuthUser = BackendAuth::getUser();
+		$projectsByDate = [];
 
 		foreach ( $projects as $project )
 		{
-			//$project->url = $this->controller->pageUrl( 'project', [ 'name' => $project->slug ] );
 			$project->setUrl( 'project', $this->controller );
+
+			# assign by date
+
+			$dateHelper = Carbon::parse( $project->date, Config::get( 'app.timezone' ) );
+			# check for private project
+			if ( !$project->private || ( $project->private && $isAuthUser ) )
+				$projectsByDate[ $dateHelper->year ][] = $project;
 		}
 
 		# inject var in page
-		$this->page['projects'] = $projects;
-		$this->page[ 'nav' ] = [
-			'home' => [ 'title' => 'Accueil', 'url' => $this->controller->pageUrl( 'home' ) ],
-			'archives' => [ 'title' => 'Archives', 'url' => $this->controller->pageUrl( 'archives' ) ],
-			'about' => [ 'title' => 'À Propos', 'url' => $this->controller->pageUrl( 'about' ) ],
-			'contact' => [ 'title' => 'Contact', 'url' => $this->controller->pageUrl( 'contact' ) ]
-		];
+
+		$this->page[ 'categories' ] = Category::all();
+		$this->page[ 'tags' ] = Tag::all();
+		$this->page[ 'projectsByDate' ] = $projectsByDate;
 	}
 }
