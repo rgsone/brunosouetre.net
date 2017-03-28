@@ -1,0 +1,11 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+  published:
+    label: 'Tous / Non-publié(s) / Publié(s)'
+    type: switch
+    conditions:
+      - published <> true
+      - published = true
