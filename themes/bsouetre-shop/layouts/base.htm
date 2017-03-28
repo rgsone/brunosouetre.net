@@ -1,0 +1,34 @@
+description = "html base template"
+==
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<meta name="robots" content="index,follow">
+
+		<meta property="og:url" content="{{ ''|page }}">
+		<meta property="og:image" content="{{ imageUrl }}">
+		<meta property="og:description" content="{{ this.page.meta_description }}">
+		<meta property="og:title" content="{{ this.page.meta_title }}">
+		<meta property="og:site_name" content="Bruno Souêtre — Graphiste">
+
+		<meta itemprop="name" content="{{ this.page.meta_title }}">
+		<meta itemprop="description" content="{{ this.page.meta_description }}">
+		<meta itemprop="image" content="{{ imageUrl }}">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="{{ this.page.meta_title }}">
+		<meta name="twitter:description" content="{{ this.page.meta_description }}">
+		<meta name="twitter:image" content="{{ imageUrl }}">
+
+		<meta name="description" content="{{ this.page.meta_description }}">
+		<title>{{ this.page.meta_title }}</title>
+
+		<link rel="stylesheet" href="{{ 'assets/css/style.css'|theme }}" media="all">
+	</head>
+	<body>
+		{% page %}
+	</body>
+</html>
