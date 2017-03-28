@@ -68,7 +68,7 @@ class Plugin extends PluginBase
                 'url' => Backend::url( 'bsouetre/site/projects' ),
                 'icon' => 'icon-desktop',
                 'permissions' => [ 'bsouetre.site.*' ],
-                'order' => 500,
+                'order' => 10,
 
 				'sideMenu' => [
 
