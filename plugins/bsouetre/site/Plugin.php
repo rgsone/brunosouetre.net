@@ -76,7 +76,7 @@ class Plugin extends PluginBase
 						'label' => 'Catégories',
 						'icon' => 'icon-tag',
 						'url' => Backend::url( 'bsouetre/site/categories' ),
-						'permissions' => [ 'bsouetre.site.access_catagories' ]
+						'permissions' => [ 'bsouetre.site.access_categories' ]
 					],
 
 					'tags' => [
