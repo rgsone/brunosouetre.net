@@ -12,7 +12,7 @@ tabs:
       tab: 'Contenu'
       label: 'Contenu de la page du projet'
       required: true
-      type: markdown
+      type: ex_markdown_editor
       size: giant
       mode: tab
     cover_thumb:
