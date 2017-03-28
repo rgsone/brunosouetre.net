@@ -1,0 +1,21 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+  title:
+    label: 'Titre'
+    required: true
+    span: left
+  description:
+    label: 'Contenu de l''article'
+    required: true
+    type: ex_markdown_editor
+    size: giant
+    mode: tab
+  published:
+    label: 'Publié sur le shop'
+    type: checkbox
+    default: true
+    required: true
+    span: left

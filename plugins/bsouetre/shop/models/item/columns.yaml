@@ -1,0 +1,12 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+  title:
+    label: 'Articles'
+    searchable: true
+  published:
+    label: 'Status'
+    type: partial
+    path: ~/plugins/bsouetre/shop/models/item/_status_column.htm
