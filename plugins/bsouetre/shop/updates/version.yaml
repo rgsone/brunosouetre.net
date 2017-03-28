@@ -1,1 +1,4 @@
-1.0.0: First version
+1.0.0:
+  - First version
+  - create_items_table.php
+  - seed_tables.php
