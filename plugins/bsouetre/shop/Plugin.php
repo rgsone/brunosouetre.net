@@ -27,22 +27,37 @@ class Plugin extends PluginBase
             'bsouetre.shop.access_shop' => [
                 'tab' => 'Shop',
                 'label' => 'Gestion du shop'
-            ]
+            ],
+			'bsouetre.shop.access_items' => [
+				'tab' => 'Shop',
+				'label' => 'Gestion des articles'
+			]
         ];
     }
 
     public function registerNavigation()
     {
-        return []; // Remove this line to activate
-
         return [
             'shop' => [
+
                 'label' => 'Shop',
-                'url' => Backend::url( 'bsouetre/shop/mycontroller' ),
+                'url' => Backend::url( 'bsouetre/shop/items' ),
                 'icon' => 'icon-shopping-cart',
                 'permissions' => [ 'bsouetre.shop.*' ],
-                'order' => 500
-            ],
+                'order' => 12,
+
+				'sideMenu' => [
+
+					'items' => [
+						'label' => 'Articles',
+						'icon' => 'icon-cart-plus',
+						'url' => Backend::url( 'bsouetre/shop/items' ),
+						'permissions' => [ 'bsouetre.shop.access_items' ]
+					]
+
+				]
+
+            ]
         ];
     }
 }
