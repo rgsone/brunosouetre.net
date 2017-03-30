@@ -21,6 +21,13 @@ class Plugin extends PluginBase
         ];
     }
 
+	public function registerComponents()
+	{
+		return [
+			'BSouetre\Shop\Components\HomePage' => 'shopHomePage'
+		];
+	}
+
     public function registerPermissions()
     {
         return [
