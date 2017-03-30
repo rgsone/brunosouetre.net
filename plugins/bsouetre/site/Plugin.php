@@ -25,11 +25,11 @@ class Plugin extends PluginBase
 	public function registerComponents()
 	{
 		return [
-			'BSouetre\Site\Components\HomePage' => 'homePage',
-			'BSouetre\Site\Components\ArchivesPage' => 'archivesPage',
-			'BSouetre\Site\Components\ProjectPage' => 'projectPage',
-			'BSouetre\Site\Components\AboutPage' => 'aboutPage',
-			'BSouetre\Site\Components\ContactPage' => 'contactPage'
+			'BSouetre\Site\Components\HomePage' => 'siteHomePage',
+			'BSouetre\Site\Components\ArchivesPage' => 'siteArchivesPage',
+			'BSouetre\Site\Components\ProjectPage' => 'siteProjectPage',
+			'BSouetre\Site\Components\AboutPage' => 'siteAboutPage',
+			'BSouetre\Site\Components\ContactPage' => 'siteContactPage'
 		];
 	}
 
