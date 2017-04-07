@@ -6,6 +6,7 @@
 /node_modules
 /storage
 /tests
+/tools/front/.fusebox
 /vendor
 
 .env
