@@ -23,8 +23,8 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
     	return [
-			//'BSouetre\Galleries\Components\HomePage' => 'galleriesHomePage',
-			//'BSouetre\Galleries\Components\GalleryPage' => 'galleriesGalleryPage'
+			'BSouetre\Galleries\Components\HomePage' => 'galleriesHomePage',
+			'BSouetre\Galleries\Components\GalleryPage' => 'galleriesGalleryPage'
         ];
     }
 }
