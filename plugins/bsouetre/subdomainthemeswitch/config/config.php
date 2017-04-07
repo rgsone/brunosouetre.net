@@ -3,7 +3,7 @@
 return [
 	'subdomains' => [
 		'shop' => 'bsouetre-shop',
-		'galerie' => 'bsouetre-galerie'
+		'galeries' => 'bsouetre-galeries'
 	],
 	'allowed_domains' => [
 		'brunosouetre.net',
