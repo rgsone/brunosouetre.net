@@ -53,6 +53,9 @@ class Project extends Model
 		'date.required' => 'Il n\'y a aucune date.',
 	];
 
+	/** @var null|array */
+	protected $thumbDimensions = null;
+
 	public function beforeSave()
 	{
 		# regenerate slug
@@ -71,6 +74,27 @@ class Project extends Model
 	public function setUrl( $pageName, $controller )
 	{
 		$this->url = $controller->pageUrl( $pageName, [ 'name' => $this->slug ] );
+	}
+
+	/**
+	 * @return array Return an array with width and height dimension of attached file
+	 */
+	public function getThumbDimensions()
+	{
+		if ( null === $this->cover_thumb ) return null;
+
+		if ( null !== $this->thumbDimensions && is_array( $this->thumbDimensions ) ) return $this->thumbDimensions;
+
+		list( $thumbBaseWidth, $thumbBaseHeight ) = getimagesize( $this->cover_thumb->getLocalPath() );
+
+		$this->thumbDimensions = [
+			'width' => $thumbBaseWidth,
+			'height' => $thumbBaseHeight,
+			'ratio' => $thumbBaseWidth / $thumbBaseHeight,
+			'height_percent_ratio' => ( $thumbBaseHeight / $thumbBaseWidth ) * 100
+		];
+
+		return $this->thumbDimensions;
 	}
 
 	public function getPreviewAttribute()
