@@ -1,0 +1,23 @@
+title = "galeries.bsouetre / gallery"
+url = "/:name|^[a-z0-9_\-]+$"
+layout = "base"
+meta_title = "Bruno Souêtre — Galeries"
+meta_description = "Galerie"
+is_hidden = 0
+==
+<?php
+
+function onEnd()
+{
+	//$this->meta_title .= ' / ' . $this->gallery->title;
+	//$this->meta_description .= ' : ' . $this->gallery->title;
+}
+
+?>
+==
+<nav>
+	<a href="{{ 'home'|page }}">Liste des galeries</a>
+</nav>
+<section>
+	<h1>{{ gallery.title }}</h1>
+</section>
