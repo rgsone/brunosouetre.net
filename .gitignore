@@ -1,6 +1,9 @@
 /.idea
 /bootstrap
+/galeries/*
+!/galeries/.gitkeep
 /modules
+/node_modules
 /storage
 /tests
 /vendor
