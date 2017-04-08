@@ -4,5 +4,15 @@ layout = "base"
 meta_title = "Bruno Souêtre — Galeries"
 meta_description = "Bienvenue sur les galeries."
 is_hidden = 0
+
+[galleriesHomePage]
 ==
 <h1>Galeries</h1>
+<section>
+	{% for gallery in galleries %}
+		<article>
+			<h3><a href="{{ gallery.url }}">{{ gallery.title }}</a> / {{ gallery.date }}</h3>
+		</article>
+		<hr>
+	{% endfor %}
+</section>

@@ -4,20 +4,30 @@ layout = "base"
 meta_title = "Bruno Souêtre — Galeries"
 meta_description = "Galerie"
 is_hidden = 0
+
+[galleriesGalleryPage]
 ==
 <?php
 
 function onEnd()
 {
-	//$this->meta_title .= ' / ' . $this->gallery->title;
-	//$this->meta_description .= ' : ' . $this->gallery->title;
+	$this->meta_title .= ' / ' . $this->gallery->title;
+	$this->meta_description .= ' : ' . $this->gallery->title;
 }
 
 ?>
 ==
 <nav>
-	<a href="{{ 'home'|page }}">Liste des galeries</a>
+	<a href="{{ 'home'|page }}">< Liste des galeries</a>
 </nav>
 <section>
 	<h1>{{ gallery.title }}</h1>
+	<p>{{ gallery.date }}</p>
+	{{ gallery.top_description|md }}
+	{{ gallery.description|md }}
+</section>
+<section>
+	{% for image in gallery.images %}
+		<img src="{{ image.url }}" alt="{{ image.name }}">
+	{% endfor %}
 </section>
