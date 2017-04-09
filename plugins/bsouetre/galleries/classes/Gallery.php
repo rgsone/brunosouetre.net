@@ -34,6 +34,7 @@ class Gallery
 		'random' => false,
 		'published' => true,
 		'listed' => true,
+		'color' => '#333333',
 		'title' => '',
 		'date' => '',
 		'top_description' => '',
