@@ -53,6 +53,8 @@ class Gallery
 	protected $cacheTtl = 1;
 	/** @var string */
 	protected $cacheKey;
+	/** @var Finder */
+	protected $imagesListCache;
 
 	/**
 	 * Gallery constructor.
@@ -74,6 +76,29 @@ class Gallery
 		if ( !File::exists( $this->configFilePath ) ) return;
 		$userConfig = Yaml::parse( File::get( $this->configFilePath ) );
 		$this->config = array_merge( $this->config, $userConfig );
+	}
+
+	protected function getImagesList()
+	{
+		if ( null !== $this->imagesListCache )
+			return $this->imagesListCache;
+
+		$this->imagesListCache = Finder::create()
+			->in( $this->path )
+			->files()
+			->depth( 0 )
+			->name( $this->imagesAllowPattern )
+			->sortByName();
+
+		$this->imagesCount = $this->imagesListCache->count();
+
+		return $this->imagesListCache;
+	}
+
+	public function getImageCount()
+	{
+		$this->getImagesList();
+		return $this->imagesCount;
 	}
 
 	/**
@@ -100,12 +125,7 @@ class Gallery
 
 		# get images and parse info
 
-		$images = Finder::create()
-			->in( $this->path )
-			->files()
-			->depth( 0 )
-			->name( $this->imagesAllowPattern )
-			->sortByName();
+		$images = $this->getImagesList();
 
 		# skip if dir is empty
 		if ( $images->count() <= 0 ) return;
@@ -119,8 +139,6 @@ class Gallery
 		# randomize images if set
 		if ( $this->random )
 			shuffle( $this->data['images'] );
-
-		$this->imagesCount = count( $this->data['images'] );
 
 		# cache results
 
