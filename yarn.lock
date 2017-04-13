@@ -1396,7 +1396,14 @@ graceful-fs@~1.2.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-gulp-util@*, gulp-util@^3.0.0:
+gulp-flatten@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/gulp-flatten/-/gulp-flatten-0.3.1.tgz#51e7fec13a33c404578d18c1589d1b5bc45fe1d6"
+  dependencies:
+    gulp-util "^3.0.7"
+    through2 "^2.0.0"
+
+gulp-util@*, gulp-util@^3.0.0, gulp-util@^3.0.7:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-3.0.8.tgz#0054e1e744502e27c04c187c3ecc505dd54bbb4f"
   dependencies:

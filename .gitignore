@@ -1,6 +1,7 @@
 /.fusebox
 /.idea
 /bootstrap
+/dist
 /galeries/*
 !/galeries/.gitkeep
 /modules

@@ -9,12 +9,14 @@
     "shopDev": "node fuse.js dev -t shop",
     "shopBuild": "node fuse.js build -t shop",
     "galeriesDev": "node fuse.js dev -t galeries",
-    "galeriesBuild": "node fuse.js build -t galeries"
+    "galeriesBuild": "node fuse.js build -t galeries",
+    "distBuild": "gulp build:dist && php dist/artisan cache:clear && php dist/artisan config:cache && php dist/artisan optimize && php dist/artisan route:cache"
   },
   "author": "rgsone",
   "license": "MIT",
   "dependencies": {
     "blazy": "^1.8.2",
+    "gulp-flatten": "^0.3.1",
     "jump.js": "^1.0.2",
     "normalize.css": "^6.0.0"
   },
