@@ -1,3 +1,4 @@
+/.fusebox
 /.idea
 /bootstrap
 /galeries/*
@@ -6,10 +7,17 @@
 /node_modules
 /storage
 /tests
-/tools/front/.fusebox
+/themes/bsouetre/assets/css
+/themes/bsouetre/assets/js
+/themes/bsouetre/assets/static
+/themes/bsouetre-galeries/assets/css
+/themes/bsouetre-galeries/assets/js
+/themes/bsouetre-galeries/assets/static
+/themes/bsouetre-shop/assets/css
+/themes/bsouetre-shop/assets/js
+/themes/bsouetre-shop/assets/static
 /vendor
 
-.env
 /.travis.yml
 /artisan
 /CHANGELOG.md
@@ -20,3 +28,5 @@
 /README.md
 /server.php
 /TODO.md
+
+.env
