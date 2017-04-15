@@ -24,18 +24,28 @@ function onEnd()
 		</symbol>
 	</defs>
 </svg>
-<nav>
-	<a href="{{ 'home'|page }}">< Liste des galeries</a>
-</nav>
-<section>
-	<h1>{{ gallery.title }}</h1>
-	<p>{{ gallery.date }}</p>
-	{{ gallery.description|md }}
-</section>
-<section>
-	{% for image in gallery.images %}
-		<img src="{{ image.url }}" alt="{{ image.name }}">
-	{% endfor %}
+<header class="galleryHeader">
+	<nav>
+		<a href="{{ 'home'|page }}" class="butBackGalleries" title="Retour aux galeries">
+			<svg width="20px" height="20px"><use xlink:href="#icon-arrow"></use></svg>
+		</a>
+	</nav>
+	<div>
+		<h1>Bruno Souêtre</h1>
+		<p class="tagline">Galeries</p>
+	</div>
+</header>
+<section class="content">
+	<section class="galleryInfo">
+		<h1>{{ gallery.title }}</h1>
+		<p style="color: {{ gallery.color }};">{{ gallery.date }} / {{ gallery.getImageCount() }} image{% if gallery.getImageCount() > 1 %}s{% endif %}</p>
+	</section>
+	<section class="galleryDescription">
+		{{ gallery.description|md }}
+	</section>
+	<section class="galleryImages">
+	{% for image in gallery.images %}<a href="{{ image.url }}"><img class="lazyImg" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== data-src="{{ image.url }}" alt="{{ image.name }}"></a>{% endfor %}
+	</section>
 </section>
 <footer>
 	<div>
@@ -46,7 +56,7 @@ function onEnd()
 			</a>
 		</div>
 		<div>
-			<a href="#haut" class="butBackSquareTop" title="Retour en haut">
+			<a href="#haut" class="butBackSquareTop" title="Retour en haut" data-backtotop>
 				<svg width="20px" height="20px"><use xlink:href="#icon-arrow"></use></svg>
 			</a>
 		</div>

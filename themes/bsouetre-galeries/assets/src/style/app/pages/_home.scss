@@ -15,7 +15,7 @@
 }
 
 header {
-	& > h1 {
+	h1 {
 		font-family: $typoTitleStack;
 		font-size: $typoHeaderTitleSize;
 		font-weight: 900;
@@ -23,7 +23,7 @@ header {
 		margin: 0;
 	}
 
-	& > .tagline {
+	.tagline {
 		font-size: $typoHeaderTaglineSize;
 		margin: 0;
 	}

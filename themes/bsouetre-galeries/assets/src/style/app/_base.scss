@@ -113,38 +113,6 @@ a {
 	}
 }
 
-.content p > a {
-	position: relative;
-	transition: color 150ms ease;
-	color: $colorTypoLink;
-	font-weight: 400;
-	text-decoration: none;
-	z-index: 0;
-
-	&:focus,
-	&:hover,
-	&:active {
-		color: $colorTypoLinkHover;
-		&:before {
-			transform: scaleY( 1 );
-		}
-	}
-
-	&:before {
-		position: absolute;
-		top: 0;
-		left: -.4rem;
-		right: -.4rem;
-		bottom: -.2rem;
-		z-index: -1;
-		content: '';
-		background-color: $colorTypoLinkUnderlineHover;
-		transform: scaleY( 0.4 );
-		transform-origin: bottom;
-		transition: transform 150ms ease-out;
-	}
-}
-
 header,
 section,
 nav,

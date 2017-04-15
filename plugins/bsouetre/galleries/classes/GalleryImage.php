@@ -51,7 +51,8 @@ class GalleryImage
 			'width' => $width,
 			'height' => $height,
 			'ratio' => $width / $height,
-			'height_percent_ratio' => ( $height / $width ) * 100
+			'height_percent_ratio' => ( $height / $width ) * 100,
+			'width_percent_ratio' => ( $width / $height ) * 100
 		];
 	}
 
