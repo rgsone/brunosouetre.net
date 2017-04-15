@@ -48,7 +48,7 @@ description = "html base template"
 		<link rel="stylesheet" href="{{ 'assets/css/style.css'|theme }}" media="all">
 	{% endif %}
 	</head>
-	<body>
+	<body id="top">
 		{% page %}
 		{% if this.environment == 'dev' %}
 			<script src="http://localhost:1337/app.js"></script>

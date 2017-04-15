@@ -17,13 +17,19 @@ function onEnd()
 
 ?>
 ==
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="display: none;">
+	<defs>
+		<symbol id="icon-arrow" viewBox="0 0 20 20" preserveAspectRatio="xMidYMid meet">
+			<path d="M18.68,15.65a1.31,1.31,0,0,1-.93-.39L10,7.51,2.25,15.27A1.32,1.32,0,0,1,.39,13.4L9.07,4.72a1.35,1.35,0,0,1,1.86,0l8.68,8.68a1.32,1.32,0,0,1-.93,2.25Z"/>
+		</symbol>
+	</defs>
+</svg>
 <nav>
 	<a href="{{ 'home'|page }}">< Liste des galeries</a>
 </nav>
 <section>
 	<h1>{{ gallery.title }}</h1>
 	<p>{{ gallery.date }}</p>
-	{{ gallery.top_description|md }}
 	{{ gallery.description|md }}
 </section>
 <section>
@@ -31,3 +37,18 @@ function onEnd()
 		<img src="{{ image.url }}" alt="{{ image.name }}">
 	{% endfor %}
 </section>
+<footer>
+	<div>
+		<div>
+			<a href="http://brunosouetre.net" title="Bruno Souêtre" class="butBackSquareLeft">
+				<svg width="20px" height="20px"><use xlink:href="#icon-arrow"></use></svg>
+				<span>brunosouetre.net</span>
+			</a>
+		</div>
+		<div>
+			<a href="#haut" class="butBackSquareTop" title="Retour en haut">
+				<svg width="20px" height="20px"><use xlink:href="#icon-arrow"></use></svg>
+			</a>
+		</div>
+	</div>
+</footer>

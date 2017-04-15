@@ -1,0 +1,157 @@
+/* 	======================================================================
+		|	BASIC
+		======================================================================
+		====================================================================== */
+
+html {
+	box-sizing: border-box;
+}
+
+* {
+	box-sizing: inherit;
+}
+
+html {
+	/* IE9-IE11 math fixing > see http://bit.ly/1g4X0bX */
+	font-size: calc( 1em * 0.625 );
+}
+
+body {
+	font-family: $typoBaseStack;
+	font-size: $typoBaseSize;
+	font-weight: $typoBaseWeight;
+	line-height: $typoBaseLineHeight;
+	color: $colorTypoBase;
+	background-color: $colorBgMain;
+	-webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+ul,
+ol {
+	padding-left: 2rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+	-ms-interpolation-mode: bicubic;
+	border: 0;
+}
+
+em { font-style: italic; }
+strong { font-weight: bold; }
+
+figure { margin: 0; }
+
+::selection {
+	color: $colorSelectionTypo;
+	background: $colorSelectionBg;
+	text-shadow: none;
+}
+
+* {
+	word-wrap: break-word;
+	hyphens: auto;
+}
+
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+td,
+th,
+label,
+textarea,
+caption,
+details,
+figure {
+	line-height: 1.5;
+	margin-top: .75rem;
+	margin-bottom: 0;
+}
+
+p:first-child,
+ul:first-child,
+ol:first-child,
+dl:first-child,
+blockquote:first-child,
+pre:first-child,
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child {
+	margin-top: 0;
+}
+
+code,
+pre,
+samp,
+kbd {
+	font-family: Consolas, Monaco, 'Lucida Console', Courier, monospace;
+	line-height: 1;
+	white-space: pre-line;
+}
+
+a {
+	color: $colorTypoAlt;
+	text-decoration: underline;
+	font-weight: 700;
+
+	&:focus,
+	&:hover,
+	&:active {
+		text-decoration: none;
+	}
+}
+
+.content p > a {
+	position: relative;
+	transition: color 150ms ease;
+	color: $colorTypoLink;
+	font-weight: 400;
+	text-decoration: none;
+	z-index: 0;
+
+	&:focus,
+	&:hover,
+	&:active {
+		color: $colorTypoLinkHover;
+		&:before {
+			transform: scaleY( 1 );
+		}
+	}
+
+	&:before {
+		position: absolute;
+		top: 0;
+		left: -.4rem;
+		right: -.4rem;
+		bottom: -.2rem;
+		z-index: -1;
+		content: '';
+		background-color: $colorTypoLinkUnderlineHover;
+		transform: scaleY( 0.4 );
+		transform-origin: bottom;
+		transition: transform 150ms ease-out;
+	}
+}
+
+header,
+section,
+nav,
+footer {
+	overflow: hidden;
+}
+
+svg {
+	height: auto;
+}

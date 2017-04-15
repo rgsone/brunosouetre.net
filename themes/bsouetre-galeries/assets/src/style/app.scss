@@ -1,0 +1,109 @@
+/*! galeries.brunosouetre.net | @author rgsone | @url rgsone.com */
+/*	======================================================================
+		======================================================================
+		|
+		|		    ___           ___           ___           ___           ___           ___
+		|	     /\  \         /\  \         /\  \         /\  \         /\__\         /\  \
+		|	    /::\  \       /::\  \       /::\  \       /::\  \       /::|  |       /::\  \
+		|	   /:/\:\  \     /:/\:\  \     /:/\ \  \     /:/\:\  \     /:|:|  |      /:/\:\  \
+		|	  /::\~\:\  \   /:/  \:\  \   _\:\~\ \  \   /:/  \:\  \   /:/|:|  |__   /::\~\:\  \
+		|	 /:/\:\ \:\__\ /:/__/_\:\__\ /\ \:\ \ \__\ /:/__/ \:\__\ /:/ |:| /\__\ /:/\:\ \:\__\
+		|	 \/_|::\/:/  / \:\  /\ \/__/ \:\ \:\ \/__/ \:\  \ /:/  / \/__|:|/:/  / \:\~\:\ \/__/
+		|	    |:|::/  /   \:\ \:\__\    \:\ \:\__\    \:\  /:/  /      |:/:/  /   \:\ \:\__\
+		|	    |:|\/__/     \:\/:/  /     \:\/:/  /     \:\/:/  /       |::/  /     \:\ \/__/
+		|	    |:|  |        \::/  /       \::/  /       \::/  /        /:/  /       \:\__\
+		|	     \|__|         \/__/         \/__/         \/__/         \/__/         \/__/
+		|
+		|
+		|		galeries.brunosouetre.net
+		|
+		|		@author rudy marc
+		|		@contact rgs@rgsone.com
+		|		@url http://rgsone.com
+		|
+		======================================================================
+		====================================================================== */
+
+/*	== libs ===========================================
+		=================================================== */
+
+@import "node_modules/normalize.css/normalize";
+
+/*	== var ============================================
+		=================================================== */
+
+//////-> COLOR
+
+
+//$colorBgMain: #fcf4e8;
+$colorBgMain: #f5f5f3;
+//$colorBgFooter: #fef9f0;
+$colorBgFooter: #fafafa;
+
+$colorTypoBase: #333;
+$colorTypoAlt: #fc5454;
+$colorTypoLink: #333;
+$colorTypoLinkHover: #fcf4e8;
+$colorTypoLinkUnderlineHover: #fc5454;
+
+$colorSelectionBg: #fc5454;
+$colorSelectionTypo: #fcf4e8;
+
+$colorIcon: #fc5454;
+
+$colorGalleriesListSep: #bbb;
+$colorGalleriesListItemBg: #fef9f0;
+
+
+/////-> TYPO
+
+
+//// GLOBAL
+// Base
+$typoBaseStack: RobotoMono, monospace;
+$typoBaseSize: 1.6rem;
+$typoBaseWeight: 400;
+$typoBaseLineHeight: 1.5;
+// Title
+$typoTitleStack: Rubik, Helvetica, "Helvetica Neue", sans-serif;
+$typoTitleWeight: 900;
+// But back to home
+$typoBackToHomeSize: 1.6rem;
+// Header
+$typoHeaderTitleSize: 2.4rem;
+$typoHeaderTaglineSize: 1.6rem;
+
+//// HOME
+// Galleries list
+$typoGalleriesListTitleSize: 2.8rem;
+$typoGalleriesListInfoSize: 1.6rem;
+
+//// GALLERY
+
+
+//////-> MEASURE
+
+
+//// GLOBAL
+$sizeFooterContentMaxWidth: 100rem;
+
+//// HOME
+$sizeHeaderHomeMaxWidth: 100rem;
+$sizeGalleriesListMaxWidth: 100rem;
+
+
+/*	== includes =======================================
+		=================================================== */
+
+@import "includes/helpers";
+
+/*	== styles =========================================
+		=================================================== */
+
+@import "app/commons";
+@import "app/font";
+@import "app/base";
+
+@import "app/pages/global";
+@import "app/pages/home";
+@import "app/pages/gallery";
