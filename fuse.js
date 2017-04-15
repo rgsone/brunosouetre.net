@@ -1,6 +1,7 @@
 const { FuseBox, SassPlugin, CSSResourcePlugin, CSSPlugin, BabelPlugin, PostCSS, UglifyJSPlugin } = require( 'fuse-box' );
 const autoprefixer = require( 'autoprefixer' );
 const postcssDiscardComments = require( 'postcss-discard-comments' );
+const mqpacker = require( 'css-mqpacker' );
 const Program = require( 'commander' );
 
 
@@ -43,7 +44,7 @@ function launch( cmd )
 		homeDir: homeDir,
 		outFile: outFile,
 		log: true,
-		debug: false,
+		debug: true,
 		cache: true,
 		plugins: getPluginsFortheme( cmd._name, currentThemePathname )
 	});
@@ -75,7 +76,8 @@ function getPluginsFortheme( cmdName, themePathname )
 				SassPlugin({ outputStyle: 'compact' }),
 				PostCSS([
 					autoprefixer({ browsers: [ 'last 2 versions', 'ie > 8' ] }),
-					postcssDiscardComments({ discardComments: { removeAll: false } })
+					postcssDiscardComments({ discardComments: { removeAll: false } }),
+					mqpacker()
 				]),
 				CSSResourcePlugin({
 					dist: `./${themePath}${themePathname}/assets/static`,
