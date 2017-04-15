@@ -37,7 +37,6 @@ class Gallery
 		'color' => '#333333',
 		'title' => '',
 		'date' => '',
-		'top_description' => '',
 		'description' => ''
 	];
 	/** @var array */
