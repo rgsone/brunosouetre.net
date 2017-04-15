@@ -15,6 +15,7 @@
   "author": "rgsone",
   "license": "MIT",
   "dependencies": {
+    "baguettebox.js": "^1.8.2",
     "blazy": "^1.8.2",
     "jump.js": "^1.0.2",
     "normalize.css": "^6.0.0"
