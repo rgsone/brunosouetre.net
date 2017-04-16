@@ -1,46 +1,51 @@
 /* CSS */
+import 'baguettebox.js/src/baguetteBox.scss';
 import './style/app.scss';
-import 'baguettebox.js/src/baguetteBox.scss'
 /* JS */
 import jump from 'jump.js';
 import Blazy from 'blazy/blazy.min';
-import baguetteBox from 'baguettebox.js/dist/baguetteBox'
+import baguetteBox from 'baguettebox.js/dist/baguetteBox';
+
+// Hello !
 
 console.log( '%c /> brunosouetre.net ', 'background: #333; color: #fc5454' );
 console.log( '%c /> handmade by rgsone.com ', 'background: #333; color: #fc5454' );
 
+/* App */
 class App
 {
+
 	init()
 	{
-		// back to top
-
-		const backToTopLink = document.querySelector( '[data-backtotop]' );
-		const topAnchor = document.querySelector( '#top' );
-
-		if ( null !== backToTopLink && null !== topAnchor ) {
-			backToTopLink.addEventListener( 'click', ( e ) => {
-
-				e.preventDefault();
-				backToTopLink.blur();
-
-				jump( topAnchor, {
-					duration: 600
-				});
-
-			});
-		}
+		this.initTopAnchorLink();
 
 		if ( null == document.querySelector( '.galleryImages' ) ) return;
 
-		// Blazy
+		this.initBlazy();
+		this.initBaguetteBox();
+	}
 
-		const blazy = new Blazy({
-			selector: '.lazyImg'
+	initTopAnchorLink()
+	{
+		const backToTopLink = document.querySelector( '[data-backtotop]' );
+		const topAnchor = document.querySelector( '#top' );
+
+		if ( null == backToTopLink || null == topAnchor ) return;
+
+		backToTopLink.addEventListener( 'click', ( e ) => {
+			e.preventDefault();
+			backToTopLink.blur();
+			jump( topAnchor, { duration: 600 });
 		});
+	}
 
-		// BaguetteBox
+	initBlazy()
+	{
+		this._blazy = new Blazy({ selector: '.lazyImg' });
+	}
 
+	initBaguetteBox()
+	{
 		baguetteBox.run( '.galleryImages', {
 			captions: false,
 			buttons: 'auto',

@@ -1,0 +1,24 @@
+/* 	======================================================================
+		|	EXTERNAL COMPONENT / BAGUETTEBOX
+		======================================================================
+		====================================================================== */
+
+
+.baguetteBox-button {
+	border-radius: 0;
+	background-color: transparent;
+	color: $colorTypoAlt;
+	font-size: 1.6rem;
+	transition: transform 200ms ease-in;
+	transform: scale( 1 );
+
+	svg {
+		stroke: $colorIcon;
+	}
+
+	&:focus,
+	&:hover {
+		transform: scale( 1.15 );
+		background-color: transparent;
+	}
+}
