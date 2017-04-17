@@ -14,6 +14,13 @@
 	}
 }
 
+.content > section {
+	padding-left: 20rem;
+	padding-right: 2rem;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
 .butBackGalleries {
 	border-width: .3rem;
 	border-color: $colorIcon;
@@ -48,7 +55,6 @@
 
 .galleryInfo {
 	margin: 0;
-	padding: 0 2rem 0 20rem;
 
 	> h1 {
 		text-transform: uppercase;
@@ -68,7 +74,6 @@
 
 .galleryDescription {
 	margin: 5rem 0 0;
-	padding: 0 2rem 0 20rem;
 
 	p {
 		max-width: 100rem;
@@ -113,18 +118,17 @@
 
 .galleryImages {
 	margin: 8rem 0 12rem;
-	padding: 0 2rem 0 20rem;
 
 	> a {
 		display: inline-block;
-		height: 40rem;
+		height: 26rem;
 		min-width: 20rem;
 		margin: 0 1rem 1rem 0;
 		transition: transform 150ms ease-in, filter 150ms ease-in;
 
 		> img {
 			width: auto;
-			max-height: 40rem;
+			max-height: 26rem;
 
 			&.lazyImg {
 				opacity: 0;
