@@ -1,5 +1,4 @@
 /* CSS */
-import 'baguettebox.js/src/baguetteBox.scss';
 import './style/app.scss';
 /* JS */
 import jump from 'jump.js';
@@ -8,7 +7,7 @@ import baguetteBox from 'baguettebox.js/dist/baguetteBox';
 
 // Hello !
 
-console.log( '%c /> brunosouetre.net ', 'background: #333; color: #fc5454' );
+console.log( '%c /> galeries.brunosouetre.net ', 'background: #333; color: #fc5454' );
 console.log( '%c /> handmade by rgsone.com ', 'background: #333; color: #fc5454' );
 
 /* App */
@@ -52,8 +51,9 @@ class App
 		this._blazy = new Blazy({
 			selector: '.lazyImg',
 			success: ( element ) => {
+				//console.log( element.name + ' > loaded' );
 				const parent = element.parentNode;
-				parent.style.minWidth = 'none';
+				parent.style.minWidth = '0';
 			}
 		});
 	}

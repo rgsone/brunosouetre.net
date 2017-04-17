@@ -44,7 +44,7 @@ description = "html base template"
 
 		<meta name="description" content="{{ this.page.meta_description }}">
 		<title>{{ this.page.meta_title }}</title>
-	{% if not this.environment == 'dev' %}
+	{% if not ( this.environment == 'dev' ) %}
 		<link rel="stylesheet" href="{{ 'assets/css/style.css'|theme }}" media="all">
 	{% endif %}
 	</head>
