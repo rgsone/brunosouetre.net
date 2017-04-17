@@ -53,7 +53,7 @@ class App
 			selector: '.lazyImg',
 			success: ( element ) => {
 				const parent = element.parentNode;
-				parent.style.minWidth = '1rem';
+				parent.style.minWidth = 'none';
 			}
 		});
 	}

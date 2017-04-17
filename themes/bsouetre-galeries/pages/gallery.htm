@@ -44,7 +44,9 @@ function onEnd()
 		{{ gallery.description|md }}
 	</section>
 	<section class="galleryImages">
-	{% for image in gallery.images %}<a href="{{ image.url }}"><img class="lazyImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ image.getThumb( 0, 260 ) }}" alt="{{ image.name }}"></a>{% endfor %}
+	{% for image in gallery.images %}<a href="{{ image.url }}">
+		<img class="lazyImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ image.getThumb( 0, 400 ) }}" alt="{{ image.name }}">
+	</a>{% endfor %}
 	</section>
 </section>
 <footer>

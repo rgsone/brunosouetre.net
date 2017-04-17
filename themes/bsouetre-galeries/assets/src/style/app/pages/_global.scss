@@ -9,6 +9,10 @@ footer {
 	background-color: $colorBgFooter;
 	padding: 11rem 2rem;
 
+	@media ( max-width: 37.5em ) {
+		padding: 6rem 2rem;
+	}
+
 	@media ( max-width: 22.5em ) {
 		padding: 4rem 0;
 	}

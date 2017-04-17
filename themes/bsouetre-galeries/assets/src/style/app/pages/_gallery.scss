@@ -8,35 +8,70 @@
 	padding: 14rem 0 10rem;
 	display: flex;
 
+	@media ( max-width: 60em ) {
+		padding: 8rem 3rem;
+	}
+
+	@media ( max-width: 37.5em ) {
+		padding: 6rem 2rem;
+	}
+
 	> nav {
 		text-align: center;
 		flex-basis: 20rem;
+
+		@media ( max-width: 60em ) {
+			text-align: left;
+			flex-basis: 10rem;
+		}
+
+		@media ( max-width: 37.5em ) {
+			flex-basis: 7rem;
+		}
 	}
 }
 
 .content > section {
-	padding-left: 20rem;
-	padding-right: 2rem;
-	padding-top: 0;
-	padding-bottom: 0;
+	padding: 0 2rem 0 20rem;
+
+	@media ( max-width: 60em ) {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+
+	@media ( max-width: 37.5em ) {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
 }
 
 .butBackGalleries {
 	border-width: .3rem;
 	border-color: $colorIcon;
 	border-style: solid;
-	border-radius: 4rem;
+	border-radius: 3rem;
 	display: inline-block;
 	width: 6rem;
 	height: 6rem;
 	position: relative;
 	transition: transform 150ms ease-in, background-color 150ms ease-in, fill 150ms ease-in;
 
+	@media ( max-width: 37.5em ) {
+		border-radius: 2.5rem;
+		width: 5rem;
+		height: 5rem;
+		top: .6rem;
+	}
+
 	&:focus,
 	&:hover,
 	&:active {
 		transform: translateX( -.5rem );
 		background-color: $colorIcon;
+
+		@media ( max-width: 60em ) {
+			transform: none;
+		}
 
 		> svg {
 			fill: $colorBgMain;
@@ -62,6 +97,10 @@
 		font-size: 5.6rem;
 		line-height: 1;
 		margin: 0;
+
+		@media ( max-width: 37.5em ) {
+			font-size: 3.6rem;
+		}
 	}
 
 	> p {
@@ -74,6 +113,10 @@
 
 .galleryDescription {
 	margin: 5rem 0 0;
+
+	@media ( max-width: 37.5em ) {
+		margin-top: 3rem;
+	}
 
 	p {
 		max-width: 100rem;
@@ -119,6 +162,11 @@
 .galleryImages {
 	margin: 8rem 0 12rem;
 
+	@media ( max-width: 37.5em ) {
+		margin-top: 6rem;
+		margin-bottom: 6rem;
+	}
+
 	> a {
 		display: inline-block;
 		height: 26rem;
@@ -126,9 +174,20 @@
 		margin: 0 1rem 1rem 0;
 		transition: transform 150ms ease-in, filter 150ms ease-in;
 
+		@media ( max-width: 31.25em ) {
+			height: auto;
+			width: 100%;
+			min-width: 10rem;
+			margin: 0 .5rem .5rem 0;
+		}
+
 		> img {
 			width: auto;
 			max-height: 26rem;
+
+			@media ( max-width: 31.25em ) {
+				max-height: none;
+			}
 
 			&.lazyImg {
 				opacity: 0;
