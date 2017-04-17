@@ -53,7 +53,7 @@ description = "html base template"
 		{% if this.environment == 'dev' %}
 			<script src="http://localhost:1337/app.js"></script>
 		{% else %}
-			<script src="{{ 'assets/js/app.js'|theme }}"></script>
+			<script src="{{ 'assets/js/app.js'|theme }}" defer></script>
 		{% endif %}
 	</body>
 </html>
