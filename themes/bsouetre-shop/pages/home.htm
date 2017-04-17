@@ -1,18 +1,36 @@
 title = "shop.bsouetre / home"
 url = "/"
 layout = "base"
-meta_title = "Bruno Souêtre — Épicerie Graphique / Bonjour !"
+meta_title = "Bonjour ! | Bruno Souêtre — Épicerie Graphique"
 meta_description = "Bienvenue sur l'épicerie graphique de Bruno Souêtre."
 is_hidden = 0
 
 [shopHomePage]
 ==
-<h1>Épicerie Graphique</h1>
-<section>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="display: none;">
+	<defs>
+		<symbol id="icon-arrow" viewBox="0 0 20 20" preserveAspectRatio="xMidYMid meet"><path d="M18.68,15.65a1.31,1.31,0,0,1-.93-.39L10,7.51,2.25,15.27A1.32,1.32,0,0,1,.39,13.4L9.07,4.72a1.35,1.35,0,0,1,1.86,0l8.68,8.68a1.32,1.32,0,0,1-.93,2.25Z"/></symbol>
+	</defs>
+</svg>
+<header>
+	<a href="http://brunosouetre.net" title="Bruno Souêtre" class="butBackSquareLeft">
+		<svg width="20px" height="20px"><use xlink:href="#icon-arrow"></use></svg>
+		<span>brunosouetre.net</span>
+	</a>
+	<h1>Epicerie Graphique</h1>
+</header>
+<section class="content">
 	{% for item in items %}
-		<article>
-			<h3>{{ item.title }}</h3>
-			<p>{{ item.description|exmd }}</p>
-		</article>
+	<article>
+		<h3>{{ item.title }}</h3>
+		<p>{{ item.description|exmd }}</p>
+	</article>
 	{% endfor %}
 </section>
+<footer>
+
+</footer>
+<a href="#top" class="butBackSquareTop" title="Retour en haut" data-backtotop>
+	<svg width="20px" height="20px"><use xlink:href="#icon-arrow"></use></svg>
+</a>
+
