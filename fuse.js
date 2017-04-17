@@ -73,7 +73,7 @@ function getPluginsFortheme( cmdName, themePathname )
 	if ( cmdName == 'build' ) {
 		return [
 			[
-				SassPlugin({ outputStyle: 'compact' }),
+				SassPlugin({ outputStyle: 'compressed' }),
 				PostCSS([
 					autoprefixer({ browsers: [ 'last 2 versions', 'ie > 8' ] }),
 					postcssDiscardComments({ discardComments: { removeAll: false } }),
@@ -95,7 +95,7 @@ function getPluginsFortheme( cmdName, themePathname )
 				comments: false,
 				compress: {
 					warnings: true,
-					drop_console: true
+					//drop_console: true
 				},
 				mangle: false
 			})
