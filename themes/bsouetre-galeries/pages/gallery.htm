@@ -11,7 +11,7 @@ is_hidden = 0
 
 function onEnd()
 {
-	$this->meta_title .= ' / ' . $this->gallery->title;
+	$this->meta_title = $this->gallery->title . ' | ' . $this->meta_title;
 	$this->meta_description .= ' : ' . $this->gallery->title;
 }
 
