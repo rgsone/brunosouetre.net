@@ -17,12 +17,20 @@ class App
 
 	init()
 	{
-		this.initTopAnchorLink();
+		let urlPath = window.location.pathname.replace( /\/+$/g, '' ).replace( /^\/+/g, '' );
 
-		if ( null == document.querySelector( '.galleryImages' ) ) return;
-
-		this.initBlazy();
-		this.initBaguetteBox();
+		// home
+		if ( urlPath == '' )
+		{
+			this.initTopAnchorLink();
+		}
+		// gallery but no handle 404/error page erf...
+		else if ( urlPath.match( /^[a-z0-9_\-]+$/g ) )
+		{
+			this.initTopAnchorLink();
+			this.initBlazy();
+			this.initBaguetteBox();
+		}
 	}
 
 	initTopAnchorLink()
@@ -41,7 +49,13 @@ class App
 
 	initBlazy()
 	{
-		this._blazy = new Blazy({ selector: '.lazyImg' });
+		this._blazy = new Blazy({
+			selector: '.lazyImg',
+			success: ( element ) => {
+				const parent = element.parentNode;
+				parent.style.minWidth = '1rem';
+			}
+		});
 	}
 
 	initBaguetteBox()
