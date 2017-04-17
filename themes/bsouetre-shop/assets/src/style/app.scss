@@ -1,0 +1,84 @@
+/*! shop.brunosouetre.net | @author rgsone | @url rgsone.com */
+/*	======================================================================
+		======================================================================
+		|
+		|		    ___           ___           ___           ___           ___           ___
+		|	     /\  \         /\  \         /\  \         /\  \         /\__\         /\  \
+		|	    /::\  \       /::\  \       /::\  \       /::\  \       /::|  |       /::\  \
+		|	   /:/\:\  \     /:/\:\  \     /:/\ \  \     /:/\:\  \     /:|:|  |      /:/\:\  \
+		|	  /::\~\:\  \   /:/  \:\  \   _\:\~\ \  \   /:/  \:\  \   /:/|:|  |__   /::\~\:\  \
+		|	 /:/\:\ \:\__\ /:/__/_\:\__\ /\ \:\ \ \__\ /:/__/ \:\__\ /:/ |:| /\__\ /:/\:\ \:\__\
+		|	 \/_|::\/:/  / \:\  /\ \/__/ \:\ \:\ \/__/ \:\  \ /:/  / \/__|:|/:/  / \:\~\:\ \/__/
+		|	    |:|::/  /   \:\ \:\__\    \:\ \:\__\    \:\  /:/  /      |:/:/  /   \:\ \:\__\
+		|	    |:|\/__/     \:\/:/  /     \:\/:/  /     \:\/:/  /       |::/  /     \:\ \/__/
+		|	    |:|  |        \::/  /       \::/  /       \::/  /        /:/  /       \:\__\
+		|	     \|__|         \/__/         \/__/         \/__/         \/__/         \/__/
+		|
+		|
+		|		shop.brunosouetre.net
+		|
+		|		@author rudy marc
+		|		@contact rgs@rgsone.com
+		|		@url http://rgsone.com
+		|
+		======================================================================
+		====================================================================== */
+
+/*	== libs ===========================================
+		=================================================== */
+
+@import "node_modules/normalize.css/normalize";
+
+/*	== var ============================================
+		=================================================== */
+
+//////-> COLOR
+
+
+$colorBgMain: #f5f5f3;
+$colorBgFooter: #fafafa;
+
+$colorTypoBase: #333;
+$colorTypoAlt: #fc5454;
+$colorTypoLink: #333;
+$colorTypoLinkHover: #fcf4e8;
+$colorTypoLinkUnderlineHover: #fc5454;
+
+$colorSelectionBg: #fc5454;
+$colorSelectionTypo: #fcf4e8;
+
+$colorIcon: #fc5454;
+
+/////-> TYPO
+
+// Base
+$typoBaseStack: RobotoMono, monospace;
+$typoBaseSize: 1.6rem;
+$typoBaseWeight: 400;
+$typoBaseLineHeight: 1.5;
+// Title
+$typoTitleStack: Rubik, Helvetica, "Helvetica Neue", sans-serif;
+$typoTitleWeight: 900;
+// But back to home
+$typoBackToHomeSize: 1.6rem;
+
+//////-> MEASURE
+
+$sizeFooterContentMaxWidth: 100rem;
+
+$sizeHeaderHomeMaxWidth: 100rem;
+$sizeGalleriesListMaxWidth: 100rem;
+
+
+/*	== includes =======================================
+		=================================================== */
+
+@import "includes/helpers";
+
+/*	== styles =========================================
+		=================================================== */
+
+@import "app/font";
+@import "app/base";
+
+@import "app/pages/home";
