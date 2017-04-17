@@ -51,9 +51,11 @@ class App
 		this._blazy = new Blazy({
 			selector: '.lazyImg',
 			success: ( element ) => {
-				//console.log( element.name + ' > loaded' );
-				const parent = element.parentNode;
-				parent.style.minWidth = '0';
+				setTimeout(( el ) => {
+					//console.log( element.name + ' > loaded' );
+					const parent = element.parentNode;
+					parent.style.minWidth = '0';
+				}, 200, element );
 			}
 		});
 	}

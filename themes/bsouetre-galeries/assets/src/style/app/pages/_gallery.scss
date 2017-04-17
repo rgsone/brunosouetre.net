@@ -173,6 +173,7 @@
 		min-width: 20rem;
 		margin: 0 1rem 1rem 0;
 		transition: transform 150ms ease-in, filter 150ms ease-in;
+		background-color: #eee;
 
 		@media ( max-width: 31.25em ) {
 			height: auto;
