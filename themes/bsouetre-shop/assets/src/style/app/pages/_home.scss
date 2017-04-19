@@ -55,7 +55,6 @@ header {
 	> .articleSep {
 		text-align: center;
 		margin-top: 12rem;
-		//width: 10rem;
 		height: .1rem;
 		background-color: $colorBgMain;
 		margin-left: auto;
@@ -217,40 +216,48 @@ footer {
 .butBackSquareTop {
 	position: fixed;
 	display: block;
-	vertical-align: top;
 	width: 5rem;
 	height: 5rem;
 	border-style: solid;
 	border-color: $colorIcon;
 	border-width: .3rem;
-	z-index: 0;
 	right: 8%;
 	bottom: 8%;
 	opacity: 1;
-	transition: opacity 250ms ease-out;
+	transition: background-size 150ms ease-out, opacity 250ms ease-out;
+	background-image: linear-gradient( $colorIcon, $colorIcon );
+	background-position: 0 100%;
+	background-size: 100% 0;
+	background-repeat: no-repeat;
 
 	&.hide {
 		opacity: 0;
 		pointer-events: none;
 	}
 
-	@media ( max-width: 93.75em ) {
-		right: 2rem;
-		bottom: 5rem;
+	@media ( max-width: 112.5em ) {
+		right: 5%;
 	}
 
-	&:before {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		z-index: -1;
-		content: '';
-		background-color: $colorTypoLinkUnderlineHover;
-		transform: scaleY( 0 );
-		transform-origin: bottom;
-		transition: transform 100ms ease-out;
+	@media ( max-width: 96.25em ) {
+		right: 2.5rem;
+		bottom: 4rem;
+	}
+
+	@media ( max-width: 43.75em ) {
+		bottom: 3rem;
+		width: 4rem;
+		height: 4rem;
+	}
+
+	&:focus,
+	&:hover,
+	&:active {
+		background-size: 100% 100%;
+
+		& > svg {
+			fill: $colorBgFooter;
+		}
 	}
 
 	& > svg {
@@ -260,17 +267,5 @@ footer {
 		left: 50%;
 		transform: translate( -50%, -50% );
 		transition: fill 100ms ease-out;
-	}
-
-	&:focus,
-	&:hover,
-	&:active {
-		&:before {
-			transform: scaleY(1);
-		}
-
-		& > svg {
-			fill: $colorBgFooter;
-		}
 	}
 }

@@ -16,32 +16,21 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	padding: 0 2rem 0 5rem;
-	z-index: 0;
-	transition: color 100ms ease-out;
+	transition: background-size 150ms ease-out, color 100ms ease-out;
+	background-image: linear-gradient( $colorIcon, $colorIcon );
+	background-position: 100% 0;
+	background-size: 0 100%;
+	background-repeat: no-repeat;
 
-	@media ( max-width: 22.5em ) {
-		display: block;
-		width: auto;
-		border-left: none;
-		border-right: none;
-		border-top: none;
-		border-bottom-width: .2rem;
-		text-align: center;
-		padding: 0 2rem;
-	}
+	&:focus,
+	&:hover,
+	&:active {
+		color: $colorBgFooter;
+		background-size: 100% 100%;
 
-	&:after {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		z-index: -1;
-		content: '';
-		background-color: $colorTypoLinkUnderlineHover;
-		transform: scaleX( 0 );
-		transform-origin: right;
-		transition: transform 100ms ease-out;
+		& > svg {
+			fill: $colorBgFooter;
+		}
 	}
 
 	& > svg {
@@ -51,24 +40,6 @@
 		top: 50%;
 		left: 1.4rem;
 		transition: fill 100ms ease-out;
-
-		@media ( max-width: 22.5em ) {
-			display: none;
-		}
-	}
-
-	&:focus,
-	&:hover,
-	&:active {
-		color: $colorBgFooter;
-
-		&:after {
-			transform: scaleX( 1 );
-		}
-
-		& > svg {
-			fill: $colorBgFooter;
-		}
 	}
 }
 
