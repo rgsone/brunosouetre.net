@@ -125,35 +125,22 @@
 			margin-top: 2rem;
 		}
 
-		> a {
-			position: relative;
-			transition: color 150ms ease;
-			color: $colorTypoLink;
+		a {
+			background-image: linear-gradient(180deg, $colorTypoLinkUnderlineHover, $colorTypoLinkUnderlineHover);
+			background-position: 0 1em;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			padding: .1em .2em;
+			transition: background-position 150ms ease-out, color 150ms ease-out;
 			font-weight: 400;
+			color: $colorTypoLink;
 			text-decoration: none;
-			z-index: 0;
 
 			&:focus,
 			&:hover,
 			&:active {
 				color: $colorTypoLinkHover;
-				&:before {
-					transform: scaleY( 1 );
-				}
-			}
-
-			&:before {
-				position: absolute;
-				top: 0;
-				left: -.3rem;
-				right: -.3rem;
-				bottom: -.1rem;
-				z-index: -1;
-				content: '';
-				background-color: $colorTypoLinkUnderlineHover;
-				transform: scaleY( 0.4 );
-				transform-origin: bottom;
-				transition: transform 150ms ease-out;
+				background-position: 0 .2rem;
 			}
 		}
 	}
