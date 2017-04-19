@@ -2,7 +2,6 @@
 import './style/app.scss';
 /* JS */
 import jump from 'jump.js';
-import Blazy from 'blazy/blazy.min';
 
 // Hello !
 
@@ -16,7 +15,45 @@ class App
 	init()
 	{
 		this.initTopAnchorLink();
-		this.initBlazy();
+		this.initTopLinkVisibilityManagement();
+	}
+
+	initTopLinkVisibilityManagement()
+	{
+		this.isHideTopLink = true;
+		this.topLinkEl = document.querySelector( '[data-backtotop]' );
+
+		this.setCurrentViewportHeight();
+
+		window.addEventListener( 'resize', ( e ) => {
+			this.setCurrentViewportHeight();
+		}, false );
+
+		window.addEventListener( 'scroll', () => {
+			this.setTopLinkVisibility();
+		}, false );
+	}
+
+	setCurrentViewportHeight()
+	{
+		this.currentViewportHeight = Math.max( document.documentElement.clientHeight, window.innerHeight || 0 );
+		this.setTopLinkVisibility();
+	}
+
+	setTopLinkVisibility()
+	{
+		const yOffset = window.scrollY || window.pageYOffset;
+
+		if ( yOffset > this.currentViewportHeight && this.isHideTopLink )
+		{
+			this.topLinkEl.classList.remove( 'hide' );
+			this.isHideTopLink = false;
+		}
+		else if ( yOffset < this.currentViewportHeight && !this.isHideTopLink )
+		{
+			this.topLinkEl.classList.add( 'hide' );
+			this.isHideTopLink = true;
+		}
 	}
 
 	initTopAnchorLink()
@@ -31,11 +68,6 @@ class App
 			backToTopLink.blur();
 			jump( topAnchor, { duration: 600 });
 		});
-	}
-
-	initBlazy()
-	{
-		this._blazy = new Blazy({ selector: '.lazyImg' });
 	}
 }
 
