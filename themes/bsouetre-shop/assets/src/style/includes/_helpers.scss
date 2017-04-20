@@ -39,3 +39,16 @@
 	}
 
 }
+
+@function em( $pix, $ctx: $browserContextSize ) {
+
+	@if ( unitless( $pix ) ) {
+		$pix: $pix * 1px;
+	}
+
+	@if ( unitless( $ctx ) ) {
+		$ctx: $ctx * 1px;
+	}
+
+	@return $pix / $ctx * 1em;
+}

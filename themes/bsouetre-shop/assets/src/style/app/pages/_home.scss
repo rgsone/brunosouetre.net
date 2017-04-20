@@ -14,6 +14,32 @@ header {
 	max-width: 147rem;
 	margin: 0 auto;
 	padding-top: 6rem;
+
+	@media ( max-width: em( 1470px ) ) {
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
+
+	@media ( max-width: em( 1200px ) ) {
+		height: 40rem;
+	}
+
+	@media ( max-width: em( 600px ) ) {
+		padding-left: 2rem;
+		padding-right: 2rem;
+		padding-top: 2rem;
+	}
+
+	@media ( max-width: em( 500px ) ) {
+		padding-left: 1rem;
+		padding-right: 1rem;
+		padding-top: 1rem;
+
+		> .butBackSquareLeft {
+			display: block;
+			text-align: center;
+		}
+	}
 }
 
 /* === CONTENT === */
@@ -26,33 +52,55 @@ header {
 	overflow: visible;
 	position: relative;
 
-	> .illuShopContainer {
+	@media ( max-width: em( 1200px ) ) {
+		padding-top: 20rem;
+		padding-left: 3rem;
+		padding-right: 3rem;
+		padding-bottom: 10rem;
+	}
+
+	@media ( max-width: em( 746px ) ) {
+		padding-left: 1rem;
+		padding-right: 1rem;
+		padding-bottom: 6rem;
+	}
+
+	.illuShopContainer {
 		height: 92rem;
 		left: 0;
 		right: 0;
 		top: -70rem;
 		position: absolute;
-		background-image: url( '../static/img/header-illu@1x.png' );
+		background-image: url( '../static/img/header-illu@big.png' );
 		background-position: center bottom;
 		background-repeat: no-repeat;
 		pointer-events: none;
 
-		@media ( max-width: 75em ) {
-			height: 70rem;
-			top: -70rem;
-			background-image: url( '../static/img/header-illu@0.5x.png' );
+		@media ( max-width: em( 1200px ) ) {
+			height: 60rem;
+			top: -40rem;
+			background-image: url( '../static/img/header-illu@medium.png' );
 			background-position: center center;
+		}
+
+		@media ( max-width: em( 660px ) ) {
+			background-image: url( '../static/img/header-illu@small.png' );
 		}
 	}
 
-	> .topSep {
+	.topSep {
 		max-width: 32rem;
 		height: .8rem;
 		background-color: $colorIcon;
 		margin: 0 auto 18rem;
+
+		@media ( max-width: em( 1200px ) ) {
+			height: .6rem;
+			margin-bottom: 12rem;
+		}
 	}
 
-	> .articleSep {
+	.articleSep {
 		text-align: center;
 		margin-top: 12rem;
 		height: .1rem;
@@ -60,8 +108,16 @@ header {
 		margin-left: auto;
 		margin-right: auto;
 
+		@media ( max-width: em( 1200px ) ) {
+			margin-top: 8rem;
+		}
+
 		+ article {
 			margin: 15rem 0 0;
+
+			@media ( max-width: em( 1200px ) ) {
+				margin-top: 10rem;
+			}
 		}
 	}
 
@@ -72,15 +128,26 @@ header {
 			text-align: center;
 			margin: 0 0 10rem;
 
-			> span {
-				display: inline-block;
-				background-image: linear-gradient( 180deg, $colorTypoLinkUnderlineHover, $colorTypoLinkUnderlineHover );
-				background-position: 0 .6em;
-				background-size: 100% 100%;
+			@media ( max-width: em( 1200px ) ) {
+				margin-bottom: 6rem;
+			}
+
+			span {
+				background-image: linear-gradient( $colorIcon, $colorIcon );
+				background-position: 0 100%;
+				background-size: 100% 40%;
 				background-repeat: no-repeat;
-				padding: 0 .2em;
+				padding: 0 .1em;
 				line-height: 1;
 				font-size: 4.6rem;
+
+				@media ( max-width: em( 1200px ) ) {
+					font-size: 3.6rem;
+				}
+
+				@media ( max-width: em( 746px ) ) {
+					font-size: 2.8rem;
+				}
 			}
 		}
 
@@ -89,10 +156,18 @@ header {
 
 			+ figure {
 				margin-top: 3rem;
+
+				@media ( max-width: em( 1200px ) ) {
+					margin-top: 2rem;
+				}
 			}
 
 			+ p {
 				margin: 6rem 0 0;
+
+				@media ( max-width: em( 1200px ) ) {
+					margin-top: 4rem;
+				}
 			}
 		}
 
@@ -100,12 +175,26 @@ header {
 			text-align: center;
 			font-size: 1.8rem;
 
+			@media ( max-width: em( 1200px ) ) {
+				font-size: 1.6rem;
+			}
+
+			@media ( max-width: em( 746px ) ) {
+				font-size: 1.5rem;
+			}
+
 			+ p {
 				margin-top: 4rem;
+				@media ( max-width: em( 1200px ) ) {
+					margin-top: 3rem;
+				}
 			}
 
 			+ figure {
 				margin-top: 6rem;
+				@media ( max-width: em( 1200px ) ) {
+					margin-top: 4rem;
+				}
 			}
 
 			a {
@@ -175,6 +264,10 @@ footer {
 				text-decoration: none;
 				padding: 2rem 2rem;
 
+				@media ( max-width: em( 500px ) ) {
+					padding: 1rem 1rem;
+				}
+
 				&:hover svg {
 					transform: scale( 1.2 ) translateY( -5% );
 					transform-origin: center center;
@@ -196,6 +289,10 @@ footer {
 				display: block;
 				margin: 0 auto;
 				transition: transform 150ms ease-out;
+
+				@media ( max-width: em( 500px ) ) {
+					height: 9rem;
+				}
 			}
 		}
 	}
