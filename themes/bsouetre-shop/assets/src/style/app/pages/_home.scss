@@ -8,10 +8,10 @@
 
 header {
 	height: 65rem;
-	background-image: url( '../static/img/bg-triangle-up.svg' );
+	background-image: url( $imgUrlBgUpTriangle );
 	background-repeat: repeat-x;
 	background-position: center bottom;
-	max-width: 147rem;
+	max-width: $measureContentMaxWidth;
 	margin: 0 auto;
 	padding-top: 6rem;
 
@@ -45,8 +45,8 @@ header {
 /* === CONTENT === */
 
 .content {
-	background-color: #efdfc2;
-	max-width: 147rem;
+	background-color: $colorBgContent;
+	max-width: $measureContentMaxWidth;
 	padding: 31rem 5rem 15rem;
 	margin: 0 auto;
 	overflow: visible;
@@ -71,7 +71,7 @@ header {
 		right: 0;
 		top: -70rem;
 		position: absolute;
-		background-image: url( '../static/img/header-illu-big.png' );
+		background-image: url( $imgUrlHeaderIlluBig );
 		background-position: center bottom;
 		background-repeat: no-repeat;
 		pointer-events: none;
@@ -79,19 +79,19 @@ header {
 		@media ( max-width: em( 1200px ) ) {
 			height: 60rem;
 			top: -40rem;
-			background-image: url( '../static/img/header-illu-medium.png' );
+			background-image: url( $imgUrlHeaderIlluMedium );
 			background-position: center center;
 		}
 
 		@media ( max-width: em( 660px ) ) {
-			background-image: url( '../static/img/header-illu-small.png' );
+			background-image: url( $imgUrlHeaderIlluSmall );
 		}
 	}
 
 	.topSep {
 		max-width: 32rem;
 		height: .8rem;
-		background-color: $colorIcon;
+		background-color: $colorTopSeparator;
 		margin: 0 auto 18rem;
 
 		@media ( max-width: em( 1200px ) ) {
@@ -104,7 +104,7 @@ header {
 		text-align: center;
 		margin-top: 12rem;
 		height: .1rem;
-		background-color: $colorBgMain;
+		background-color: $colorArticleSeparator;
 		margin-left: auto;
 		margin-right: auto;
 
@@ -141,13 +141,13 @@ header {
 			}
 
 			span {
-				background-image: linear-gradient( $colorIcon, $colorIcon );
+				background-image: linear-gradient( $colorTypoTitleUnderline, $colorTypoTitleUnderline );
 				background-position: 0 100%;
 				background-size: 100% 40%;
 				background-repeat: no-repeat;
 				padding: 0 .1em;
 				line-height: 1;
-				font-size: 4.6rem;
+				font-size: $typoArticleTitleSize;
 
 				@media ( max-width: em( 1200px ) ) {
 					font-size: 3.6rem;
@@ -181,7 +181,7 @@ header {
 
 		> p {
 			text-align: center;
-			font-size: 1.8rem;
+			font-size: $typoArticlePSize;
 
 			@media ( max-width: em( 1200px ) ) {
 				font-size: 1.6rem;
@@ -206,7 +206,7 @@ header {
 			}
 
 			a {
-				background-image: linear-gradient( 180deg, $colorTypoLinkUnderlineHover, $colorTypoLinkUnderlineHover );
+				background-image: linear-gradient( $colorTypoLinkUnderlineHover, $colorTypoLinkUnderlineHover );
 				background-position: 0 1em;
 				background-size: 100% 100%;
 				background-repeat: no-repeat;
@@ -236,16 +236,16 @@ footer {
 	> .contentFooter > div {
 		&:first-child {
 			height: 4rem;
-			max-width: 147rem;
-			background-color: #efdfc2;
+			max-width: $measureContentMaxWidth;
+			background-color: $colorBgContent;
 			margin: 0 auto;
 		}
 
 		&:last-child {
-			background-image: url( '../static/img/bg-triangle-down.svg' );
+			background-image: url( $imgUrlBgDownTriangle );
 			background-repeat: repeat-x;
 			background-position: center top;
-			max-width: 147rem;
+			max-width: $measureContentMaxWidth;
 			margin: 0 auto;
 			height: 2rem;
 		}
@@ -260,7 +260,7 @@ footer {
 		li {
 			border-left-width: .2rem;
 			border-left-style: solid;
-			border-left-color: $colorIcon;
+			border-left-color: $colorFooterNavSeparator;
 			flex-basis: 22rem;
 
 			&:first-child {
@@ -284,7 +284,7 @@ footer {
 				span {
 					display: block;
 					text-align: center;
-					font-size: 1.2rem;
+					font-size: $typoFooterNavIconSize;
 					text-transform: uppercase;
 					margin-top: 1rem;
 					line-height: 1.4;
@@ -324,13 +324,13 @@ footer {
 	width: 5rem;
 	height: 5rem;
 	border-style: solid;
-	border-color: $colorIcon;
+	border-color: $colorButton;
 	border-width: .3rem;
 	right: 8%;
 	bottom: 8%;
 	opacity: 1;
 	transition: background-size 150ms ease-out, opacity 250ms ease-out;
-	background-image: linear-gradient( $colorIcon, $colorIcon );
+	background-image: linear-gradient( $colorButton, $colorButton );
 	background-position: 0 100%;
 	background-size: 100% 0;
 	background-repeat: no-repeat;
@@ -361,12 +361,12 @@ footer {
 		background-size: 100% 100%;
 
 		& > svg {
-			fill: $colorBgFooter;
+			fill: $colorTypoLinkHover;
 		}
 	}
 
 	& > svg {
-		fill: $colorIcon;
+		fill: $colorButton;
 		position: absolute;
 		top: 50%;
 		left: 50%;
