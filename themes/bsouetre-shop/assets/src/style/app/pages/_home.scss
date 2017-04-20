@@ -71,7 +71,7 @@ header {
 		right: 0;
 		top: -70rem;
 		position: absolute;
-		background-image: url( '../static/img/header-illu@big.png' );
+		background-image: url( '../static/img/header-illu-big.png' );
 		background-position: center bottom;
 		background-repeat: no-repeat;
 		pointer-events: none;
@@ -79,12 +79,12 @@ header {
 		@media ( max-width: em( 1200px ) ) {
 			height: 60rem;
 			top: -40rem;
-			background-image: url( '../static/img/header-illu@medium.png' );
+			background-image: url( '../static/img/header-illu-medium.png' );
 			background-position: center center;
 		}
 
 		@media ( max-width: em( 660px ) ) {
-			background-image: url( '../static/img/header-illu@small.png' );
+			background-image: url( '../static/img/header-illu-small.png' );
 		}
 	}
 
@@ -112,11 +112,19 @@ header {
 			margin-top: 8rem;
 		}
 
+		@media ( max-width: em( 460px ) ) {
+			margin-top: 5rem;
+		}
+
 		+ article {
 			margin: 15rem 0 0;
 
 			@media ( max-width: em( 1200px ) ) {
 				margin-top: 10rem;
+			}
+
+			@media ( max-width: em( 460px ) ) {
+				margin-top: 7rem;
 			}
 		}
 	}
