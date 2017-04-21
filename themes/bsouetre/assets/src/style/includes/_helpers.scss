@@ -1,0 +1,54 @@
+/* 	======================================================================
+		|	HELPERS
+		======================================================================
+		====================================================================== */
+
+/**
+ * Generate @font-face
+ * $name Name of the font to be use in font-family
+ * $path Path to the font without .extension (e.g. 'font/myFont' for 'font/myFont.ext')
+ * $weight Weight of the font (if null, font-weight do not be add in @font-face)
+ * $style Style of the font (if null, font-style do not be add in @font-face)
+ * $localName Local name in src, example: 'myFont' > src: local( 'myFont' )
+ * $extensions File type (by extension) to be added in src
+ */
+@mixin font-face( $name, $path, $weight: null, $style: null, $localName: null, $extensions: woff2 woff ) {
+
+	$src: null;
+	$formatsMod: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@if $localName != null {
+		@each $name in $localName {
+			$src: append( $src, local( quote( $name ) ), comma );
+		}
+	}
+
+	@each $ext in $extensions {
+		$format: if( map-has-key( $formatsMod, $ext ), map-get( $formatsMod, $ext ), $ext );
+		$src: append( $src, url( $path + '.' + $ext ) format( quote( $format ) ), comma );
+	}
+
+	@font-face {
+		font-family: $name;
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+
+}
+
+@function em( $pix, $ctx: $browserContextSize ) {
+
+	@if ( unitless( $pix ) ) {
+		$pix: $pix * 1px;
+	}
+
+	@if ( unitless( $ctx ) ) {
+		$ctx: $ctx * 1px;
+	}
+
+	@return $pix / $ctx * 1em;
+}

@@ -1,0 +1,17 @@
+/* 	======================================================================
+		|	STRUCTURE / CONTACT
+		======================================================================
+		====================================================================== */
+
+.ContactMail {
+	color: #32271e;
+	text-decoration: none;
+	border-bottom: 4px solid #32271e;
+	transition: border-color 200ms ease, color 200ms ease;
+}
+.ContactMail:focus,
+.ContactMail:hover,
+.ContactMail:active {
+	border-bottom-color: #b0a59d;
+	color: #b0a59d;
+}

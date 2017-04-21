@@ -1,0 +1,376 @@
+/* 	======================================================================
+		|	STRUCTURE / HOME
+		======================================================================
+		====================================================================== */
+
+
+/* === HEADER === */
+
+header {
+	height: 65rem;
+	background-image: url( $imgUrlBgUpTriangle );
+	background-repeat: repeat-x;
+	background-position: center bottom;
+	max-width: $measureContentMaxWidth;
+	margin: 0 auto;
+	padding-top: 6rem;
+
+	@media ( max-width: em( 1470px ) ) {
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
+
+	@media ( max-width: em( 1200px ) ) {
+		height: 40rem;
+	}
+
+	@media ( max-width: em( 600px ) ) {
+		padding-left: 2rem;
+		padding-right: 2rem;
+		padding-top: 2rem;
+	}
+
+	@media ( max-width: em( 500px ) ) {
+		padding-left: 1rem;
+		padding-right: 1rem;
+		padding-top: 1rem;
+
+		> .butBackSquareLeft {
+			display: block;
+			text-align: center;
+		}
+	}
+}
+
+/* === CONTENT === */
+
+.content {
+	background-color: $colorBgContent;
+	max-width: $measureContentMaxWidth;
+	padding: 31rem 5rem 15rem;
+	margin: 0 auto;
+	overflow: visible;
+	position: relative;
+
+	@media ( max-width: em( 1200px ) ) {
+		padding-top: 20rem;
+		padding-left: 3rem;
+		padding-right: 3rem;
+		padding-bottom: 10rem;
+	}
+
+	@media ( max-width: em( 746px ) ) {
+		padding-left: 1rem;
+		padding-right: 1rem;
+		padding-bottom: 6rem;
+	}
+
+	.illuShopContainer {
+		height: 92rem;
+		left: 0;
+		right: 0;
+		top: -70rem;
+		position: absolute;
+		background-image: url( $imgUrlHeaderIlluBig );
+		background-position: center bottom;
+		background-repeat: no-repeat;
+		pointer-events: none;
+
+		@media ( max-width: em( 1200px ) ) {
+			height: 60rem;
+			top: -40rem;
+			background-image: url( $imgUrlHeaderIlluMedium );
+			background-position: center center;
+		}
+
+		@media ( max-width: em( 660px ) ) {
+			background-image: url( $imgUrlHeaderIlluSmall );
+		}
+	}
+
+	.topSep {
+		max-width: 32rem;
+		height: .8rem;
+		background-color: $colorTopSeparator;
+		margin: 0 auto 18rem;
+
+		@media ( max-width: em( 1200px ) ) {
+			height: .6rem;
+			margin-bottom: 12rem;
+		}
+	}
+
+	.articleSep {
+		text-align: center;
+		margin-top: 12rem;
+		height: .1rem;
+		background-color: $colorArticleSeparator;
+		margin-left: auto;
+		margin-right: auto;
+
+		@media ( max-width: em( 1200px ) ) {
+			margin-top: 8rem;
+		}
+
+		@media ( max-width: em( 460px ) ) {
+			margin-top: 5rem;
+		}
+
+		+ article {
+			margin: 15rem 0 0;
+
+			@media ( max-width: em( 1200px ) ) {
+				margin-top: 10rem;
+			}
+
+			@media ( max-width: em( 460px ) ) {
+				margin-top: 7rem;
+			}
+		}
+	}
+
+	article {
+		> h3 {
+			font-family: $typoTitleStack;
+			text-transform: uppercase;
+			text-align: center;
+			margin: 0 0 10rem;
+
+			@media ( max-width: em( 1200px ) ) {
+				margin-bottom: 6rem;
+			}
+
+			span {
+				background-image: linear-gradient( $colorTypoTitleUnderline, $colorTypoTitleUnderline );
+				background-position: 0 100%;
+				background-size: 100% 40%;
+				background-repeat: no-repeat;
+				padding: 0 .1em;
+				line-height: 1;
+				font-size: $typoArticleTitleSize;
+
+				@media ( max-width: em( 1200px ) ) {
+					font-size: 3.6rem;
+				}
+
+				@media ( max-width: em( 746px ) ) {
+					font-size: 2.8rem;
+				}
+			}
+		}
+
+		> figure {
+			text-align: center;
+
+			+ figure {
+				margin-top: 3rem;
+
+				@media ( max-width: em( 1200px ) ) {
+					margin-top: 2rem;
+				}
+			}
+
+			+ p {
+				margin: 6rem 0 0;
+
+				@media ( max-width: em( 1200px ) ) {
+					margin-top: 4rem;
+				}
+			}
+		}
+
+		> p {
+			text-align: center;
+			font-size: $typoArticlePSize;
+
+			@media ( max-width: em( 1200px ) ) {
+				font-size: 1.6rem;
+			}
+
+			@media ( max-width: em( 746px ) ) {
+				font-size: 1.5rem;
+			}
+
+			+ p {
+				margin-top: 4rem;
+				@media ( max-width: em( 1200px ) ) {
+					margin-top: 3rem;
+				}
+			}
+
+			+ figure {
+				margin-top: 6rem;
+				@media ( max-width: em( 1200px ) ) {
+					margin-top: 4rem;
+				}
+			}
+
+			a {
+				background-image: linear-gradient( $colorTypoLinkUnderlineHover, $colorTypoLinkUnderlineHover );
+				background-position: 0 1em;
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				padding: .1em .2em;
+				transition: background-position 150ms ease-out, color 150ms ease-out;
+				font-weight: 400;
+				color: $colorTypoLink;
+				text-decoration: none;
+
+				&:focus,
+				&:hover,
+				&:active {
+					color: $colorTypoLinkHover;
+					background-position: 0 .1em;
+				}
+			}
+		}
+	}
+}
+
+/* === FOOTER === */
+
+footer {
+	background-color: $colorBgFooter;
+	padding: 0 0 11rem;
+
+	> .contentFooter > div {
+		&:first-child {
+			height: 4rem;
+			max-width: $measureContentMaxWidth;
+			background-color: $colorBgContent;
+			margin: 0 auto;
+		}
+
+		&:last-child {
+			background-image: url( $imgUrlBgDownTriangle );
+			background-repeat: repeat-x;
+			background-position: center top;
+			max-width: $measureContentMaxWidth;
+			margin: 0 auto;
+			height: 2rem;
+		}
+	}
+
+	> nav ul {
+		list-style: none;
+		padding: 10rem 0 0;
+		display: flex;
+		justify-content: center;
+
+		li {
+			border-left-width: .2rem;
+			border-left-style: solid;
+			border-left-color: $colorFooterNavSeparator;
+			flex-basis: 22rem;
+
+			&:first-child {
+				border-left: none;
+			}
+
+			a {
+				display: block;
+				text-decoration: none;
+				padding: 2rem 2rem;
+
+				@media ( max-width: em( 500px ) ) {
+					padding: 1rem 1rem;
+				}
+
+				&:hover svg {
+					transform: scale( 1.2 ) translateY( -5% );
+					transform-origin: center center;
+				}
+
+				span {
+					display: block;
+					text-align: center;
+					font-size: $typoFooterNavIconSize;
+					text-transform: uppercase;
+					margin-top: 1rem;
+					line-height: 1.4;
+				}
+			}
+
+			svg {
+				width: 8rem;
+				height: 10rem;
+				display: block;
+				margin: 0 auto;
+				transition: transform 150ms ease-out;
+
+				@media ( max-width: em( 500px ) ) {
+					height: 9rem;
+				}
+			}
+		}
+	}
+}
+
+#logo-afd,
+#logo-400p,
+#logo-rgsone {
+	fill: $colorIcon;
+}
+
+#logo-rgsone .cls {
+	stroke: $colorIcon;
+}
+
+/* === BACK SQUARE TOP BUTTON === */
+
+.butBackSquareTop {
+	position: fixed;
+	display: block;
+	width: 5rem;
+	height: 5rem;
+	border-style: solid;
+	border-color: $colorButton;
+	border-width: .3rem;
+	right: 8%;
+	bottom: 8%;
+	opacity: 1;
+	transition: background-size 150ms ease-out, opacity 250ms ease-out;
+	background-image: linear-gradient( $colorButton, $colorButton );
+	background-position: 0 100%;
+	background-size: 100% 0;
+	background-repeat: no-repeat;
+
+	&.hide {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	@media ( max-width: 112.5em ) {
+		right: 5%;
+	}
+
+	@media ( max-width: 96.25em ) {
+		right: 2.5rem;
+		bottom: 4rem;
+	}
+
+	@media ( max-width: 43.75em ) {
+		bottom: 3rem;
+		width: 4rem;
+		height: 4rem;
+	}
+
+	&:focus,
+	&:hover,
+	&:active {
+		background-size: 100% 100%;
+
+		& > svg {
+			fill: $colorTypoLinkHover;
+		}
+	}
+
+	& > svg {
+		fill: $colorButton;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate( -50%, -50% );
+		transition: fill 100ms ease-out;
+	}
+}
