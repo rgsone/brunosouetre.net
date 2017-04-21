@@ -1,19 +1,19 @@
-title = "bsouetre / home"
+title = "bsouetre/home"
 url = "/"
 layout = "base"
-meta_title = "Bruno Souêtre — Graphiste / Bonjour !"
-meta_description = "Bonjour ! Bienvenue sur le site de Bruno Souêtre graphiste à Cambrai."
+meta_title = "Bonjour ! | Bruno Souêtre — Graphiste"
+meta_description = "Bonjour ! Bienvenue sur le site de Bruno Souêtre, graphiste à Cambrai."
 is_hidden = 0
 
 [siteHomePage]
 ==
-<nav>
-	<ul>
-		<li><a href="{{ 'archives'|page }}">Archives</a></li>
-		<li><a href="{{ 'about'|page }}">À Propos</a></li>
-		<li><a href="{{ 'contact'|page }}">Contact</a></li>
-	</ul>
-</nav>
+{% partial 'svg' %}
+{% partial 'header' %}
+
+<section class="homeProjectsContainer">
+
+</section>
+
 {% if highlighted.activated %}
 <section>
 	<a href="{{ highlighted.url }}">
@@ -22,6 +22,7 @@ is_hidden = 0
 	<p>{{ highlighted.desc }}</p>
 </section>
 {% endif %}
+
 <section>
 	{% for project in selected_projects %}
 		{% if project.private and is_auth_user %}
@@ -31,3 +32,22 @@ is_hidden = 0
 		{% endif %}
 	{% endfor %}
 </section>
+
+<section class="thumbContainer">
+	{% for project in selected_projects %}
+		<div class="item">
+			<div class="aspectRatioBox" style="{{ 'padding-bottom:' ~ project.getThumbDimensions.height_percent_ratio ~ '%;' }}"></div>
+			<div data-src="{{ project.cover_thumb.getPath|app }}" class="thumbBox lazyImg">
+				<!--
+				<img data-src="https://cdn-images-1.medium.com/max/2000/1*NZpgpdDxZ6v8_0lvQgkrdw.jpeg" src="">
+				<noscript>
+					<img src="">
+				</noscript>
+				-->
+			</div>
+		</div>
+	{% endfor %}
+</section>
+
+{% partial 'footer' %}
+{% partial 'back-to-top-button' %}

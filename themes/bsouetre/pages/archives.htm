@@ -1,20 +1,17 @@
-title = "bsouetre / archives"
+title = "bsouetre/archives"
 url = "/archives"
 layout = "base"
-meta_title = "Bruno Souêtre — Graphiste / Archives"
+meta_title = "Les archives | Bruno Souêtre — Graphiste"
 meta_description = "Consultez les archives des projets"
 is_hidden = 0
 
 [siteArchivesPage]
 ==
-<nav>
-	<ul>
-		<li><a href="{{ 'home'|page }}">Accueil</a></li>
-		<li><a href="{{ 'about'|page }}">À Propos</a></li>
-		<li><a href="{{ 'contact'|page }}">Contact</a></li>
-	</ul>
-</nav>
+{% partial 'svg' %}
+{% partial 'header' %}
+
 <h1>Archives</h1>
+
 <section>
 	{% if categories %}
 		<p>catégories</p>
@@ -33,6 +30,7 @@ is_hidden = 0
 		</ul>
 	{% endif %}
 </section>
+
 <section>
 	<h3>projets</h3>
 	{% for key, projectByDate in projectsByDate %}
@@ -44,3 +42,6 @@ is_hidden = 0
 		</ul>
 	{% endfor %}
 </section>
+
+{% partial 'footer' %}
+{% partial 'back-to-top-button' %}

@@ -1,19 +1,15 @@
-title = "bsouetre / about"
+title = "bsouetre/about"
 url = "/a-propos"
 layout = "base"
-meta_title = "Bruno Souêtre — Graphiste / À Propos"
+meta_title = "À Propos | Bruno Souêtre — Graphiste"
 meta_description = "À propos de Bruno Souêtre"
 is_hidden = 0
 
 [siteAboutPage]
 ==
-<nav>
-	<ul>
-		<li><a href="{{ 'home'|page }}">Accueil</a></li>
-		<li><a href="{{ 'archives'|page }}">Archives</a></li>
-		<li><a href="{{ 'contact'|page }}">Contact</a></li>
-	</ul>
-</nav>
+{% partial 'svg' %}
+{% partial 'header' %}
+
 <section>
 	<h1>À Propos</h1>
 	{{ content|md }}
@@ -26,3 +22,6 @@ is_hidden = 0
 		{% endfor %}
 	</ul>
 </section>
+
+{% partial 'footer' %}
+{% partial 'back-to-top-button' %}

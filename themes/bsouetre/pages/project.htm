@@ -1,4 +1,4 @@
-title = "bsouetre / project"
+title = "bsouetre/project"
 url = "/projet/:name|^[a-z0-9\-]+$"
 layout = "base"
 meta_title = "Bruno Souêtre — Graphiste"
@@ -11,19 +11,15 @@ is_hidden = 0
 
 function onEnd()
 {
-	$this->meta_title .= ' / ' . $this->project->title;
-	$this->meta_description .= ' : ' . $this->project->title;
+	$this->meta_title = $this->project->title . ' | ' . $this->meta_title;
+	$this->meta_description = ' : ' . $this->project->title;
 }
 
 ?>
 ==
-<nav>
-	<ul>
-		<li><a href="{{ 'home'|page }}">Accueil</a></li>
-		<li><a href="{{ 'archives'|page }}">Archives</a></li>
-		<li><a href="{{ 'about'|page }}">À Propos</a></li>
-	</ul>
-</nav>
+{% partial 'svg' %}
+{% partial 'header' %}
+
 <section>
 	<h1>{{ project.title }}</h1>
 	{% if project.show_date %}
@@ -39,3 +35,6 @@ function onEnd()
 	{% endif %}
 	{{ project.content|exmd }}
 </section>
+
+{% partial 'footer' %}
+{% partial 'back-to-top-button' %}

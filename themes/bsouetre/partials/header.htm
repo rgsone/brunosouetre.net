@@ -1,0 +1,23 @@
+<header>
+	<nav>
+		<ul>
+			{% if not ( this.page.title == 'bsouetre/home' ) %}
+			<li>
+				<a href="{{ 'home'|page }}" title="Home">Home</a>
+			</li>
+			{% endif %}
+			<li {% if this.page.title == 'bsouetre/archives' %}class="active"{% endif %}>
+				<a href="{{ 'archives'|page }}" title="Les Archives">Archives</a>
+			</li>
+			<li {% if this.page.title == 'bsouetre/about' %}class="active"{% endif %}>
+				<a href="{{ 'about'|page }}" title="À Propos">À Propos</a>
+			</li>
+			<li {% if this.page.title == 'bsouetre/contact' %}class="active"{% endif %}>
+				<a href="{{ 'contact'|page }}" title="Contact">Contact</a>
+			</li>
+			<li>
+				<a href="http://shop.brunosouetre.net" title="">Shop</a>
+			</li>
+		</ul>
+	</nav>
+</header>
