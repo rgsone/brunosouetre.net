@@ -45,6 +45,8 @@ $colorTypoLink: #333;
 $colorTypoLinkHover: #fcf4e8;
 $colorTypoLinkUnderlineHover: #fc5454;
 
+$colorTypoSiteNav: #f3ede4;
+
 $colorTypoTitleUnderline: #fc5454;
 
 $colorSelectionBg: #fc5454;
@@ -53,8 +55,8 @@ $colorSelectionTypo: #fcf4e8;
 $colorIcon: #fc5454;
 $colorButton: #fc5454;
 
-$colorTopSeparator: #fc5454;
-//$colorArticleSeparator: darken( $colorBgContent, 20% );
+$colorSiteNavBorder: #f3ede4;
+$colorSiteNavHover: #fc5454;
 $colorFooterNavSeparator: #fc5454;
 
 /////-> TYPO
@@ -73,23 +75,17 @@ $typoBackToHomeSize: 1.6rem;
 
 $typoErrorTitleSize: 4rem;
 
-$typoArticleTitleSize: 4.6rem;
-$typoArticlePSize: 1.8rem;
+$typoSiteNavSize: 1.8rem;
 
 $typoFooterNavIconSize: 1.2rem;
 
 //////-> MEASURE
 
-$measureContentMaxWidth: 147rem;
+//$measureContentMaxWidth: 147rem;
 
 //////-> IMGURL
 
-$imgUrlHeaderIlluBig: '../static/img/header-illu-big.png';
-$imgUrlHeaderIlluMedium: '../static/img/header-illu-medium.png';
-$imgUrlHeaderIlluSmall: '../static/img/header-illu-small.png';
-
-$imgUrlBgDownTriangle: '../static/img/bg-triangle-down.svg';
-$imgUrlBgUpTriangle: '../static/img/bg-triangle-up.svg';
+$imgUrlBgHeaderBsouetre: '../static/img/header-txt-bsouetre.svg';
 
 
 /*	== includes =======================================

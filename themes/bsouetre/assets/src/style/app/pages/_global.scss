@@ -4,6 +4,65 @@
 		====================================================================== */
 
 
+/* === BACK SQUARE TOP BUTTON === */
+
+.butBackSquareTop {
+	position: fixed;
+	display: block;
+	width: 5rem;
+	height: 5rem;
+	border-style: solid;
+	border-color: $colorButton;
+	border-width: .3rem;
+	right: 8%;
+	bottom: 8%;
+	opacity: 1;
+	transition: background-size 150ms ease-out, opacity 250ms ease-out;
+	background-image: linear-gradient( $colorButton, $colorButton );
+	background-position: 0 100%;
+	background-size: 100% 0;
+	background-repeat: no-repeat;
+
+	&.hide {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	@media ( max-width: 112.5em ) {
+		right: 5%;
+	}
+
+	@media ( max-width: 96.25em ) {
+		right: 2.5rem;
+		bottom: 4rem;
+	}
+
+	@media ( max-width: 43.75em ) {
+		bottom: 3rem;
+		width: 4rem;
+		height: 4rem;
+	}
+
+	&:focus,
+	&:hover,
+	&:active {
+		background-size: 100% 100%;
+
+		& > svg {
+			fill: $colorTypoLinkHover;
+		}
+	}
+
+	& > svg {
+		fill: $colorButton;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate( -50%, -50% );
+		transition: fill 100ms ease-out;
+	}
+}
+
 /* === BACK SQUARE LEFT BUTTON === */
 
 .butBackSquareLeft {
@@ -45,6 +104,19 @@
 	> span {
 		font-size: $typoBackToHomeSize;
 	}
+}
+
+/* === SVG ICON === */
+
+#logo-afd,
+#logo-400p,
+#logo-rgsone {
+	fill: $colorIcon;
+}
+
+#logo-rgsone .cls,
+#logo-galeries {
+	stroke: $colorIcon;
 }
 
 /* === 404 / ERROR CONTAINER === */
