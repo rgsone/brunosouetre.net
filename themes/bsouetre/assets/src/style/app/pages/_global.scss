@@ -136,3 +136,24 @@
 		margin: 0;
 	}
 }
+
+/* === BASE === */
+
+.content {
+	padding: 36rem 0 20rem;
+
+	@media ( max-width: em( 900px ) ) {
+		padding-top: 26rem;
+	}
+
+	@media ( max-width: em( 600px ) ) {
+		padding-top: 12rem;
+	}
+}
+
+.titleBottomSep {
+	max-width: 30rem;
+	height: .8rem;
+	margin: 6rem auto;
+	background-color: $colorFooterNavSeparator;
+}

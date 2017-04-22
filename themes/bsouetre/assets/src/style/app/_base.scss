@@ -123,3 +123,10 @@ footer {
 svg {
 	height: auto;
 }
+
+h1 {
+	font-family: $typoTitleStack;
+	font-size: $typoTitleH1Size;
+	line-height: $typoTitleLineHeight;
+	text-transform: uppercase;
+}

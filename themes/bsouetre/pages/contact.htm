@@ -10,10 +10,11 @@ is_hidden = 0
 {% partial 'svg' %}
 {% partial 'header' %}
 
-<section>
+<section class="content contactContent">
 	<h1>Me Contacter</h1>
-	<p><a href="mailto:{{ email }}">{{ email }}</a></p>
-	<p>91 bd Faidherbe F-59400 Cambrai<br>tél. 03 27 78 39 80 </p>
+	<div class="titleBottomSep"></div>
+	<p><a class="contactMail" href="mailto:{{ email }}">{{ email }}</a></p>
+	<p>•<br>91 bd Faidherbe F-59400 Cambrai<br>tél. 03 27 78 39 80 </p>
 </section>
 
 {% partial 'footer' %}
