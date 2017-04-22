@@ -1,4 +1,4 @@
-/*! shop.brunosouetre.net | @author rgsone | @url rgsone.com */
+/*! brunosouetre.net | @author rgsone | @url rgsone.com */
 /*	======================================================================
 		======================================================================
 		|
@@ -15,7 +15,7 @@
 		|	     \|__|         \/__/         \/__/         \/__/         \/__/         \/__/
 		|
 		|
-		|		shop.brunosouetre.net
+		|		brunosouetre.net
 		|
 		|		@author rudy marc
 		|		@contact rgs@rgsone.com
@@ -35,9 +35,9 @@
 //////-> COLOR
 
 
-$colorBgMain: #f5f5f3;
-$colorBgFooter: #fafafa;
-$colorBgContent: #efdfc2;
+$colorBgMain: #f3ede4;
+$colorBgHeader: #da4044;
+$colorBgFooter: #fbf5eb;
 
 $colorTypoBase: #333;
 $colorTypoAlt: #fc5454;
@@ -54,7 +54,7 @@ $colorIcon: #fc5454;
 $colorButton: #fc5454;
 
 $colorTopSeparator: #fc5454;
-$colorArticleSeparator: darken( $colorBgContent, 20% );
+//$colorArticleSeparator: darken( $colorBgContent, 20% );
 $colorFooterNavSeparator: #fc5454;
 
 /////-> TYPO
@@ -104,4 +104,8 @@ $imgUrlBgUpTriangle: '../static/img/bg-triangle-up.svg';
 @import "app/base";
 
 @import "app/pages/global";
-@import "app/pages/home";
+//@import "app/pages/home";
+@import "app/pages/contact";
+
+@import "app/pages/partials/header";
+@import "app/pages/partials/footer";
