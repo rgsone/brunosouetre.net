@@ -14,7 +14,7 @@ footer {
 	}
 
 	@media ( max-width: 22.5em ) {
-		padding: 4rem 0;
+		padding: 2rem;
 	}
 
 	& > div {
@@ -26,6 +26,42 @@ footer {
 
 		@media ( max-width: 22.5em ) {
 			flex-direction: column-reverse;
+		}
+
+		> div:first-child {
+			@media ( max-width: 22.5em ) {
+				margin-top: 2rem;
+			}
+		}
+
+		> div:last-child {
+			@media ( max-width: 22.5em ) {
+				text-align: left;
+			}
+		}
+
+		.butBackSquareTop {
+			@media ( max-width: 22.5em ) {
+				border-width: .2rem;
+				width: 4rem;
+				height: 4rem;
+			}
+		}
+
+		.butBackSquareLeft {
+			@media ( max-width: 22.5em ) {
+				display: block;
+				width: auto;
+				border-width: .2rem;
+				text-align: center;
+				padding: 0 2rem;
+			}
+
+			& > svg {
+				@media ( max-width: 22.5em ) {
+					display: none;
+				}
+			}
 		}
 	}
 }
@@ -42,15 +78,6 @@ footer {
 	border-color: $colorIcon;
 	border-width: .3rem;
 	z-index: 0;
-
-	@media ( max-width: 22.5em ) {
-		display: block;
-		width: auto;
-		border-left: none;
-		border-right: none;
-		border-top-width:.2rem;
-		border-bottom-width: .2rem;
-	}
 
 	&:before {
 		position: absolute;
@@ -103,17 +130,6 @@ footer {
 	z-index: 0;
 	transition: color 100ms ease-out;
 
-	@media ( max-width: 22.5em ) {
-		display: block;
-		width: auto;
-		border-left: none;
-		border-right: none;
-		border-top: none;
-		border-bottom-width: .2rem;
-		text-align: center;
-		padding: 0 2rem;
-	}
-
 	&:after {
 		position: absolute;
 		top: 0;
@@ -135,10 +151,6 @@ footer {
 		top: 50%;
 		left: 1.4rem;
 		transition: fill 100ms ease-out;
-
-		@media ( max-width: 22.5em ) {
-			display: none;
-		}
 	}
 
 	&:focus,

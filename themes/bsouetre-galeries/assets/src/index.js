@@ -26,12 +26,18 @@ class App
 		// gallery but no handle 404/error page erf...
 		else if ( urlPath.match( /^[a-z0-9_\-]+$/g ) )
 		{
+			//this.initMatchMedia();
 			this.initTopAnchorLink();
 			this.initBlazy();
 			this.initBaguetteBox();
 		}
 	}
-
+/*
+	initMatchMedia()
+	{
+		this._mq = window.matchMedia( '( max-width: 500px )' );
+	}
+*/
 	initTopAnchorLink()
 	{
 		const backToTopLink = document.querySelector( '[data-backtotop]' );
@@ -51,11 +57,25 @@ class App
 		this._blazy = new Blazy({
 			selector: '.lazyImg',
 			success: ( element ) => {
-				setTimeout(( el ) => {
-					//console.log( element.name + ' > loaded' );
+
+				element.onload = ( evt ) => {
+
+					const img = evt.target;
 					const parent = element.parentNode;
-					parent.style.minWidth = '0';
-				}, 200, element );
+
+					img.classList.add( 'imgLoaded' );
+
+					/*
+					if ( !this._mq.matches ) parent.style.minWidth = img.width + 'px';
+					else parent.style.minWidth = 0;
+					*/
+
+					parent.style.minWidth = 0;
+
+					parent.style.background = 'none';
+
+				};
+
 			}
 		});
 	}
