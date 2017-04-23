@@ -11,10 +11,11 @@ header {
 	background-image: url( $imgUrlBgHeaderBsouetre );
 	background-repeat: no-repeat;
 	background-position: center bottom;
+	background-size: 130rem auto;
 	overflow: visible;
 
 	@media ( max-width: em( 1300px ) ) {
-		background-size: contain;
+		background-size: 100% auto;
 	}
 
 	@media ( max-width: em( 900px ) ) {
