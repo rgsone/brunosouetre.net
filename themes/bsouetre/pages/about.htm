@@ -10,18 +10,29 @@ is_hidden = 0
 {% partial 'svg' %}
 {% partial 'header' %}
 
-<section>
+<section class="content aboutContent">
 	<h1>À Propos</h1>
-	{{ content|md }}
-</section>
-<section>
-	<h3>Copinage</h3>
-	<ul>
-		{% for link in links %}
-			<li><a href="{{ link.url }}">{{ link.name }}</a></li>
-		{% endfor %}
-	</ul>
+	<div class="titleBottomSep"></div>
+	<div class="aboutFigure">
+		<div>
+			<img src="{{ 'assets/static/img-about-1.jpg'|theme }}" alt="Illustration biographie">
+		</div>
+		<div>
+			<img src="{{ 'assets/static/img-about-2.jpg'|theme }}" alt="Illustration biographie">
+		</div>
+	</div>
+	<section class="aboutBio">
+		{{ content|md }}
+	</section>
+	<section class="aboutLinks">
+		<h3>Copinages</h3>
+		<div class="subTitleBottomSep"></div>
+		<ul>
+			{% for link in links %}
+			<li><a href="{{ link.url }}" title="{{ link.name }}">{{ link.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</section>
 </section>
 
 {% partial 'footer' %}
-{% partial 'back-to-top-button' %}

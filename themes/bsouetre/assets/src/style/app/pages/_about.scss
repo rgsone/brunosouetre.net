@@ -1,0 +1,169 @@
+/* 	======================================================================
+		|	STRUCTURE / ABOUT
+		======================================================================
+		====================================================================== */
+
+
+.aboutContent {
+	> h1 {
+		text-align: center;
+
+		@media ( max-width: em( 900px ) ) {
+			font-size: 5rem;
+		}
+
+		@media ( max-width: em( 600px ) ) {
+			font-size: 3.6rem;
+		}
+	}
+
+	> .titleBottomSep {
+		margin-top: 8rem;
+		margin-bottom: 10rem;
+
+		@media ( max-width: em( 900px ) ) {
+			margin-top: 6rem;
+			margin-bottom: 8rem;
+		}
+
+		@media ( max-width: em( 600px ) ) {
+			margin-top: 5rem;
+			margin-bottom: 6rem;
+		}
+	}
+
+	.aboutFigure {
+		display: flex;
+		justify-content: center;
+
+		> div {
+			vertical-align: top;
+			margin: 0 1rem;
+
+			@media ( max-width: em( 600px ) ) {
+				margin: 0 .5rem;
+			}
+
+			@media ( max-width: em( 400px ) ) {
+				margin: 0 .3rem;
+			}
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	.aboutBio {
+		max-width: $measureAboutContentMaxWidth;
+		margin: -8rem auto 0;
+
+		> p {
+			padding: 0 2rem;
+			font-size: $typoAboutBioSize;
+			font-weight: 700;
+			color: $colorTypoAlt;
+
+			@media ( max-width: em( 600px ) ) {
+				font-size: 2rem;
+			}
+
+			@media ( max-width: em( 400px ) ) {
+				padding: 0 1rem;
+			}
+
+			a {
+				text-decoration: none;
+				padding: 0 .4em;
+				background-image: linear-gradient( darken( $colorBgMain, 20% ), darken( $colorBgMain, 20% ) );
+				background-position: 0 100%;
+				background-size: 100% 38%;
+				background-repeat: no-repeat;
+				transition: background-size 150ms ease-out;
+
+				&:focus,
+				&:hover,
+				&:active {
+					background-size: 100% 100%;
+				}
+			}
+		}
+	}
+
+	.aboutLinks {
+		max-width: $measureAboutContentMaxWidth;
+		margin: 16rem auto 0;
+
+		@media ( max-width: em( 600px ) ) {
+			margin-top: 10rem;
+		}
+
+		> h3 {
+			text-align: center;
+		}
+
+		> .subTitleBottomSep {
+			margin-top: 6rem;
+			margin-bottom: 8rem;
+
+			@media ( max-width: em( 600px ) ) {
+				margin-top: 5rem;
+				margin-bottom: 5rem;
+			}
+		}
+
+		> ul {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			-webkit-perspective: 1; // Chrome fix
+			column-count: 3;
+			column-gap: 1rem;
+
+			@media ( max-width: em( 1100px ) ) {
+				column-count: 2;
+			}
+
+			@media ( max-width: em( 600px ) ) {
+				column-count: auto;
+			}
+
+			> li {
+				text-align: center;
+				padding: .5rem 0;
+				display: inline-block;
+				width: 100%;
+				font-size: $typoAboutLinkSize;
+
+				@media ( max-width: em( 900px ) ) {
+					font-size: 1.6rem;
+				}
+
+				@media ( max-width: em( 600px ) ) {
+					font-size: 1.6rem;
+				}
+
+				> a {
+					text-decoration: none;
+					color: $colorTypoBase;
+					padding: 0 .4em;
+					background-image: linear-gradient( $colorTypoLinkUnderlineHover, $colorTypoLinkUnderlineHover );
+					background-position: 0 100%;
+					background-size: 100% 38%;
+					background-repeat: no-repeat;
+					transition: background-size 150ms ease-out;
+
+					&:focus,
+					&:hover,
+					&:active {
+						background-size: 100% 100%;
+					}
+				}
+			}
+		}
+	}
+}
