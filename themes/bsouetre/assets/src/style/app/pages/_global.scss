@@ -148,6 +148,7 @@
 
 	@media ( max-width: em( 600px ) ) {
 		padding-top: 12rem;
+		padding-bottom: 12rem;
 	}
 }
 
@@ -156,4 +157,13 @@
 	height: .8rem;
 	margin: 6rem auto;
 	background-color: $colorFooterNavSeparator;
+
+	@media ( max-width: em( 900px ) ) {
+		height: .6rem;
+	}
+
+	@media ( max-width: em( 600px ) ) {
+		height: .5rem;
+		max-width: 20rem;
+	}
 }
