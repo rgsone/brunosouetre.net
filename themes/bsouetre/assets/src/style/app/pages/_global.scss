@@ -4,10 +4,10 @@
 		====================================================================== */
 
 
-/* === BACK SQUARE TOP BUTTON === */
+/* === BACK TO TOP BUTTON === */
 
-.butBackSquareTop {
-	position: fixed;
+.butBackToTop {
+	position: absolute;
 	display: block;
 	width: 5rem;
 	height: 5rem;
@@ -15,7 +15,7 @@
 	border-color: $colorButton;
 	border-width: .3rem;
 	right: 8%;
-	bottom: 8%;
+	top: -2.5rem;
 	opacity: 1;
 	transition: background-size 150ms ease-out, opacity 250ms ease-out;
 	background-image: linear-gradient( $colorButton, $colorButton );
@@ -28,17 +28,13 @@
 		pointer-events: none;
 	}
 
-	@media ( max-width: 112.5em ) {
-		right: 5%;
+	@media ( max-width: em( 650px ) ) {
+		right: auto;
+		left: 50%;
+		transform: translateX( -50% );
 	}
 
-	@media ( max-width: 96.25em ) {
-		right: 2.5rem;
-		bottom: 4rem;
-	}
-
-	@media ( max-width: 43.75em ) {
-		bottom: 3rem;
+	@media ( max-width: em( 650px ) ) {
 		width: 4rem;
 		height: 4rem;
 	}

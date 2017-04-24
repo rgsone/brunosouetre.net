@@ -8,8 +8,10 @@
 footer {
 	background-color: $colorBgFooter;
 	padding: 6.5rem 0;
+	position: relative;
+	overflow: visible;
 
-	@media ( max-width: em( 660px ) ) {
+	@media ( max-width: em( 650px ) ) {
 		padding: 2rem;
 	}
 
@@ -19,7 +21,7 @@ footer {
 		display: flex;
 		justify-content: center;
 
-		@media ( max-width: em( 660px ) ) {
+		@media ( max-width: em( 650px ) ) {
 			flex-wrap: wrap;
 		}
 
@@ -29,24 +31,24 @@ footer {
 			border-left-color: $colorFooterNavSeparator;
 			flex-basis: 22rem;
 
-			@media ( max-width: em( 660px ) ) {
+			@media ( max-width: em( 650px ) ) {
 				flex-basis: 50%;
 				border: none;
 			}
 
 			&:nth-child( odd ) {
-				@media ( max-width: em( 660px ) ) {
+				@media ( max-width: em( 650px ) ) {
 					border-right: .1rem solid $colorFooterNavSeparator;
 				}
 			}
 
 			&:nth-child( 4n+1 ) {
-				@media ( max-width: em( 660px ) ) {
+				@media ( max-width: em( 650px ) ) {
 					border-bottom: .1rem solid $colorFooterNavSeparator;
 				}
 
 				+ li {
-					@media ( max-width: em( 660px ) ) {
+					@media ( max-width: em( 650px ) ) {
 						border-bottom: .1rem solid $colorFooterNavSeparator;
 					}
 				}
@@ -61,7 +63,7 @@ footer {
 				text-decoration: none;
 				padding: 2rem 2rem;
 
-				@media ( max-width: em( 660px ) ) {
+				@media ( max-width: em( 650px ) ) {
 					padding: 3rem 1rem;
 				}
 
