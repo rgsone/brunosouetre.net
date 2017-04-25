@@ -18,7 +18,8 @@
     "baguettebox.js": "^1.8.2",
     "blazy": "^1.8.2",
     "jump.js": "^1.0.2",
-    "normalize.css": "^6.0.0"
+    "normalize.css": "^6.0.0",
+    "vanilla-lazyload": "^7.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
