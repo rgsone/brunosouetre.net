@@ -18,7 +18,7 @@ tabs:
     cover_thumb:
       tab: 'Vignette'
       label: 'Vignette'
-      commentAbove: 'Affichée sur l''accueil et dans les archives. Minimum 450px de largeur & 250px de hauteur. Formats acceptés : gif, jpg, jpeg, png'
+      commentAbove: 'Affichée sur l''accueil et dans les archives. Minimum 470px de largeur & 250px de hauteur. Formats acceptés : gif, jpg, jpeg, png'
       type: fileupload
       mode: image
       fileTypes: gif,jpg,jpeg,png
