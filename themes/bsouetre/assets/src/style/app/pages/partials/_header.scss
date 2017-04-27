@@ -44,15 +44,20 @@ header {
 				font-weight: 700;
 				font-size: $typoSiteNavSize;
 				line-height: 1;
-				text-transform: uppercase;
+				//text-transform: uppercase;
 				background-image: linear-gradient( $colorSiteNavHover, $colorSiteNavHover );
 				background-position: 0 0;
 				background-repeat: no-repeat;
 				background-size: 100% 14%;
 
-				@media ( max-width: em( 600px ) ) {
+				@media ( max-width: em( 700px ) ) {
 					padding: 2.6rem 2rem 2rem;
 					font-size: 1.6rem;
+				}
+
+				@media ( max-width: em( 600px ) ) {
+					padding: 2.6rem 1.8rem 1.8rem;
+					font-size: 1.4rem;
 				}
 
 				@media ( max-width: em( 500px ) ) {
@@ -60,7 +65,7 @@ header {
 					font-size: 1.2rem;
 				}
 
-				@media ( max-width: em( 350px ) ) {
+				@media ( max-width: em( 450px ) ) {
 					padding: 2rem .8rem 1.4rem;
 				}
 			}
@@ -72,16 +77,21 @@ header {
 				font-size: $typoSiteNavSize;
 				line-height: 1;
 				text-decoration: none;
-				text-transform: uppercase;
+				//text-transform: uppercase;
 				background-image: linear-gradient( $colorSiteNavHover, $colorSiteNavHover );
 				background-position: 0 0;
 				background-size: 100% 0;
 				background-repeat: no-repeat;
 				transition: background-size 150ms ease-out, color 100ms ease-out;
 
-				@media ( max-width: em( 600px ) ) {
+				@media ( max-width: em( 700px ) ) {
 					padding: 2.6rem 2rem 2rem;
 					font-size: 1.6rem;
+				}
+
+				@media ( max-width: em( 600px ) ) {
+					padding: 2.6rem 1.8rem 1.8rem;
+					font-size: 1.4rem;
 				}
 
 				@media ( max-width: em( 500px ) ) {
@@ -89,7 +99,7 @@ header {
 					font-size: 1.2rem;
 				}
 
-				@media ( max-width: em( 350px ) ) {
+				@media ( max-width: em( 450px ) ) {
 					padding: 2rem .8rem 1.4rem;
 				}
 
