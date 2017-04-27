@@ -93,6 +93,12 @@ $typoHomeArchivesButSize: 1.4rem;
 $typoHomeItemDateSize: 1.5rem;
 $typoHomeItemCategorySize: 1.1rem;
 
+$typoProjectTitleSize: 5.6rem;
+$typoProjectDateSize: 2.2rem;
+$typoProjectTaxonomySize: 1.4rem;
+$typoProjectContentPSize: 1.8rem;
+$typoProjectContentCaptionSize: 1.4rem;
+
 //////-> MEASURE
 
 $measureAboutContentMaxWidth: 110rem;
@@ -116,6 +122,7 @@ $imgUrlThumbLoader: '../static/img/thumb-loader.svg';
 
 @import "app/pages/global";
 @import "app/pages/home";
+@import "app/pages/project";
 @import "app/pages/about";
 @import "app/pages/contact";
 

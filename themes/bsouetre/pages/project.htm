@@ -20,20 +20,32 @@ function onEnd()
 {% partial 'svg' %}
 {% partial 'header' %}
 
-<section>
-	<h1>{{ project.title }}</h1>
+<section class="content projectContent">
+
+	<section class="projectTitle">
 	{% if project.show_date %}
-		<p>{{ project.date|date( date_format ) }}</p>
+		<p class="projectDate">{{ project.date|date( alt_date_format ) }}</p>
 	{% endif %}
-	{% if project.category %}<p><a href="{{ project.category.slug }}">{{ project.category.name }}</a></p>{% endif %}
+		<h1>{{ project.title }}</h1>
+	</section>
+
+	<section class="projectTaxonomy">
+	{% if project.category %}
+		<p class="taxonomyCategory" style="color:{{ project.category.color }};">/ {{ project.category.name }}</p>
+	{% endif %}
 	{% if project.tags %}
-		<p>
-			{% for tag in project.tags %}
-				<a href="{{ tag.slug }}">{{ tag.name }}</a>{%if not loop.last %}, {% endif %}
-			{% endfor %}
+		<p class="taxonomyTags">
+			¬ {% for tag in project.tags %}{{ tag.name }}{%if not loop.last %}, {% endif %}{% endfor %}
 		</p>
 	{% endif %}
-	{{ project.content|exmd }}
+	</section>
+
+	<div class="projectTaxoSep"></div>
+
+	<section class="projectContent">
+		{{ project.content|exmd }}
+	</section>
+
 </section>
 
 {% partial 'footer' %}
