@@ -61,5 +61,6 @@ class ProjectPage extends ComponentBase
 
 		$this->page[ 'project' ] = $project;
 		$this->page[ 'date_format' ] = Config::get( 'bsouetre.site::date_format.' . $project->date_format, 'm/Y' );
+		$this->page[ 'alt_date_format' ] = str_replace( '/', '.', $this->page[ 'date_format' ] );
 	}
 }
