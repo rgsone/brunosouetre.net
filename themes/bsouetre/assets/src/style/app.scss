@@ -75,6 +75,7 @@ $typoTitleWeight: 900;
 $typoTitleLineHeight: 1;
 $typoTitleH1Size: 6.6rem;
 $typoTitleH3Size: 4rem;
+$typoTitleH4Size: 2.2rem;
 
 $typoBackToHomeSize: 1.6rem;
 
@@ -87,6 +88,11 @@ $typoFooterNavIconSize: 1.2rem;
 $typoAboutBioSize: 2.8rem;
 $typoAboutLinkSize: 1.8rem;
 
+$typoHomeHighlightedDescSize: 1.8rem;
+$typoHomeArchivesButSize: 1.4rem;
+$typoHomeItemDateSize: 1.5rem;
+$typoHomeItemCategorySize: 1.1rem;
+
 //////-> MEASURE
 
 $measureAboutContentMaxWidth: 110rem;
@@ -94,6 +100,7 @@ $measureAboutContentMaxWidth: 110rem;
 //////-> IMGURL
 
 $imgUrlBgHeaderBsouetre: '../static/img/header-txt-bsouetre.svg';
+$imgUrlThumbLoader: '../static/img/thumb-loader.svg';
 
 
 /*	== includes =======================================
@@ -108,7 +115,7 @@ $imgUrlBgHeaderBsouetre: '../static/img/header-txt-bsouetre.svg';
 @import "app/base";
 
 @import "app/pages/global";
-//@import "app/pages/home";
+@import "app/pages/home";
 @import "app/pages/about";
 @import "app/pages/contact";
 

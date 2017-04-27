@@ -124,16 +124,12 @@ svg {
 	height: auto;
 }
 
-h1, h3 {
+h1, h2, h3, h4 {
 	font-family: $typoTitleStack;
 	line-height: $typoTitleLineHeight;
 	text-transform: uppercase;
 }
 
-h1 {
-	font-size: $typoTitleH1Size;
-}
-
-h3 {
-	font-size: $typoTitleH3Size;
-}
+h1 { font-size: $typoTitleH1Size; }
+h3 { font-size: $typoTitleH3Size; }
+h4 { font-size: $typoTitleH4Size; }

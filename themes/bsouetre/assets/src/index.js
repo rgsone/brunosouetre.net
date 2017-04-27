@@ -2,7 +2,8 @@
 import './style/app.scss';
 /* JS */
 import jump from 'jump.js';
-import Blazy from 'blazy/blazy.min';
+import LazyLoad from 'vanilla-lazyload/dist/lazyload';
+import greeed from './js/greeed';
 
 // Hello !
 
@@ -12,6 +13,23 @@ console.log( '%c /> handmade by rgsone.com ', 'background: #333; color: #fc5454'
 /* App */
 class App
 {
+	constructor()
+	{
+		this._topLinkTopAnchorName = '#top';
+		this._topLinkSelector = '[data-backtotop]';
+		this._topLinkScrollDuration = 600;
+		this._topLinkVisibilityClass = 'hide';
+
+		this._greeedSelector = '.homeSelected > ul';
+		this._greeedBreakpoints = [ 45, 90 ],
+		this._greeedLayout = 'float';
+		this._greeedElementColumnInner = false;
+		this._greeedClassFakeItem = false;
+
+		this._lazyLoadSelector = '.lazyImg';
+		this._lazyLoadDataSrc = 'src';
+		this._lazyLoadTreshold = 20;
+	}
 
 	init()
 	{
@@ -22,6 +40,8 @@ class App
 		{
 			this.initTopLink();
 			this.initTopLinkVisibilityManagement();
+			this.initGreeed();
+			this.initLazyload();
 		}
 		// archives
 		else if ( urlPath.match( /^archives$/g ) )
@@ -29,14 +49,8 @@ class App
 			this.initTopLink();
 			this.initTopLinkVisibilityManagement();
 		}
-		// project
-		else if ( urlPath.match( /^projet\/[a-z0-9_\-]+$/g ) )
-		{
-			this.initTopLink();
-			this.initTopLinkVisibilityManagement();
-		}
-		// about
-		else if ( urlPath.match( /^a\-propos$/g ) )
+		// project & about
+		else if ( urlPath.match( /^projet\/[a-z0-9_\-]+$/g ) || urlPath.match( /^a\-propos$/g ) )
 		{
 			this.initTopLink();
 			this.initTopLinkVisibilityManagement();
@@ -44,28 +58,28 @@ class App
 		// contact
 		else if ( urlPath.match( /^contact$/g ) )
 		{
-
+			// ....
 		}
 	}
 
 	initTopLink()
 	{
-		const backToTopLink = document.querySelector( '[data-backtotop]' );
-		const topAnchor = document.querySelector( '#top' );
+		const backToTopLink = document.querySelector( this._topLinkSelector );
+		const topAnchor = document.querySelector( this._topLinkTopAnchorName );
 
 		if ( null == backToTopLink || null == topAnchor ) return;
 
 		backToTopLink.addEventListener( 'click', ( e ) => {
 			e.preventDefault();
 			backToTopLink.blur();
-			jump( topAnchor, { duration: 600 });
+			jump( topAnchor, { duration: this._topLinkScrollDuration });
 		});
 	}
 
 	initTopLinkVisibilityManagement()
 	{
-		this.isHideTopLink = true;
-		this.topLinkEl = document.querySelector( '[data-backtotop]' );
+		this._isHideTopLink = true;
+		this._topLinkEl = document.querySelector( this._topLinkSelector );
 
 		this.setCurrentViewportHeight();
 
@@ -80,7 +94,7 @@ class App
 
 	setCurrentViewportHeight()
 	{
-		this.currentViewportHeight = Math.max( document.documentElement.clientHeight, window.innerHeight || 0 );
+		this._currentViewportHeight = Math.max( document.documentElement.clientHeight, window.innerHeight || 0 );
 		this.setTopLinkVisibility();
 	}
 
@@ -88,46 +102,73 @@ class App
 	{
 		const yOffset = window.scrollY || window.pageYOffset;
 
-		if ( yOffset > this.currentViewportHeight && this.isHideTopLink )
+		if ( yOffset > this._currentViewportHeight && this._isHideTopLink )
 		{
-			this.topLinkEl.classList.remove( 'hide' );
-			this.isHideTopLink = false;
+			this._topLinkEl.classList.remove( this._topLinkVisibilityClass );
+			this._isHideTopLink = false;
 		}
-		else if ( yOffset < this.currentViewportHeight && !this.isHideTopLink )
+		else if ( yOffset < this._currentViewportHeight && !this._isHideTopLink )
 		{
-			this.topLinkEl.classList.add( 'hide' );
-			this.isHideTopLink = true;
+			this._topLinkEl.classList.add( this._topLinkVisibilityClass );
+			this._isHideTopLink = true;
 		}
 	}
 
-	initBlazy()
+	initGreeed()
 	{
-		/*
-		this._blazy = new Blazy({
-			selector: '.lazyImg',
-			success: ( element ) => {
-
-				element.onload = ( evt ) => {
-
-					const img = evt.target;
-					const parent = element.parentNode;
-
-					img.classList.add( 'imgLoaded' );
-
-					parent.style.minWidth = 0;
-
-					parent.style.background = 'none';
-
-				};
-
-			}
+		greeed.bind( this._greeedSelector, {
+			breakpoints: this._greeedBreakpoints,
+			layout: this._greeedLayout,
+			elementColumnInner: this._greeedElementColumnInner,
+			classFakeItem: this._greeedClassFakeItem
 		});
-		*/
+	}
+
+	initLazyload()
+	{
+		this._lazyload = new LazyLoad({
+			elements_selector: this._lazyLoadSelector,
+			data_src: this._lazyLoadDataSrc,
+			threshold: this._lazyLoadTreshold,
+			callback_load: this.lazyImgOnLoad,
+			callback_error: this.lazyImgOnError,
+			callback_set: this.lazyImgOnSet
+		});
+	}
+
+	lazyImgOnSet( el )
+	{
+		if ( el.tagName.toLowerCase() == 'img' ) return;
+
+		const imgSrc = el.getAttribute( 'data-src' );
+		const imgParent = el.parentNode;
+		let tmpImg = new Image();
+
+		tmpImg.onload = ( evt ) => {;
+			imgParent.classList.add( 'bgLoaded' );
+			tmpImg = null;
+		};
+
+		tmpImg.src = imgSrc;
+	}
+
+	lazyImgOnLoad( el )
+	{
+		if ( el.tagName.toLowerCase() != 'img' ) return;
+
+		const imgParent = el.parentNode;
+		setTimeout( ( el ) => {
+			el.classList.remove( 'loading' );
+		}, 1000, imgParent );
+	}
+
+	lazyImgOnError( el )
+	{
+		// handle error
 	}
 }
 
 ///////////////////////////
-
 
 const app = new App();
 app.init();

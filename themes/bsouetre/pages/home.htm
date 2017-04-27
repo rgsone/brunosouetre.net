@@ -10,44 +10,48 @@ is_hidden = 0
 {% partial 'svg' %}
 {% partial 'header' %}
 
-<section class="homeProjectsContainer">
+<section class="content homeContent">
 
-</section>
-
-{% if highlighted.activated %}
-<section>
-	<a href="{{ highlighted.url }}">
-		<img src="{{ highlighted.img }}" alt="{{ highlighted.desc }}">
-	</a>
-	<p>{{ highlighted.desc }}</p>
-</section>
-{% endif %}
-
-<section>
-	{% for project in selected_projects %}
-		{% if project.private and is_auth_user %}
-			<p><a href="{{ project.url }}">{{ project.title }}</a></p>
-		{% elseif not project.private %}
-			<p><a href="{{ project.url }}">{{ project.title }}</a></p>
-		{% endif %}
-	{% endfor %}
-</section>
-
-<section class="thumbContainer">
-	{% for project in selected_projects %}
-		<div class="item">
-			<div class="aspectRatioBox" style="{{ 'padding-bottom:' ~ project.getThumbDimensions.height_percent_ratio ~ '%;' }}"></div>
-			<div data-src="{{ project.cover_thumb.getPath|app }}" class="thumbBox lazyImg">
-				<!--
-				<img data-src="https://cdn-images-1.medium.com/max/2000/1*NZpgpdDxZ6v8_0lvQgkrdw.jpeg" src="">
-				<noscript>
-					<img src="">
-				</noscript>
-				-->
-			</div>
+	{% if highlighted.activated %}
+	<section class="homeHighlighted">
+		<div>
+			<a href="{{ highlighted.url }}" title="{{ highlighted.desc }}" class="lazyImg" data-lazy-type="bg" data-src="{{ highlighted.img|app }}">
+				<p class="highlightedDesc">
+					{{ highlighted.desc }}
+				</p>
+			</a>
 		</div>
-	{% endfor %}
+	</section>
+	{% endif %}
+
+	<section class="homeSelected">
+		<ul>
+		{% for project in selected_projects %}
+			{% if not project.private or ( project.private and is_auth_user ) %}
+
+			<li class="selectedItem loading">
+				<div class="aspectRatioBox" style="{{ 'padding-bottom:' ~ project.getThumbDimensions.height_percent_ratio ~ '%;' }}"></div>
+				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ project.cover_thumb.getThumb( 470, 0 )|app }}" class="lazyImg" alt="Aperçu : {{ project.title}}">
+				<noscript><img src="{{ project.cover_thumb.getThumb( 470, 0 )|app }}" alt="Aperçu : {{ project.title}}"></noscript>
+				<a href="{{ project.url }}" title="{{ project.title }}">
+					<div style="border-color:{{ project.category.color }};">
+						<p class="itemCategory" style="color:{{ project.category.color }};">{{ project.category.name }}</p>
+						<h4>{{ project.title }}</h4>
+						{% if project.show_date %}
+							<p class="itemDate">— {{ project.date|date( 'Y' ) }}</p>
+						{% endif %}
+					</div>
+				</a>
+			</li>
+
+			{% endif %}
+		{% endfor %}
+			<li class="goArchives">
+				<a href="{{ 'archives'|page }}" title="Voir les archives">Voir les archives</a>
+			</li>
+		</ul>
+	</section>
+
 </section>
 
 {% partial 'footer' %}
-{% partial 'back-to-top-button' %}
