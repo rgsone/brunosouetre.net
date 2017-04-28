@@ -120,6 +120,12 @@ class GalleryImage
 		return $thumbUrl;
 	}
 
+	public function getWidthForHeight( $height = 0 )
+	{
+		if ( $height < 1 ) return 0;
+		return $this->dimensions['ratio'] * $height;
+	}
+
 	public function __get( $name )
 	{
 		if ( isset( $this->{ $name } ) )
