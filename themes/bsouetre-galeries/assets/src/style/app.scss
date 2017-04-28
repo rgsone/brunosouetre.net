@@ -35,7 +35,6 @@
 
 //////-> COLOR
 
-
 //$colorBgMain: #fcf4e8;
 $colorBgMain: #f5f5f3;
 //$colorBgFooter: #fef9f0;
@@ -58,37 +57,29 @@ $colorGalleriesListItemBg: #fef9f0;
 
 /////-> TYPO
 
+$browserContextSize: 16;
 
-//// GLOBAL
-// Base
 $typoBaseStack: RobotoMono, monospace;
 $typoBaseSize: 1.6rem;
 $typoBaseWeight: 400;
 $typoBaseLineHeight: 1.5;
-// Title
+
 $typoTitleStack: Rubik, Helvetica, "Helvetica Neue", sans-serif;
 $typoTitleWeight: 900;
-// But back to home
+
 $typoBackToHomeSize: 1.6rem;
-// Header
+
 $typoHeaderTitleSize: 2.4rem;
 $typoHeaderTaglineSize: 1.6rem;
 
-//// HOME
-// Galleries list
 $typoGalleriesListTitleSize: 2.8rem;
 $typoGalleriesListInfoSize: 1.6rem;
-
-//// GALLERY
 
 
 //////-> MEASURE
 
-
-//// GLOBAL
 $sizeFooterContentMaxWidth: 100rem;
 
-//// HOME
 $sizeHeaderHomeMaxWidth: 100rem;
 $sizeGalleriesListMaxWidth: 100rem;
 
