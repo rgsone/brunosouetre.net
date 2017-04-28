@@ -24,6 +24,7 @@ function onEnd()
 		</symbol>
 	</defs>
 </svg>
+
 <header class="galleryHeader">
 	<nav>
 		<a href="{{ 'home'|page }}" class="butBackGalleries" title="Retour aux galeries">
@@ -35,21 +36,27 @@ function onEnd()
 		<p class="tagline">Galeries</p>
 	</div>
 </header>
+
 <section class="content">
+
 	<section class="galleryInfo">
 		<h1>{{ gallery.title }}</h1>
 		<p style="color: {{ gallery.color }};">{{ gallery.date }} / {{ gallery.getImageCount() }} image{% if gallery.getImageCount() > 1 %}s{% endif %}</p>
 	</section>
+
 	<section class="galleryDescription">
 		{{ gallery.description|md }}
 	</section>
+
 	<section class="galleryImages">
-	{% for image in gallery.images %}<a href="{{ image.url }}">
-		<img class="lazyImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ image.getThumb( 0, 300 ) }}" alt="{{ image.name }}">
-	</a>{% endfor %}
+	{% for image in gallery.images %}<a href="{{ image.url }}" style="min-width:{{ image.getWidthForHeight( 260 ) }}px;">
+			<img class="lazyImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ image.getThumb( 0, 300 ) }}" alt="{{ image.name }}">
+		</a>{% endfor %}
 	</section>
+
 </section>
-<footer>
+
+<footer class="galleryFooter">
 	<div>
 		<div>
 			<a href="http://brunosouetre.net" title="Bruno Souêtre" class="butBackSquareLeft">
