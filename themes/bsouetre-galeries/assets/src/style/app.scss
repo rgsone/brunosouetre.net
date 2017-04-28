@@ -35,9 +35,7 @@
 
 //////-> COLOR
 
-//$colorBgMain: #fcf4e8;
 $colorBgMain: #f5f5f3;
-//$colorBgFooter: #fef9f0;
 $colorBgFooter: #fafafa;
 
 $colorTypoBase: #333;
@@ -75,13 +73,24 @@ $typoHeaderTaglineSize: 1.6rem;
 $typoGalleriesListTitleSize: 2.8rem;
 $typoGalleriesListInfoSize: 1.6rem;
 
+$typoGalleryTitleSize: 5.6rem;
+$typoGallerySubTitleSize: 1.8rem;
+
+$typoErrorTitleSize: 4rem;
+
 
 //////-> MEASURE
 
 $sizeFooterContentMaxWidth: 100rem;
-
 $sizeHeaderHomeMaxWidth: 100rem;
 $sizeGalleriesListMaxWidth: 100rem;
+
+$sizeGalleryThumbBaseHeight: 260px;
+
+
+//////-> IMGURL
+
+$imgUrlThumbLoader: '../static/img/thumb-loader.svg';
 
 
 /*	== includes =======================================

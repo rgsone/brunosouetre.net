@@ -8,7 +8,7 @@
 	margin: 0 auto;
 	padding: 8rem 0 10rem;
 
-	@media ( max-width: 62.5em ) {
+	@media ( max-width: em( 1000px ) ) {
 		padding-left: 3rem;
 		padding-right: 3rem;
 	}
@@ -68,7 +68,7 @@ header {
 		& > div > svg {
 			width: 4rem;
 
-			@media ( max-width: 50em ) {
+			@media ( max-width: em( 800px ) ) {
 				width: 2.5rem;
 			}
 		}
@@ -86,8 +86,8 @@ header {
 		text-overflow: ellipsis;
 		transition: margin 150ms ease-out;
 
-		@media ( max-width: 50em ) {
-			font-size: 2rem;
+		@media ( max-width: em( 800px ) ) {
+			font-size: decimal-round( ( $typoGalleriesListTitleSize * 0.7143 ), 1 );
 		}
 
 		& > span {
