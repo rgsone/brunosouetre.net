@@ -61,7 +61,7 @@
 				border-style: solid;
 				border-width: .2rem;
 				border-color: transparent;
-				transition: border-color 250ms ease;
+				transition: border-color 250ms ease, background-color 250ms ease;
 
 				&:focus,
 				&:hover,
@@ -73,6 +73,8 @@
 				&.active {
 					background-color: darken( $colorBgMain, 10% );
 					border-color: darken( $colorBgMain, 10% );
+					pointer-events: none;
+					cursor: none;
 				}
 			}
 
@@ -106,7 +108,18 @@
 				padding: 0;
 				overflow: hidden;
 				height: $measureArchivesListItemBaseHeight;
-				transition: transform 150ms ease-in;
+				transition: transform 150ms ease-in, opacity 350ms ease;
+				opacity: .1;
+				pointer-events: none;
+
+				&.active {
+					opacity: 1;
+					pointer-events: auto;
+
+					> img {
+						filter: blur( 0 );
+					}
+				}
 
 				@media ( max-width: em( 500px ) ) {
 					height: auto;
@@ -126,6 +139,8 @@
 				> img {
 					width: auto;
 					max-height: $measureArchivesListItemBaseHeight;
+					filter: blur( 3px );
+					transition: filter 350ms ease;
 
 					@media ( max-width: em( 500px ) ) {
 						max-height: none;

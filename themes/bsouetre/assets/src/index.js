@@ -30,6 +30,11 @@ class App
 		this._lazyLoadDataSrc = 'src';
 		this._lazyLoadTreshold = 20;
 
+		this._filtersProjectItemsSelector = '.projectItem';
+		this._filtersDatesListSelector = 'ul[data-filter-type="date"] > li';
+		this._filtersCategoriesListSelector = 'ul[data-filter-type="category"] > li';
+		this._filtersTagsListSelector = 'ul[data-filter-type="tag"] > li';
+
 		this._currentPage = '';
 	}
 
@@ -55,6 +60,7 @@ class App
 			this.initTopLink();
 			this.initTopLinkVisibilityManagement();
 			this.initLazyload();
+			this.initFilterSwitch();
 		}
 		// project
 		else if ( urlPath.match( /^projet\/[a-z0-9_\-]+$/g ) )
@@ -187,6 +193,93 @@ class App
 	lazyImgOnError( el )
 	{
 		// handle error
+	}
+
+	initFilterSwitch()
+	{
+		this._projectItems = document.querySelectorAll( this._filtersProjectItemsSelector );
+
+		if ( null == this._projectItems || this._projectItems.length < 1 ) return;
+
+		this._filterDatesList = document.querySelectorAll( this._filtersDatesListSelector );
+		this._filterCategoriesList = document.querySelectorAll( this._filtersCategoriesListSelector );
+		this._filterTagsList = document.querySelectorAll( this._filtersTagsListSelector );
+
+		this._currentFilterIds = { date: 0, category: 0, tag: 0 };
+		this._currentFilterButtons = { date: null, category: null, tag: null };
+
+		this.initFilterLists( 'date', this._filterDatesList );
+		this.initFilterLists( 'category', this._filterCategoriesList );
+		this.initFilterLists( 'tag', this._filterTagsList );
+	}
+
+	initFilterLists( type, list )
+	{
+		let i = 0;
+		let len = list.length;
+		let currentElement = null;
+
+		for ( ; i < len; i++ )
+		{
+			currentElement = list[ i ];
+
+			if ( currentElement.classList.contains( 'active' ) )
+				this._currentFilterButtons[ type ] = currentElement;
+
+			currentElement.addEventListener( 'click', ( e ) => {
+
+				const el = e.target;
+				const filterType = type;
+
+				this.setFilterButtonState( filterType, el );
+				this._currentFilterIds[ filterType ] = el.dataset.id;
+				this.filterProjects();
+
+			});
+		}
+	}
+
+	setFilterButtonState( type, requested )
+	{
+		this._currentFilterButtons[ type ].classList.toggle( 'active' );
+		requested.classList.toggle( 'active' );
+		this._currentFilterButtons[ type ] = requested;
+	}
+
+	filterProjects()
+	{
+		let i = 0;
+		const len = this._projectItems.length;
+		let currentItem = null;
+
+		for ( ; i < len; i++ )
+		{
+			currentItem = this._projectItems[ i ];
+
+			if (
+				( this._currentFilterIds.date == 0 || currentItem.dataset.date == this._currentFilterIds.date ) &&
+				( this._currentFilterIds.category == 0 || currentItem.dataset.catId == this._currentFilterIds.category ) &&
+				( this._currentFilterIds.tag == 0 ||  this.projectItemHasTagId( this._currentFilterIds.tag, currentItem.dataset.tagId ) )
+			)
+			{
+				currentItem.classList.add( 'active' );
+			}
+			else
+			{
+				currentItem.classList.remove( 'active' );
+			}
+
+		}
+	}
+
+	projectItemHasTagId( currentId, tagIds )
+	{
+		const ids = tagIds.split( ',' );
+		let hasId = false;
+		ids.forEach(( id ) => {
+			if ( id == currentId ) hasId = true;
+		});
+		return hasId;
 	}
 }
 

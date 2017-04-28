@@ -19,30 +19,30 @@ is_hidden = 0
 
 	{% if categories %}
 		<h6>Filtrer par catégorie</h6>
-		<ul class="filterListCategories">
-			<li class="active">Toutes</li>
+		<ul data-filter-type="category" class="filterListCategories">
+			<li data-id="0" class="active">Toutes</li>
 		{% for category in categories %}
-			<li style="color:{{ category.color }};">{{ category.name }}</li>
+			<li data-id="{{ category.id }}" style="color:{{ category.color }};">{{ category.name }}</li>
 		{% endfor %}
 		</ul>
 	{% endif %}
 
 	{% if tags %}
 		<h6>Filtrer par tag</h6>
-		<ul class="filterListTags">
-			<li class="active">Tous</li>
+		<ul data-filter-type="tag" class="filterListTags">
+			<li data-id="0" class="active">Tous</li>
 		{% for tag in tags %}
-			<li>#{{ tag.name }}</li>
+			<li data-id="{{ tag.id }}">#{{ tag.name }}</li>
 		{% endfor %}
 		</ul>
 	{% endif %}
 
 		<h6>Filtrer par année</h6>
-		<ul class="filterListYears">
-			<li class="active">Toutes</li>
+		<ul data-filter-type="date" class="filterListYears">
+			<li data-id="0" class="active">Toutes</li>
 		{% for key, project in projectsByDate %}
 			{% if not ( key == 'none' ) %}
-			<li>{{ key }}</li>
+			<li data-id="{{ key }}">{{ key }}</li>
 			{% endif %}
 		{% endfor %}
 		</ul>
@@ -56,15 +56,18 @@ is_hidden = 0
 
 	{% for key, projectByDate in projectsByDate %}
 		{% for project in projectByDate %}
-		{% for i in 0..2 %}
-			<li class="projectItem loading" data-date="{{ key }}" style="min-width:{{ project.getThumbWidthForHeight( 220 ) }}px;">
+			<li
+					class="projectItem loading active"
+					data-tag-id="{% for tag in project.tags %}{{ tag.id }}{%if not loop.last %},{% endif %}{% endfor %}"
+					data-cat-id="{{ project.category.id }}"
+					data-date="{{ key }}"
+					style="min-width:{{ project.getThumbWidthForHeight( 220 ) }}px;">
 				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ project.cover_thumb.getThumb( 0, 260 )|app }}" class="lazyImg" alt="Vignette : {{ project.title}}">
 				<noscript><img src="{{ project.cover_thumb.getThumb( 0, 260 )|app }}" alt="Vignette : {{ project.title}}"></noscript>
 				<a href="{{ project.url }}" title="{{ project.title }}">
 					<h4>{{ project.title }}</h4>
 				</a>
 			</li>
-		{% endfor %}
 		{% endfor %}
 	{% endfor %}
 
