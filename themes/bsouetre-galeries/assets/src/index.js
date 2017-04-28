@@ -2,7 +2,7 @@
 import './style/app.scss';
 /* JS */
 import jump from 'jump.js';
-import Blazy from 'blazy/blazy.min';
+import LazyLoad from 'vanilla-lazyload/dist/lazyload';
 import baguetteBox from 'baguettebox.js/dist/baguetteBox';
 
 // Hello !
@@ -13,6 +13,16 @@ console.log( '%c /> handmade by rgsone.com ', 'background: #333; color: #fc5454'
 /* App */
 class App
 {
+	constructor()
+	{
+		this._topLinkTopAnchorName = '#top';
+		this._topLinkSelector = '[data-backtotop]';
+		this._topLinkScrollDuration = 600;
+
+		this._lazyLoadSelector = '.lazyImg';
+		this._lazyLoadDataSrc = 'src';
+		this._lazyLoadTreshold = 50;
+	}
 
 	init()
 	{
@@ -26,58 +36,47 @@ class App
 		// gallery but no handle 404/error page erf...
 		else if ( urlPath.match( /^[a-z0-9_\-]+$/g ) )
 		{
-			//this.initMatchMedia();
 			this.initTopAnchorLink();
-			this.initBlazy();
+			this.initLazyload();
 			this.initBaguetteBox();
 		}
 	}
-/*
-	initMatchMedia()
-	{
-		this._mq = window.matchMedia( '( max-width: 500px )' );
-	}
-*/
+
 	initTopAnchorLink()
 	{
-		const backToTopLink = document.querySelector( '[data-backtotop]' );
-		const topAnchor = document.querySelector( '#top' );
+		const backToTopLink = document.querySelector( this._topLinkSelector );
+		const topAnchor = document.querySelector( this._topLinkTopAnchorName );
 
 		if ( null == backToTopLink || null == topAnchor ) return;
 
 		backToTopLink.addEventListener( 'click', ( e ) => {
 			e.preventDefault();
 			backToTopLink.blur();
-			jump( topAnchor, { duration: 600 });
+			jump( topAnchor, { duration: this._topLinkScrollDuration });
 		});
 	}
 
-	initBlazy()
+	initLazyload()
 	{
-		this._blazy = new Blazy({
-			selector: '.lazyImg',
-			success: ( element ) => {
-
-				element.onload = ( evt ) => {
-
-					const img = evt.target;
-					const parent = element.parentNode;
-
-					img.classList.add( 'imgLoaded' );
-
-					/*
-					if ( !this._mq.matches ) parent.style.minWidth = img.width + 'px';
-					else parent.style.minWidth = 0;
-					*/
-
-					parent.style.minWidth = 0;
-
-					parent.style.background = 'none';
-
-				};
-
-			}
+		this._lazyload = new LazyLoad({
+			elements_selector: this._lazyLoadSelector,
+			data_src: this._lazyLoadDataSrc,
+			threshold: this._lazyLoadTreshold,
+			callback_load: this.lazyImgOnLoad
 		});
+	}
+
+	lazyImgOnLoad( el )
+	{
+		if ( el.tagName.toLowerCase() != 'img' ) return;
+
+		const parent = el.parentNode;
+
+		parent.style.minWidth = 0;
+		//parent.style.backgroundImage = 'none';
+		setTimeout(( elem ) => { elem.style.background = 'none'; }, 200, parent );
+
+		el.classList.add( 'imgLoaded' );
 	}
 
 	initBaguetteBox()
