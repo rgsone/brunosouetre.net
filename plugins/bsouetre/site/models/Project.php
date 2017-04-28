@@ -97,6 +97,12 @@ class Project extends Model
 		return $this->thumbDimensions;
 	}
 
+	public function getThumbWidthForHeight( $height = 0 )
+	{
+		if ( $height < 1 ) return 0;
+		return floor( $this->getThumbDimensions()['ratio'] * $height );
+	}
+
 	public function getPreviewAttribute()
 	{
 		return Page::url( 'project', [ 'name' => $this->slug ] );
