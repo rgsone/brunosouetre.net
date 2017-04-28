@@ -35,7 +35,7 @@ class ArchivesPage extends ComponentBase
 		/** @var Collection $projects */
 		$projects = Project::where( 'published', true )->orderBy( 'date', 'desc' )->get();
 		$isAuthUser = BackendAuth::getUser();
-		$projectsByDate = [];
+		$projectsWithDate = [];
 
 		foreach ( $projects as $project )
 		{
@@ -46,13 +46,16 @@ class ArchivesPage extends ComponentBase
 			$dateHelper = Carbon::parse( $project->date, Config::get( 'app.timezone' ) );
 			# check for private project
 			if ( !$project->private || ( $project->private && $isAuthUser ) )
-				$projectsByDate[ $dateHelper->year ][] = $project;
+			{
+				$key = ( $project->show_date ) ? $dateHelper->year : 'none';
+				$projectsWithDate[ $key ][] = $project;
+			}
 		}
 
 		# inject var in page
 
 		$this->page[ 'categories' ] = Category::all();
 		$this->page[ 'tags' ] = Tag::all();
-		$this->page[ 'projectsByDate' ] = $projectsByDate;
+		$this->page[ 'projectsByDate' ] = $projectsWithDate;
 	}
 }
