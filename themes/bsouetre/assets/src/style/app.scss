@@ -76,6 +76,8 @@ $typoTitleLineHeight: 1;
 $typoTitleH1Size: 6.6rem;
 $typoTitleH3Size: 4rem;
 $typoTitleH4Size: 2.2rem;
+$typoTitleH5Size: 1.8rem;
+$typoTitleH6Size: 1.4rem;
 
 $typoBackToHomeSize: 1.6rem;
 
@@ -99,9 +101,15 @@ $typoProjectTaxonomySize: 1.4rem;
 $typoProjectContentPSize: 1.8rem;
 $typoProjectContentCaptionSize: 1.4rem;
 
+$typoArchivesTitleSize: 5.6rem;
+$typoArchivesFilterListTitleSize: 1.3rem;
+$typoArchivesListItemTitleSize: 1.8rem;
+
 //////-> MEASURE
 
 $measureAboutContentMaxWidth: 110rem;
+
+$measureArchivesListItemBaseHeight: 220px;
 
 //////-> IMGURL
 
@@ -122,6 +130,7 @@ $imgUrlThumbLoader: '../static/img/thumb-loader.svg';
 
 @import "app/pages/global";
 @import "app/pages/home";
+@import "app/pages/archives";
 @import "app/pages/project";
 @import "app/pages/about";
 @import "app/pages/contact";

@@ -10,38 +10,68 @@ is_hidden = 0
 {% partial 'svg' %}
 {% partial 'header' %}
 
-<h1>Archives</h1>
+<section class="content archivesContent">
 
-<section>
+	<h1>Archives</h1>
+
+	<section class="archivesFilterList">
+	{% spaceless %}
+
 	{% if categories %}
-		<p>catégories</p>
-		<ul>
-			{% for category in categories %}
-				<li>{{ category.name }}</li>
-			{% endfor %}
+		<h6>Filtrer par catégorie</h6>
+		<ul class="filterListCategories">
+			<li class="active">Toutes</li>
+		{% for category in categories %}
+			<li style="color:{{ category.color }};">{{ category.name }}</li>
+		{% endfor %}
 		</ul>
 	{% endif %}
-	{% if tags %}
-		<p>tags</p>
-		<ul>
-			{% for tag in tags %}
-				<li>{{ tag.name }}</li>
-			{% endfor %}
-		</ul>
-	{% endif %}
-</section>
 
-<section>
-	<h3>projets</h3>
-	{% for key, projectByDate in projectsByDate %}
-		<ul>
-			<li>{{ key }}</li>
-			{% for project in projectByDate %}
-				<li><a href="{{ project.url }}">{{ project.title }}</a></li>
-			{% endfor %}
+	{% if tags %}
+		<h6>Filtrer par tag</h6>
+		<ul class="filterListTags">
+			<li class="active">Tous</li>
+		{% for tag in tags %}
+			<li>#{{ tag.name }}</li>
+		{% endfor %}
 		</ul>
+	{% endif %}
+
+		<h6>Filtrer par année</h6>
+		<ul class="filterListYears">
+			<li class="active">Toutes</li>
+		{% for key, project in projectsByDate %}
+			{% if not ( key == 'none' ) %}
+			<li>{{ key }}</li>
+			{% endif %}
+		{% endfor %}
+		</ul>
+
+	{% endspaceless%}
+	</section>
+
+	<section class="archivesList">
+		<ul>
+	{% spaceless %}
+
+	{% for key, projectByDate in projectsByDate %}
+		{% for project in projectByDate %}
+		{% for i in 0..2 %}
+			<li class="projectItem loading" data-date="{{ key }}" style="min-width:{{ project.getThumbWidthForHeight( 220 ) }}px;">
+				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ project.cover_thumb.getThumb( 0, 260 )|app }}" class="lazyImg" alt="Vignette : {{ project.title}}">
+				<noscript><img src="{{ project.cover_thumb.getThumb( 0, 260 )|app }}" alt="Vignette : {{ project.title}}"></noscript>
+				<a href="{{ project.url }}" title="{{ project.title }}">
+					<h4>{{ project.title }}</h4>
+				</a>
+			</li>
+		{% endfor %}
+		{% endfor %}
 	{% endfor %}
+
+	{% endspaceless %}
+		</ul>
+	</section>
+
 </section>
 
 {% partial 'footer' %}
-{% partial 'back-to-top-button' %}

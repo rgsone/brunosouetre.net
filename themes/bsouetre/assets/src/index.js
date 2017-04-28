@@ -29,6 +29,8 @@ class App
 		this._lazyLoadSelector = '.lazyImg';
 		this._lazyLoadDataSrc = 'src';
 		this._lazyLoadTreshold = 20;
+
+		this._currentPage = '';
 	}
 
 	init()
@@ -38,6 +40,8 @@ class App
 		// home
 		if ( urlPath == '' )
 		{
+			this._currentPage = 'home';
+
 			this.initTopLink();
 			this.initTopLinkVisibilityManagement();
 			this.initGreeed();
@@ -46,18 +50,32 @@ class App
 		// archives
 		else if ( urlPath.match( /^archives$/g ) )
 		{
+			this._currentPage = 'archives';
+
+			this.initTopLink();
+			this.initTopLinkVisibilityManagement();
+			this.initLazyload();
+		}
+		// project
+		else if ( urlPath.match( /^projet\/[a-z0-9_\-]+$/g ) )
+		{
+			this._currentPage = 'project';
+
 			this.initTopLink();
 			this.initTopLinkVisibilityManagement();
 		}
-		// project & about
-		else if ( urlPath.match( /^projet\/[a-z0-9_\-]+$/g ) || urlPath.match( /^a\-propos$/g ) )
+		// about
+		else if ( urlPath.match( /^a\-propos$/g ) )
 		{
+			this._currentPage = 'about';
+
 			this.initTopLink();
 			this.initTopLinkVisibilityManagement();
 		}
 		// contact
 		else if ( urlPath.match( /^contact$/g ) )
 		{
+			this._currentPage = 'contact';
 			// ....
 		}
 	}
@@ -156,10 +174,14 @@ class App
 	{
 		if ( el.tagName.toLowerCase() != 'img' ) return;
 
-		const imgParent = el.parentNode;
-		setTimeout( ( el ) => {
-			el.classList.remove( 'loading' );
-		}, 1000, imgParent );
+		const parent = el.parentNode;
+		setTimeout( ( elem ) => { elem.classList.remove( 'loading' ); }, 1000, parent );
+
+		// check if archives page
+		if ( null == document.querySelector( 'section.archivesContent' ) ) return;
+
+		parent.style.minWidth = 0;
+		parent.style.minHeight = 0;
 	}
 
 	lazyImgOnError( el )
