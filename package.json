@@ -10,6 +10,7 @@
     "shopBuild": "node fuse.js build -t shop",
     "galeriesDev": "node fuse.js dev -t galeries",
     "galeriesBuild": "node fuse.js build -t galeries",
+    "allThemesBuild": "node fuse.js build && node fuse.js build -t shop && node fuse.js build -t galeries",
     "distBuild": "gulp build:dist && php dist/artisan cache:clear && php dist/artisan config:cache && php dist/artisan optimize && php dist/artisan route:cache"
   },
   "author": "rgsone",
