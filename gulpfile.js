@@ -96,7 +96,28 @@ gulp.task( 'favicon:check-for-update', ( done ) => {
 	});
 });
 
+// delete generated favicons
+gulp.task( 'favicon:clean', () => {
+	return del([
+		'android-*.png',
+		'apple-*.png',
+		'browserconfig.xml',
+		'favicon.ico',
+		'favicon-16x16.png',
+		'favicon-32x32.png',
+		'faviconData.json',
+		'manifest.json',
+		'mstile-*.png',
+		'safari-pinned-tab.svg'
+	]);
+});
+
 /* #### BUILD TASKS ############################ */
+
+// delete thumb/ dir in galeries
+gulp.task( 'del:galeriesThumb', () => {
+	return del([ 'galeries/*/thumb/' ]);
+});
 
 // delete dist/ dir
 gulp.task( 'del:dist', () => {
@@ -108,15 +129,23 @@ gulp.task( 'copy:toDist', () => {
 	return gulp.src([
 			'bootstrap/**',
 			'config/**',
-			'galeries/**',
+			'galeries/exemple/**',
 			'modules/**',
 			'plugins/**',
 			'storage/**',
 			'themes/**',
 			'vendor/**',
 			'.htaccess',
+			'android-*.png',
+			'apple-*.png',
+			'browserconfig.xml',
+			'favicon.ico',
+			'favicon-*.png',
 			'artisan',
-			'index.php'
+			'index.php',
+			'manifest.json',
+			'mstile-*.png',
+			'safari-pinned-tab.svg'
 		],
 		{
 			base: '.',
@@ -159,5 +188,5 @@ gulp.task( 'clean:dist', () => {
 ///////// prepare and build dist files for upload
 
 gulp.task( 'build:dist', ( done ) => {
-	runSequence( 'del:dist', 'copy:toDist', 'copy:envToDist', 'clean:dist', done );
+	runSequence( 'del:dist', 'del:galeriesThumb', 'copy:toDist', 'copy:envToDist', 'clean:dist', done );
 });
