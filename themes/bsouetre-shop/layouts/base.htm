@@ -47,6 +47,9 @@ description = "html base template"
 	{% if not ( this.environment == 'dev' ) %}
 		<link rel="stylesheet" href="{{ 'assets/css/style.css'|theme }}" media="all">
 	{% endif %}
+	{% if not ( this.environment == 'dev' ) %}
+		{% partial 'piwik' %}
+	{% endif %}
 	</head>
 	<body id="top">
 		{% page %}
