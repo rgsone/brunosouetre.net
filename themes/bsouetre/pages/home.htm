@@ -1,16 +1,57 @@
-title = "bsouetre / home"
+title = "bsouetre/home"
 url = "/"
+layout = "base"
+meta_title = "Bonjour ! | Bruno Souêtre — Graphiste"
+meta_description = "Bonjour ! Bienvenue sur le site de Bruno Souêtre, graphiste à Cambrai."
 is_hidden = 0
+
+[siteHomePage]
 ==
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-	<title>bsouetre / home</title>
-</head>
-<body>
-	<h1>bsouetre/home</h1>
-</body>
-</html>
+{% partial 'svg' %}
+{% partial 'header' %}
+
+<section class="content homeContent">
+
+	{% if highlighted.activated %}
+	<section class="homeHighlighted">
+		<div>
+			<a href="{{ highlighted.url }}" title="{{ highlighted.desc }}" class="lazyImg" data-lazy-type="bg" data-src="{{ highlighted.img|app }}">
+				<p class="highlightedDesc">
+					{{ highlighted.desc }}
+				</p>
+			</a>
+		</div>
+	</section>
+	{% endif %}
+
+	<section class="homeSelected">
+		<ul>
+		{% for project in selected_projects %}
+			{% if not project.private or ( project.private and is_auth_user ) %}
+
+			<li class="selectedItem loading">
+				<div class="aspectRatioBox" style="{{ 'padding-bottom:' ~ project.getThumbDimensions.height_percent_ratio ~ '%;' }}"></div>
+				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ project.cover_thumb.getThumb( 470, 0 )|app }}" class="lazyImg" alt="Aperçu : {{ project.title}}">
+				<noscript><img src="{{ project.cover_thumb.getThumb( 470, 0 )|app }}" alt="Aperçu : {{ project.title}}"></noscript>
+				<a href="{{ project.url }}" title="{{ project.title }}">
+					<div style="border-color:{{ project.category.color }};">
+						<p class="itemCategory" style="color:{{ project.category.color }};">{{ project.category.name }}</p>
+						<h4>{{ project.title }}</h4>
+						{% if project.show_date %}
+							<p class="itemDate">— {{ project.date|date( 'Y' ) }}</p>
+						{% endif %}
+					</div>
+				</a>
+			</li>
+
+			{% endif %}
+		{% endfor %}
+			<li class="goArchives">
+				<a href="{{ 'archives'|page }}" title="Voir les archives">Voir les archives</a>
+			</li>
+		</ul>
+	</section>
+
+</section>
+
+{% partial 'footer' %}

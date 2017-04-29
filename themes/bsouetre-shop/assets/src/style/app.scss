@@ -1,0 +1,109 @@
+/*! shop.brunosouetre.net | @author rgsone | @url rgsone.com */
+/*	======================================================================
+		======================================================================
+		|
+		|		    ___           ___           ___           ___           ___           ___
+		|	     /\  \         /\  \         /\  \         /\  \         /\__\         /\  \
+		|	    /::\  \       /::\  \       /::\  \       /::\  \       /::|  |       /::\  \
+		|	   /:/\:\  \     /:/\:\  \     /:/\ \  \     /:/\:\  \     /:|:|  |      /:/\:\  \
+		|	  /::\~\:\  \   /:/  \:\  \   _\:\~\ \  \   /:/  \:\  \   /:/|:|  |__   /::\~\:\  \
+		|	 /:/\:\ \:\__\ /:/__/_\:\__\ /\ \:\ \ \__\ /:/__/ \:\__\ /:/ |:| /\__\ /:/\:\ \:\__\
+		|	 \/_|::\/:/  / \:\  /\ \/__/ \:\ \:\ \/__/ \:\  \ /:/  / \/__|:|/:/  / \:\~\:\ \/__/
+		|	    |:|::/  /   \:\ \:\__\    \:\ \:\__\    \:\  /:/  /      |:/:/  /   \:\ \:\__\
+		|	    |:|\/__/     \:\/:/  /     \:\/:/  /     \:\/:/  /       |::/  /     \:\ \/__/
+		|	    |:|  |        \::/  /       \::/  /       \::/  /        /:/  /       \:\__\
+		|	     \|__|         \/__/         \/__/         \/__/         \/__/         \/__/
+		|
+		|
+		|		shop.brunosouetre.net
+		|
+		|		@author rudy marc
+		|		@contact rgs@rgsone.com
+		|		@url http://rgsone.com
+		|
+		======================================================================
+		====================================================================== */
+
+/*	== libs ===========================================
+		=================================================== */
+
+@import "node_modules/normalize.css/normalize";
+
+/*	== var ============================================
+		=================================================== */
+
+//////-> COLOR
+
+
+$colorBgMain: #f5f5f3;
+$colorBgFooter: #fafafa;
+$colorBgContent: #efdfc2;
+
+$colorTypoBase: #333;
+$colorTypoAlt: #fc5454;
+$colorTypoLink: #333;
+$colorTypoLinkHover: #fcf4e8;
+$colorTypoLinkUnderlineHover: #fc5454;
+
+$colorTypoTitleUnderline: #fc5454;
+
+$colorSelectionBg: #fc5454;
+$colorSelectionTypo: #fcf4e8;
+
+$colorIcon: #fc5454;
+$colorButton: #fc5454;
+
+$colorTopSeparator: #fc5454;
+$colorArticleSeparator: darken( $colorBgContent, 20% );
+$colorFooterNavSeparator: #fc5454;
+
+/////-> TYPO
+
+$browserContextSize: 16;
+
+$typoBaseStack: RobotoMono, monospace;
+$typoBaseSize: 1.6rem;
+$typoBaseWeight: 400;
+$typoBaseLineHeight: 1.5;
+
+$typoTitleStack: Rubik, Helvetica, "Helvetica Neue", sans-serif;
+$typoTitleWeight: 900;
+
+$typoBackToHomeSize: 1.6rem;
+
+$typoErrorTitleSize: 4rem;
+
+$typoArticleTitleSize: 4.6rem;
+$typoArticlePSize: 1.8rem;
+
+$typoFooterNavIconSize: 1.2rem;
+
+//////-> MEASURE
+
+$measureContentMaxWidth: 147rem;
+$measureHeaderBaseHeight: 65rem;
+$measureIlluShopContainerBaseHeight: 92rem;
+
+//////-> IMGURL
+
+$imgUrlHeaderIlluBig: '../static/img/header-illu-big.png';
+$imgUrlHeaderIlluMedium: '../static/img/header-illu-medium.png';
+$imgUrlHeaderIlluSmall: '../static/img/header-illu-small.png';
+
+$imgUrlBgDownTriangle: '../static/img/bg-triangle-down.svg';
+$imgUrlBgUpTriangle: '../static/img/bg-triangle-up.svg';
+
+
+/*	== includes =======================================
+		=================================================== */
+
+@import "includes/helpers";
+
+/*	== styles =========================================
+		=================================================== */
+
+@import "app/font";
+@import "app/base";
+
+@import "app/pages/global";
+@import "app/pages/home";

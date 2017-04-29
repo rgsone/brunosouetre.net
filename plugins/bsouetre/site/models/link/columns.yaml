@@ -1,0 +1,19 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+  preview:
+    label: ''
+    type: partial
+    path: ~/plugins/bsouetre/site/models/link/_preview_column.htm
+    searchable: false
+    sortable: false
+    clickable: false
+    width: '90px'
+  name:
+    label: 'Nom'
+    searchable: true
+  url:
+    label: 'Url'
+    searchable: true

@@ -1,0 +1,7 @@
+1.0.0:
+  - First version
+  - create_links_table.php
+  - create_projects_table.php
+  - create_categories_table.php
+  - create_tags_table.php
+  - seed_tables.php

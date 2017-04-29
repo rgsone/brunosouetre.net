@@ -1,0 +1,14 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+  name:
+    label: 'Nom'
+    span: left
+    required: true
+  url:
+    label: 'Url'
+    span: right
+    required: true
+    placeholder: 'http://'

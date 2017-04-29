@@ -1,0 +1,28 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: 'Catégorie'
+# Model Form Field configuration
+form: $/bsouetre/site/models/category/fields.yaml
+# Model Class name
+modelClass: BSouetre\Site\Models\Category
+# Default redirect location
+defaultRedirect: bsouetre/site/categories
+# Create page
+create:
+  title: 'Ajouter une catégorie'
+  redirect: bsouetre/site/categories/update/:id
+  redirectClose: bsouetre/site/categories
+  flashSave: 'Catégorie créée avec succés !'
+# Update page
+update:
+  title: 'Modifer la catégorie'
+  redirect: bsouetre/site/categories
+  redirectClose: bsouetre/site/categories
+  flashSave: 'Catégorie mise à jour avec succés !'
+  flashDelete: 'Catégorie supprimée avec succés !'
+# Preview page
+preview:
+    title: 'Aperçu'

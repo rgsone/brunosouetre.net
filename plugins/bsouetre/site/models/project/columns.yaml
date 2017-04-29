@@ -1,0 +1,43 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+  thumb:
+    label: 'Vignette'
+    type: partial
+    path: ~/plugins/bsouetre/site/models/project/_thumb_column.htm
+    sortable: false
+    searchable: false
+  title:
+    label: 'Projet'
+    searchable: true
+  date:
+    label: 'Date'
+    searchable: true
+    type: datetime
+    format: m/Y
+  category_id:
+    label: 'Catégorie'
+    relation: category
+    valueFrom: name
+  published:
+    label: 'Status'
+    type: partial
+    path: ~/plugins/bsouetre/site/models/project/_status_column.htm
+  private:
+    label: 'Privé/Public'
+    type: partial
+    path: ~/plugins/bsouetre/site/models/project/_private_column.htm
+  featured:
+    label: 'Séléctionné'
+    type: partial
+    path: ~/plugins/bsouetre/site/models/project/_featured_column.htm
+  preview:
+    label: 'Aperçu'
+    type: partial
+    path: ~/plugins/bsouetre/site/models/project/_preview_column.htm
+    searchable: false
+    sortable: false
+    clickable: false
+    width: '160px'

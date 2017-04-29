@@ -1,0 +1,193 @@
+/* 	======================================================================
+		|	STRUCTURE / GLOBAL
+		======================================================================
+		====================================================================== */
+
+
+/* === BACK TO TOP BUTTON === */
+
+.butBackToTop {
+	position: absolute;
+	display: block;
+	width: 5rem;
+	height: 5rem;
+	border-style: solid;
+	border-color: $colorButton;
+	border-width: .3rem;
+	right: 8%;
+	top: -2.5rem;
+	opacity: 1;
+	transition: background-size 150ms ease-out, opacity 250ms ease-out;
+	background-image: linear-gradient( $colorButton, $colorButton );
+	background-position: 0 100%;
+	background-size: 100% 0;
+	background-repeat: no-repeat;
+
+	&.hide {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	@media ( max-width: em( 650px ) ) {
+		right: auto;
+		left: 50%;
+		transform: translateX( -50% );
+	}
+
+	@media ( max-width: em( 650px ) ) {
+		width: 4rem;
+		height: 4rem;
+	}
+
+	&:focus,
+	&:hover,
+	&:active {
+		background-size: 100% 100%;
+
+		& > svg {
+			fill: $colorTypoLinkHover;
+		}
+	}
+
+	& > svg {
+		fill: $colorButton;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate( -50%, -50% );
+		transition: fill 100ms ease-out;
+	}
+}
+
+/* === BACK SQUARE LEFT BUTTON === */
+
+.butBackSquareLeft {
+	position: relative;
+	display: inline-block;
+	line-height: 4.4rem;
+	border-width: .3rem;
+	border-color: $colorButton;
+	border-style: solid;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 0 2rem 0 5rem;
+	transition: background-size 150ms ease-out, color 100ms ease-out;
+	background-image: linear-gradient( $colorButton, $colorButton );
+	background-position: 100% 0;
+	background-size: 0 100%;
+	background-repeat: no-repeat;
+
+	&:focus,
+	&:hover,
+	&:active {
+		color: $colorTypoLinkHover;
+		background-size: 100% 100%;
+
+		> svg {
+			fill: $colorTypoLinkHover;
+		}
+	}
+
+	> svg {
+		fill: $colorButton;
+		transform: translate( 0, -50% ) rotate( -90deg );
+		position: absolute;
+		top: 50%;
+		left: 1.4rem;
+		transition: fill 100ms ease-out;
+	}
+
+	> span {
+		font-size: $typoBackToHomeSize;
+	}
+}
+
+/* === SVG ICON === */
+
+#logo-afd,
+#logo-400p,
+#logo-rgsone {
+	fill: $colorIcon;
+}
+
+#logo-rgsone .cls,
+#logo-galeries {
+	stroke: $colorIcon;
+}
+
+/* === 404 / ERROR CONTAINER === */
+
+.errorContainer {
+	> h3 {
+		text-align: center;
+		font-family: $typoTitleStack;
+		font-size: $typoErrorTitleSize;
+		text-transform: uppercase;
+		padding: 12rem 2rem 6rem;
+		margin: 0;
+	}
+
+	> p {
+		text-align: center;
+		margin: 0;
+	}
+}
+
+/* === MAINTENANCE === */
+
+.maintenanceContent {
+	> h3 {
+		text-align: center;
+		font-size: 2.6rem;
+		text-transform: uppercase;
+		padding: 12rem 2rem 6rem;
+		margin: 0;
+	}
+}
+
+/* === BASE === */
+
+.content {
+	padding: 36rem 0 20rem;
+
+	@media ( max-width: em( 900px ) ) {
+		padding-top: 26rem;
+	}
+
+	@media ( max-width: em( 600px ) ) {
+		padding-top: 12rem;
+		padding-bottom: 12rem;
+	}
+}
+
+.titleBottomSep {
+	max-width: 30rem;
+	height: .8rem;
+	margin: 6rem auto;
+	background-color: $colorTitleSeparator;
+
+	@media ( max-width: em( 900px ) ) {
+		height: .6rem;
+	}
+
+	@media ( max-width: em( 600px ) ) {
+		height: .5rem;
+		max-width: 20rem;
+	}
+}
+
+.subTitleBottomSep {
+	max-width: 16rem;
+	height: .8rem;
+	margin: 4.6rem auto;
+	background-color: $colorTitleSeparator;
+
+	@media ( max-width: em( 900px ) ) {
+		height: .6rem;
+	}
+
+	@media ( max-width: em( 600px ) ) {
+		height: .5rem;
+		max-width: 10rem;
+	}
+}

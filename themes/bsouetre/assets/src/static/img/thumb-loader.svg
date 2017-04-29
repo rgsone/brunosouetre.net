@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 20 20" preserveAspectRatio="xMidYMid meet">
+<style>
+#circleLoader{fill:#fc5454;animation-name:animationFrames;animation-duration:.8s;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-direction:alternate;transform-origin:50% 50%;}
+@keyframes animationFrames{0%{opacity:1;transform:scale(1,1);}100%{opacity:.8;transform:scale(1.4,1.4);}}
+</style>
+<ellipse id="circleLoader" cx="10" cy="10" ry="5" rx="5" stroke-width="0"/>
+</svg>

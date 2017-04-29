@@ -1,0 +1,27 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+  date:
+    label: 'Filtrer par date'
+    type: daterange
+    conditions: date >= ':after' AND date <= ':before'
+  published:
+    label: 'Tous / Non-publié(s) / Publié(s)'
+    type: switch
+    conditions:
+      - published <> true
+      - published = true
+  private:
+    label: 'Tous / Public(s) / Privé(s)'
+    type: switch
+    conditions:
+      - private <> true
+      - private = true
+  featured:
+    label: 'Tous / Non-sélectionné(s) / Sélectionné(s)'
+    type: switch
+    conditions:
+      - featured <> true
+      - featured = true

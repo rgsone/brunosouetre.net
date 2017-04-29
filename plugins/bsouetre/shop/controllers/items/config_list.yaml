@@ -1,0 +1,27 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+title: Manage Items
+
+list: $/bsouetre/shop/models/item/columns.yaml
+modelClass: BSouetre\Shop\Models\Item
+
+recordUrl: bsouetre/shop/items/update/:id
+noRecordsMessage: backend::lang.list.no_records
+recordsPerPage: 20
+
+showSetup: false
+showSorting: true
+showCheckboxes: true
+
+defaultSort:
+  column: created_at
+  direction: desc
+
+toolbar:
+  buttons: list_toolbar
+  search:
+    prompt: backend::lang.list.search_prompt
+
+filter: config_filter.yaml

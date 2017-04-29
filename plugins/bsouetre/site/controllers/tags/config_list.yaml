@@ -1,0 +1,22 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+title: 'Gérer les tags'
+
+list: $/bsouetre/site/models/tag/columns.yaml
+
+modelClass: BSouetre\Site\Models\Tag
+
+recordUrl: bsouetre/site/tags/update/:id
+noRecordsMessage: backend::lang.list.no_records
+recordsPerPage: 50
+
+showSetup: false
+showSorting: true
+showCheckboxes: true
+
+toolbar:
+  buttons: list_toolbar
+  search:
+    prompt: backend::lang.list.search_prompt

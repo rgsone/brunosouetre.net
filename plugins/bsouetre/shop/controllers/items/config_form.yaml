@@ -1,0 +1,25 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: 'Article'
+
+form: $/bsouetre/shop/models/item/fields.yaml
+modelClass: BSouetre\Shop\Models\Item
+defaultRedirect: bsouetre/shop/items
+
+create:
+  title: 'Ajouter un article'
+  redirect: bsouetre/shop/items/update/:id
+  redirectClose: bsouetre/shop/items
+  flashSave: 'Article ajouté avec succés !'
+
+update:
+  title: 'Modifier l''article'
+  redirect: bsouetre/shop/items
+  redirectClose: bsouetre/shop/items
+  flashSave: 'Article mis à jour avec succés !'
+  flashDelete: 'Article supprimé avec succés !'
+
+preview:
+  title: 'Aperçu'

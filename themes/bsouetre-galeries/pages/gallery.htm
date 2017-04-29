@@ -1,0 +1,73 @@
+title = "galeries.bsouetre / gallery"
+url = "/:name|^[a-z0-9_\-]+$"
+layout = "base"
+meta_title = "Bruno Souêtre — Galeries"
+meta_description = "Galerie"
+is_hidden = 0
+
+[galleriesGalleryPage]
+==
+<?php
+
+function onEnd()
+{
+	$this->meta_title = $this->gallery->title . ' | ' . $this->meta_title;
+	$this->meta_description .= ' : ' . $this->gallery->title;
+}
+
+?>
+==
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="display: none;">
+	<defs>
+		<symbol id="icon-arrow" viewBox="0 0 20 20" preserveAspectRatio="xMidYMid meet">
+			<path d="M18.68,15.65a1.31,1.31,0,0,1-.93-.39L10,7.51,2.25,15.27A1.32,1.32,0,0,1,.39,13.4L9.07,4.72a1.35,1.35,0,0,1,1.86,0l8.68,8.68a1.32,1.32,0,0,1-.93,2.25Z"/>
+		</symbol>
+	</defs>
+</svg>
+
+<header class="galleryHeader">
+	<nav>
+		<a href="{{ 'home'|page }}" class="butBackGalleries" title="Retour aux galeries">
+			<svg width="20px" height="20px"><use xlink:href="#icon-arrow"></use></svg>
+		</a>
+	</nav>
+	<div>
+		<h1>Bruno Souêtre</h1>
+		<p class="tagline">Galeries</p>
+	</div>
+</header>
+
+<section class="content">
+
+	<section class="galleryInfo">
+		<h1>{{ gallery.title }}</h1>
+		<p style="color: {{ gallery.color }};">{{ gallery.date }} / {{ gallery.getImageCount() }} image{% if gallery.getImageCount() > 1 %}s{% endif %}</p>
+	</section>
+
+	<section class="galleryDescription">
+		{{ gallery.description|md }}
+	</section>
+
+	<section class="galleryImages">
+	{% for image in gallery.images %}<a href="{{ image.url }}" style="min-width:{{ image.getWidthForHeight( 260 ) }}px;">
+			<img class="lazyImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ image.getThumb( 0, 300 ) }}" alt="{{ image.name }}">
+		</a>{% endfor %}
+	</section>
+
+</section>
+
+<footer class="galleryFooter">
+	<div>
+		<div>
+			<a href="http://brunosouetre.net" title="Bruno Souêtre" class="butBackSquareLeft">
+				<svg width="20px" height="20px"><use xlink:href="#icon-arrow"></use></svg>
+				<span>brunosouetre.net</span>
+			</a>
+		</div>
+		<div>
+			<a href="#haut" class="butBackSquareTop" title="Retour en haut" data-backtotop>
+				<svg width="20px" height="20px"><use xlink:href="#icon-arrow"></use></svg>
+			</a>
+		</div>
+	</div>
+</footer>

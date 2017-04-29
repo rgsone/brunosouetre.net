@@ -45,7 +45,7 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root'   => storage_path('app'),
+            'root'   => storage_path('app')
         ],
 
         's3' => [
@@ -53,7 +53,7 @@ return [
             'key'    => 'your-key',
             'secret' => 'your-secret',
             'region' => 'your-region',
-            'bucket' => 'your-bucket',
+            'bucket' => 'your-bucket'
         ],
 
         'rackspace' => [
@@ -62,9 +62,9 @@ return [
             'key'       => 'your-key',
             'container' => 'your-container',
             'endpoint'  => 'https://identity.api.rackspacecloud.com/v2.0/',
-            'region'    => 'IAD',
-        ],
+            'region'    => 'IAD'
+        ]
 
-    ],
+    ]
 
 ];

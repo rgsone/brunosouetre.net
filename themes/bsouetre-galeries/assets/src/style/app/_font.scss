@@ -1,0 +1,24 @@
+/* 	======================================================================
+		|	FONT-FACE
+		======================================================================
+		====================================================================== */
+
+/*
+	100 > Thin (Hairline)
+	200 > Extra Light (Ultra Light)
+	300 > Light
+	400 > Normal
+	500 > Medium
+	600 > Semi Bold (Demi Bold)
+	700 > Bold
+	800 > Extra Bold (Ultra Bold)
+	900 > Black (Heavy)
+*/
+
+//> RUBIK
+@include font-face( 'Rubik', '../static/fonts/rubik-black', 900, normal, 'Rubik Black', woff2 woff );
+//> ROBOTO MONO
+@include font-face( 'RobotoMono', '../static/fonts/robotomono-regular', 400, normal, 'Roboto Mono' 'RobotoMono-Regular', woff2 woff );
+@include font-face( 'RobotoMono', '../static/fonts/robotomono-italic', 400, italic, 'Roboto Mono Italic' 'RobotoMono-Italic', woff2 woff );
+@include font-face( 'RobotoMono', '../static/fonts/robotomono-bold', 700, normal, 'Roboto Mono Bold' 'RobotoMono-Bold', woff2 woff );
+@include font-face( 'RobotoMono', '../static/fonts/robotomono-bolditalic', 700, italic, 'Roboto Mono Bold Italic' 'RobotoMono-BoldItalic', woff2 woff );

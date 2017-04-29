@@ -1,0 +1,20 @@
+title = "bsouetre/contact"
+url = "/contact"
+layout = "base"
+meta_title = "Contact | Bruno Souêtre — Graphiste"
+meta_description = "Contacter Bruno Souêtre"
+is_hidden = 0
+
+[siteContactPage]
+==
+{% partial 'svg' %}
+{% partial 'header' %}
+
+<section class="content contactContent">
+	<h1>Me Contacter</h1>
+	<div class="titleBottomSep"></div>
+	<p><a class="contactMail" href="mailto:{{ email }}">{{ email }}</a></p>
+	<p>•<br>91 bd Faidherbe F-59400 Cambrai<br>tél. 03 27 78 39 80 </p>
+</section>
+
+{% partial 'footer' %}

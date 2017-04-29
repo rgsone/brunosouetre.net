@@ -1,0 +1,78 @@
+/* 	======================================================================
+		|	STRUCTURE / GLOBAL
+		======================================================================
+		====================================================================== */
+
+
+/* === BACK SQUARE LEFT BUTTON === */
+
+.butBackSquareLeft {
+	position: relative;
+	display: inline-block;
+	line-height: 4.4rem;
+	border-width: .3rem;
+	border-color: $colorButton;
+	border-style: solid;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 0 2rem 0 5rem;
+	transition: background-size 150ms ease-out, color 100ms ease-out;
+	background-image: linear-gradient( $colorButton, $colorButton );
+	background-position: 100% 0;
+	background-size: 0 100%;
+	background-repeat: no-repeat;
+
+	&:focus,
+	&:hover,
+	&:active {
+		color: $colorTypoLinkHover;
+		background-size: 100% 100%;
+
+		> svg {
+			fill: $colorTypoLinkHover;
+		}
+	}
+
+	> svg {
+		fill: $colorButton;
+		transform: translate( 0, -50% ) rotate( -90deg );
+		position: absolute;
+		top: 50%;
+		left: 1.4rem;
+		transition: fill 100ms ease-out;
+	}
+
+	> span {
+		font-size: $typoBackToHomeSize;
+	}
+}
+
+/* === 404 / ERROR CONTAINER === */
+
+.errorContainer {
+	> h3 {
+		text-align: center;
+		font-family: $typoTitleStack;
+		font-size: $typoErrorTitleSize;
+		text-transform: uppercase;
+		padding: 12rem 2rem 6rem;
+		margin: 0;
+	}
+
+	> p {
+		text-align: center;
+		margin: 0;
+	}
+}
+
+/* === MAINTENANCE === */
+
+.maintenanceContent {
+	> h3 {
+		text-align: center;
+		font-size: 2.6rem;
+		text-transform: uppercase;
+		padding: 12rem 2rem 6rem;
+		margin: 0;
+	}
+}

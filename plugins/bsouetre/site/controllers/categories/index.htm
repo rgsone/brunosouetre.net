@@ -1,0 +1,14 @@
+<?php Block::put('breadcrumb') ?>
+
+	<ul>
+		<li>Catégories</li>
+		<li>
+			<span class="text-info">
+				<strong><?= BSouetre\Site\Models\Category::count() ?></strong> Catégorie(s)
+			</span>
+		</li>
+	</ul>
+
+<?php Block::endPut() ?>
+
+<?= $this->listRender() ?>

@@ -1,0 +1,224 @@
+/* 	======================================================================
+		|	STRUCTURE / GALLERY
+		======================================================================
+		====================================================================== */
+
+.galleryHeader {
+	margin: 0;
+	padding: 14rem 0 10rem;
+	display: flex;
+
+	@media ( max-width: em( 960px ) ) {
+		padding: 8rem 3rem;
+	}
+
+	@media ( max-width: em( 600px ) ) {
+		padding: 6rem 2rem;
+	}
+
+	> nav {
+		text-align: center;
+		flex-basis: 20rem;
+
+		@media ( max-width: em( 960px ) ) {
+			text-align: left;
+			flex-basis: 10rem;
+		}
+
+		@media ( max-width: em( 600px ) ) {
+			flex-basis: 7rem;
+		}
+	}
+}
+
+.content > section {
+	padding: 0 2rem 0 20rem;
+
+	@media ( max-width: em( 960px ) ) {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+
+	@media ( max-width: em( 600px ) ) {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
+
+.butBackGalleries {
+	border-width: .3rem;
+	border-color: $colorIcon;
+	border-style: solid;
+	border-radius: 3rem;
+	display: inline-block;
+	width: 6rem;
+	height: 6rem;
+	position: relative;
+	transition: transform 150ms ease-in, background-color 150ms ease-in, fill 150ms ease-in;
+
+	@media ( max-width: em( 600px ) ) {
+		border-radius: 2.5rem;
+		width: 5rem;
+		height: 5rem;
+		top: .6rem;
+	}
+
+	&:focus,
+	&:hover,
+	&:active {
+		transform: translateX( -.5rem );
+		background-color: $colorIcon;
+
+		@media ( max-width: em( 960px ) ) {
+			transform: none;
+		}
+
+		> svg {
+			fill: $colorBgMain;
+		}
+	}
+
+	> svg {
+		fill: $colorIcon;
+		width: 2rem;
+		transform: translate( -60%, -50% ) rotate( -90deg );
+		position: absolute;
+		top: 50%;
+		left: 50%;
+	}
+}
+
+.galleryInfo {
+	margin: 0;
+
+	> h1 {
+		text-transform: uppercase;
+		font-family: $typoTitleStack;
+		font-size: $typoGalleryTitleSize;
+		line-height: 1;
+		margin: 0;
+
+		@media ( max-width: em( 600px ) ) {
+			font-size: decimal-round( ( $typoGalleryTitleSize * 0.6429 ), 1 );
+		}
+	}
+
+	> p {
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: $typoGallerySubTitleSize;
+		margin: 0;
+	}
+}
+
+.galleryDescription {
+	margin: 5rem 0 0;
+
+	@media ( max-width: em( 600px ) ) {
+		margin-top: 3rem;
+	}
+
+	p {
+		max-width: 100rem;
+
+		+ p {
+			margin-top: 2rem;
+		}
+
+		a {
+			background-image: linear-gradient( $colorTypoLinkUnderlineHover, $colorTypoLinkUnderlineHover);
+			background-position: 0 1em;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			padding: .1em .2em;
+			transition: background-position 150ms ease-out, color 150ms ease-out;
+			font-weight: 400;
+			color: $colorTypoLink;
+			text-decoration: none;
+
+			&:focus,
+			&:hover,
+			&:active {
+				color: $colorTypoLinkHover;
+				background-position: 0 .2rem;
+			}
+		}
+	}
+}
+
+.galleryImages {
+	margin: 8rem 0 12rem;
+
+	@media ( max-width: em( 600px ) ) {
+		margin-top: 6rem;
+		margin-bottom: 6rem;
+	}
+
+	> a {
+		display: inline-block;
+		vertical-align: top;
+		height: $sizeGalleryThumbBaseHeight;
+		//min-width: 20rem;
+		margin: 0 1rem 1rem 0;
+		//transition: transform 150ms ease-in, filter 150ms ease-in;
+		transition: transform 150ms ease-in;
+		background-color: darken( $colorBgMain, 5% );
+		background-image: url( $imgUrlThumbLoader );
+		background-repeat: no-repeat;
+		background-position: center center;
+		overflow: hidden;
+
+		@media ( max-width: em( 500px ) ) {
+			height: auto;
+			width: 100%;
+			//min-width: 10rem;
+			min-height: $sizeGalleryThumbBaseHeight;
+			margin: 0 .5rem .5rem 0;
+		}
+
+		> img {
+			width: auto;
+			max-height: $sizeGalleryThumbBaseHeight;
+			transition: opacity 600ms ease-out .6s, transform 150ms ease-in;
+
+			@media ( max-width: em( 500px ) ) {
+				max-height: none;
+			}
+
+			&.lazyImg {
+				opacity: 0;
+
+				&.imgLoaded {
+					opacity: 1;
+				}
+			}
+		}
+
+		&:focus,
+		&:hover,
+		&:active {
+			//filter: contrast( 200% ) saturate( 200% );
+
+			> img {
+				transform: scale( 1.1, 1.1 );
+			}
+		}
+	}
+}
+
+.galleryFooter {
+
+	& > div {
+		max-width: none;
+		margin: 0 4rem 0 20rem;
+
+		@media ( max-width: em( 960px ) ) {
+			margin: 0 3rem 0;
+		}
+
+		@media ( max-width: em( 600px ) ) {
+			margin: 0 2rem 0;
+		}
+	}
+
+}

@@ -1,0 +1,55 @@
+title = "galerie.bsouetre / home"
+url = "/"
+layout = "base"
+meta_title = "Bruno Souêtre — Galeries"
+meta_description = "Bienvenue sur les galeries."
+is_hidden = 0
+
+[galleriesHomePage]
+==
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="display: none;">
+	<defs>
+		<symbol id="icon-folder-outline" viewBox="0 0 100 80" preserveAspectRatio="xMidYMid meet">
+			<path d="M92.68,80H7.32A7.32,7.32,0,0,1,0,72.7V7.3A7.32,7.32,0,0,1,7.32,0H28.8C35,0,36,6.71,38.63,6.71H92.68A7.32,7.32,0,0,1,100,14V72.7A7.32,7.32,0,0,1,92.68,80ZM7.32,5.65A1.66,1.66,0,0,0,5.66,7.3V72.7a1.66,1.66,0,0,0,1.66,1.65H92.68a1.66,1.66,0,0,0,1.66-1.65V14a1.66,1.66,0,0,0-1.66-1.65H38.63c-6.17,0-7.09-6.71-9.82-6.71Z"/>
+		</symbol>
+		<symbol id="icon-folder-plain" viewBox="0 0 100 80" preserveAspectRatio="xMidYMid meet">
+			<path d="M34.29,5.42l-3.1-3.71A4.77,4.77,0,0,0,27.53,0H4.76A4.76,4.76,0,0,0,0,4.75v70.5A4.76,4.76,0,0,0,4.76,80H95.24A4.76,4.76,0,0,0,100,75.25V11.88a4.76,4.76,0,0,0-4.76-4.75H37.94A4.77,4.77,0,0,1,34.29,5.42Z"/>
+		</symbol>
+		<symbol id="icon-arrow" viewBox="0 0 20 20" preserveAspectRatio="xMidYMid meet">
+			<path d="M18.68,15.65a1.31,1.31,0,0,1-.93-.39L10,7.51,2.25,15.27A1.32,1.32,0,0,1,.39,13.4L9.07,4.72a1.35,1.35,0,0,1,1.86,0l8.68,8.68a1.32,1.32,0,0,1-.93,2.25Z"/>
+		</symbol>
+	</defs>
+</svg>
+<header class="homeHeader">
+	<h1>Bruno Souêtre</h1>
+	<p class="tagline">Galeries</p>
+</header>
+<section>
+	<ul class="galleriesList">
+	{% for gallery in galleries %}
+		<li class="galleriesList-item">
+			<a href="{{ gallery.url }}">
+				<div>
+					<svg width="25px" height="20px" class="icon40" style="fill: {{ gallery.color }};"><use xlink:href="#icon-folder-plain"></use></svg>
+				</div>
+				<h3>{{ gallery.title }} <span style="color: {{ gallery.color }};">&nbsp;/ {{ gallery.getImageCount() }} image{% if gallery.getImageCount() > 1 %}s{% endif %}</span></h3>
+			</a>
+		</li>
+	{% endfor %}
+	</ul>
+</section>
+<footer>
+	<div>
+		<div>
+			<a href="http://brunosouetre.net" title="Bruno Souêtre" class="butBackSquareLeft">
+				<svg width="20px" height="20px"><use xlink:href="#icon-arrow"></use></svg>
+				<span>brunosouetre.net</span>
+			</a>
+		</div>
+		<div>
+			<a href="#top" class="butBackSquareTop" title="Retour en haut" data-backtotop>
+				<svg width="20px" height="20px"><use xlink:href="#icon-arrow"></use></svg>
+			</a>
+		</div>
+	</div>
+</footer>

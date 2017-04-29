@@ -1,0 +1,21 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+title: 'Gérer les liens'
+
+list: $/bsouetre/site/models/link/columns.yaml
+modelClass: BSouetre\Site\Models\Link
+
+recordUrl: bsouetre/site/links/update/:id
+noRecordsMessage: backend::lang.list.no_records
+recordsPerPage: 50
+
+showSetup: false
+showSorting: true
+showCheckboxes: true
+
+toolbar:
+  buttons: list_toolbar
+  search:
+    prompt: backend::lang.list.search_prompt

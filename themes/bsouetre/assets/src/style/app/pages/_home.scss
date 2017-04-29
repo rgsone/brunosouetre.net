@@ -1,0 +1,262 @@
+/* 	======================================================================
+		|	STRUCTURE / HOME
+		======================================================================
+		====================================================================== */
+
+
+.homeContent {
+
+	.homeHighlighted {
+		background-image: url( $imgUrlThumbLoader );
+		background-repeat: no-repeat;
+		background-position: center center;
+
+		+ section {
+			margin-top: 5rem;
+		}
+
+		> div {
+			position: relative;
+			max-width: 140rem;
+			height: 60rem;
+			margin: 0 auto;
+			overflow: hidden;
+			background-color: darken( $colorBgMain, 10% );
+			opacity: 0;
+			pointer-events: none;
+
+			&.bgLoaded {
+				opacity: 1;
+				pointer-events: auto;
+				transition: opacity 450ms ease .75s;
+			}
+
+			@media ( max-width: em( 600px ) ) {
+				height: 46rem;
+			}
+
+			> a {
+				display: block;
+				height: 100%;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center center;
+				transition: transform 250ms ease;
+
+				&:focus,
+				&:hover,
+				&:active {
+					transform: scale( 1.04, 1.04 );
+
+					.highlightedDesc {
+						color: $colorTypoLinkHover;
+						background-color: $colorTypoLinkUnderlineHover;
+					}
+				}
+
+				.highlightedDesc {
+					position: absolute;
+					top: 50%;
+					left: 0;
+					right: 0;
+					padding: 2rem 3rem;
+					transform: translateY( -50% );
+					text-align: center;
+					font-size: $typoHomeHighlightedDescSize;
+					color: $colorTypoAlt;
+					transition: color 250ms ease, background-color 250ms ease;
+
+					@media ( max-width: em( 600px ) ) {
+						padding-left: 2rem;
+						padding-bottom: 2rem;
+						font-size: decimal-round( ( $typoHomeHighlightedDescSize * 0.8889 ), 1 );
+					}
+				}
+			}
+		}
+	}
+
+	.homeSelected {
+		> ul {
+			list-style: none;
+			margin: 0 auto;
+			padding: 0;
+			max-width: 140rem;
+
+			.Greeed-column {
+				padding: 0 .4rem;
+
+				&:first-child {
+					padding-left: 0;
+				}
+
+				&:last-child {
+					padding-right: 0;
+				}
+			}
+
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+
+			.goArchives {
+				background-color: $colorButton;
+				margin: 0 .4rem 0;
+
+				@media
+				( max-width: em( 450px ) ) {
+					margin: 1rem 1rem 0;
+				}
+
+				> a {
+					display: block;
+					font-size: $typoHomeArchivesButSize;
+					color: $colorBgMain;
+					padding: 0 1rem 0 8rem;
+					text-transform: uppercase;
+					text-decoration: none;
+					line-height: 6rem;
+					background-image: linear-gradient( $colorBgMain, $colorBgMain );
+					background-size: 4rem .2rem;
+					background-position: 2rem 50%;
+					background-repeat: no-repeat;
+					transition: background-position 200ms ease, padding-left 200ms ease;
+
+					@media
+					( max-width: em( 350px ) ),
+					( min-width: em( 450px ) ) and ( max-width: em( 600px ) ) {
+						padding-left: 5rem;
+						background-size: 3rem .2rem;
+						background-position: 1rem 50%;
+						line-height: 5rem;
+						font-size: decimal-round( ( $typoHomeArchivesButSize * 0.8571 ), 1 );
+					}
+
+					&:focus,
+					&:hover,
+					&:active {
+						background-position: 3.6rem 50%;
+						padding-left: 9rem;
+
+						@media
+						( max-width: em( 350px ) ),
+						( min-width: em( 450px ) ) and ( max-width: em( 600px ) ) {
+							background-position: 2rem 50%;
+							padding-left: 6rem;
+						}
+					}
+				}
+			}
+
+			.selectedItem {
+				position: relative;
+				margin: 0 0 .8rem;
+				overflow: hidden;
+
+				&.loading {
+					background-image: url( $imgUrlThumbLoader );
+					background-repeat: no-repeat;
+					background-position: center center;
+					background-color: darken( $colorBgMain, 4% );
+				}
+
+				.aspectRatioBox {
+					width: 100%;
+					height: 0;
+				}
+
+				> img {
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 50%;
+					opacity: 0;
+					transform: translate( -50%, 5rem );
+
+					&.loaded {
+						opacity: 1;
+						transform: translate( -50%, 0 );
+						transition: opacity 500ms ease 800ms, transform 300ms ease 800ms;
+					}
+				}
+
+				> a {
+					display: block;
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					background-color: rgba( $colorBgMain, 0.9 );
+					padding: 2rem;
+					text-decoration: none;
+					transform: scale( 1.04, 1.04 );
+					opacity: 0;
+					transition: transform 200ms ease, opacity 200ms ease;
+
+					@media
+					( max-width: em( 350px ) ),
+					( min-width: em( 450px ) ) and ( max-width: em( 700px ) ),
+					( min-width: em( 900px ) ) and ( max-width: em( 1000px ) ) {
+						padding: 1rem;
+					}
+
+					&:focus,
+					&:hover,
+					&:active {
+						opacity: 1;
+						transform: scale( 1, 1 );
+					}
+
+					> div {
+						border-width: .8rem;
+						border-style: solid;
+						height: 100%;
+						padding: 1.4rem 3rem;
+
+						@media
+						( max-width: em( 350px ) ),
+						( min-width: em( 450px ) ) and ( max-width: em( 700px ) ),
+						( min-width: em( 900px ) ) and ( max-width: em( 1000px ) ) {
+							padding-left: 1.4rem;
+							padding-right: 1.4rem;
+							border-width: .5rem;
+						}
+
+						.itemCategory {
+							text-transform: uppercase;
+							font-size: $typoHomeItemCategorySize;
+						}
+
+						.itemDate {
+							font-size: $typoHomeItemDateSize;
+						}
+
+						h4 {
+							margin: 0;
+							color: $colorTypoBase;
+						}
+
+						p {
+							margin: 0;
+							color: $colorTypoBase;
+
+							+ h4 {
+								margin: 3rem 0 0;
+
+								@media
+								( max-width: em( 350px ) ),
+								( min-width: em( 450px ) ) and ( max-width: em( 700px ) ),
+								( min-width: em( 900px ) ) and ( max-width: em( 1000px ) ) {
+									margin-top: 1rem;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

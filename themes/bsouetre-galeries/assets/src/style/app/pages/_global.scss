@@ -1,0 +1,205 @@
+/* 	======================================================================
+		|	STRUCTURE / GLOBAL
+		======================================================================
+		====================================================================== */
+
+/* === FOOTER === */
+
+footer {
+	background-color: $colorBgFooter;
+	padding: 11rem 0;
+
+	@media ( max-width: em( 600px ) ) {
+		padding: 6rem 0;
+	}
+
+	@media ( max-width: em( 360px ) ) {
+		padding: 2rem 0;
+	}
+
+	& > div {
+		max-width: $sizeFooterContentMaxWidth;
+		margin-right: auto;
+		margin-left: auto;
+		display: flex;
+		justify-content: space-between;
+
+		@media ( max-width: em( 1000px ) ) {
+			margin-left: 2rem;
+			margin-right: 2rem;
+		}
+
+		@media ( max-width: em( 360px ) ) {
+			flex-direction: column-reverse;
+		}
+
+		> div:first-child {
+			@media ( max-width: em( 360px ) ) {
+				margin-top: 2rem;
+			}
+		}
+
+		> div:last-child {
+			@media ( max-width: em( 360px ) ) {
+				text-align: right;
+			}
+		}
+
+		.butBackSquareTop {
+			@media ( max-width: em( 360px ) ) {
+				border-width: .2rem;
+				width: 4rem;
+				height: 4rem;
+			}
+		}
+
+		.butBackSquareLeft {
+			@media ( max-width: em( 360px ) ) {
+				display: block;
+				width: auto;
+				border-width: .2rem;
+				text-align: center;
+				padding: 0 2rem;
+			}
+
+			& > svg {
+				@media ( max-width: em( 360px ) ) {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+/* === BACK SQUARE TOP BUTTON === */
+
+.butBackSquareTop {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	width: 5rem;
+	height: 5rem;
+	border-style: solid;
+	border-color: $colorIcon;
+	border-width: .3rem;
+	z-index: 0;
+
+	&:before {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: -1;
+		content: '';
+		background-color: $colorTypoLinkUnderlineHover;
+		transform: scaleY( 0 );
+		transform-origin: bottom;
+		transition: transform 100ms ease-out;
+	}
+
+	& > svg {
+		fill: $colorIcon;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate( -50%, -50% );
+		transition: fill 100ms ease-out;
+	}
+
+	&:focus,
+	&:hover,
+	&:active {
+		&:before {
+			transform: scaleY( 1 );
+		}
+
+		& > svg {
+			fill: $colorBgFooter;
+		}
+	}
+}
+
+/* === BACK SQUARE LEFT BUTTON === */
+
+.butBackSquareLeft {
+	position: relative;
+	display: inline-block;
+	line-height: 4.4rem;
+	border-width: .3rem;
+	border-color: $colorIcon;
+	border-style: solid;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 0 2rem 0 5rem;
+	z-index: 0;
+	transition: color 100ms ease-out;
+
+	&:after {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: -1;
+		content: '';
+		background-color: $colorTypoLinkUnderlineHover;
+		transform: scaleX( 0 );
+		transform-origin: right;
+		transition: transform 100ms ease-out;
+	}
+
+	& > svg {
+		fill: $colorIcon;
+		transform: translate( 0, -50% ) rotate( -90deg );
+		position: absolute;
+		top: 50%;
+		left: 1.4rem;
+		transition: fill 100ms ease-out;
+	}
+
+	&:focus,
+	&:hover,
+	&:active {
+		color: $colorBgFooter;
+
+		&:after {
+			transform: scaleX( 1 );
+		}
+
+		& > svg {
+			fill: $colorBgFooter;
+		}
+	}
+}
+
+/* === 404 / ERROR CONTAINER === */
+
+.errorContainer {
+	> h3 {
+		text-align: center;
+		font-family: $typoTitleStack;
+		font-size: $typoErrorTitleSize;
+		text-transform: uppercase;
+		color: $colorTypoBase;
+		padding: 12rem 2rem 6rem;
+		margin: 0;
+	}
+
+	> p {
+		text-align: center;
+		margin: 0;
+	}
+}
+
+/* === MAINTENANCE === */
+
+.maintenanceContent {
+	> h3 {
+		text-align: center;
+		font-size: 2.6rem;
+		text-transform: uppercase;
+		padding: 12rem 2rem 6rem;
+		margin: 0;
+	}
+}

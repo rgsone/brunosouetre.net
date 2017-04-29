@@ -1,0 +1,14 @@
+<?php Block::put('breadcrumb') ?>
+
+	<ul>
+		<li>Articles</li>
+		<li>
+			<span class="text-info"><strong><?= BSouetre\Shop\Models\Item::where( 'published', true )->count() ?></strong> publié(s)</span>
+			&nbsp; | &nbsp;
+			<span class="text-warning"><strong><?= BSouetre\Shop\Models\Item::where( 'published', false )->count() ?></strong> non-publié(s)</span>
+		</li>
+	</ul>
+
+<?php Block::endPut() ?>
+
+<?= $this->listRender() ?>

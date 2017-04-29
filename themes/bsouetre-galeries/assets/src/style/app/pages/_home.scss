@@ -1,0 +1,98 @@
+/* 	======================================================================
+		|	STRUCTURE / HOME
+		======================================================================
+		====================================================================== */
+
+.homeHeader {
+	max-width: $sizeHeaderHomeMaxWidth;
+	margin: 0 auto;
+	padding: 8rem 0 10rem;
+
+	@media ( max-width: em( 1000px ) ) {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+}
+
+header {
+	h1 {
+		font-family: $typoTitleStack;
+		font-size: $typoHeaderTitleSize;
+		font-weight: 900;
+		text-transform: uppercase;
+		margin: 0;
+	}
+
+	.tagline {
+		font-size: $typoHeaderTaglineSize;
+		margin: 0;
+	}
+}
+
+.galleriesList {
+	margin: 0 auto;
+	padding: 0 0 10rem;
+	max-width: $sizeGalleriesListMaxWidth;
+	list-style-type: none;
+}
+
+.galleriesList-item {
+	position: relative;
+	z-index: 0;
+	border-bottom-color: $colorGalleriesListSep;
+	border-bottom-width: .1rem;
+	border-bottom-style: solid;
+
+	&:first-child {
+		border-top-color: $colorGalleriesListSep;
+		border-top-width: .1rem;
+		border-top-style: solid;
+	}
+
+	&:focus,
+	&:hover,
+	&:active {
+		& h3 {
+			margin-left: 4rem;
+		}
+	}
+
+	& > a {
+		display: block;
+		text-decoration: none;
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		padding: 2rem;
+
+		& > div > svg {
+			width: 4rem;
+
+			@media ( max-width: em( 800px ) ) {
+				width: 2.5rem;
+			}
+		}
+	}
+
+	& h3 {
+		color: $colorTypoBase;
+		font-family: $typoTitleStack;
+		text-transform: uppercase;
+		font-size: $typoGalleriesListTitleSize;
+		margin: 0 0 0 3rem;
+		padding: 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		transition: margin 150ms ease-out;
+
+		@media ( max-width: em( 800px ) ) {
+			font-size: decimal-round( ( $typoGalleriesListTitleSize * 0.7143 ), 1 );
+		}
+
+		& > span {
+			font-family: $typoBaseStack;
+			font-size: $typoGalleriesListInfoSize;
+		}
+	}
+}

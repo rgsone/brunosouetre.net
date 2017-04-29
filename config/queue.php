@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('QUEUE_DRIVER', 'sync'),
+    'default' => env( 'QUEUE_DRIVER', 'sync' ),
 
     /*
     |--------------------------------------------------------------------------
@@ -32,21 +32,21 @@ return [
     'connections' => [
 
         'sync' => [
-            'driver' => 'sync',
+            'driver' => 'sync'
         ],
 
         'database' => [
             'driver' => 'database',
             'table' => 'jobs',
             'queue' => 'default',
-            'expire' => 60,
+            'expire' => 60
         ],
 
         'beanstalkd' => [
             'driver' => 'beanstalkd',
             'host'   => 'localhost',
             'queue'  => 'default',
-            'ttr'    => 60,
+            'ttr'    => 60
         ],
 
         'sqs' => [
@@ -54,7 +54,7 @@ return [
             'key'    => 'your-public-key',
             'secret' => 'your-secret-key',
             'queue'  => 'your-queue-url',
-            'region' => 'us-east-1',
+            'region' => 'us-east-1'
         ],
 
         'iron' => [
@@ -63,14 +63,14 @@ return [
             'token'   => 'your-token',
             'project' => 'your-project-id',
             'queue'   => 'your-queue-name',
-            'encrypt' => true,
+            'encrypt' => true
         ],
 
         'redis' => [
             'driver' => 'redis',
             'queue'  => 'default',
-            'expire' => 60,
-        ],
+            'expire' => 60
+        ]
 
     ],
 
@@ -86,7 +86,8 @@ return [
     */
 
     'failed' => [
-        'database' => 'mysql', 'table' => 'failed_jobs',
+        'database' => 'mysql',
+		'table' => 'failed_jobs'
     ],
 
 ];

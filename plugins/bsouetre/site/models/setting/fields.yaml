@@ -1,0 +1,50 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+  fields:
+
+    highlighted_item_activated:
+      tab: 'Article mis en avant'
+      label: 'Activer la mise en avant'
+      commentAbove: 'Affiche ou non la mise en avant sur la page d''accueil'
+      span: left
+      type: checkbox
+      default: false
+    highlighted_item_img:
+      tab: 'Article mis en avant'
+      label: 'Image de la vignette'
+      commentAbove: 'Affichée sur l''accueil. Minimum 1350px de largeur x 600px de hauteur (l''image sera zoomée le cas échéant). Formats acceptés : gif, jpg, jpeg, png'
+      type: fileupload
+      mode: image
+      fileTypes: gif,jpg,jpeg,png
+      mimeTypes: gif,jpg,jpeg,png
+      useCaption: false
+      span: right
+    highlighted_item_url:
+      tab: 'Article mis en avant'
+      label: 'URL vers l''article'
+      commentAbove: 'Peut pointer vers un projet du site, una page spécifique du site ou n''importe quel lien'
+      placeholder: 'http://'
+      span: left
+    highlighted_item_desc:
+      tab: 'Article mis en avant'
+      label: 'Description'
+      commentAbove: 'Sera affiché sur la vignette sur la page Accueil'
+      type: textarea
+      size: large
+      span: left
+
+    about_content:
+      tab: 'Page À Propos'
+      label: 'Contenu de la page'
+      type: markdown
+      size: giant
+      mode: split
+
+    email:
+      tab: 'Page Contact'
+      label: 'Email'
+      commentAbove: 'Utilisé sur le site comme adresse de contact'
+      span: left

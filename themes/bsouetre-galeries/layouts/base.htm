@@ -1,0 +1,65 @@
+description = "html base template"
+==
+<!doctype html>
+<!--
+
+	      ___           ___           ___           ___           ___           ___
+	     /\  \         /\  \         /\  \         /\  \         /\__\         /\  \
+	    /::\  \       /::\  \       /::\  \       /::\  \       /::|  |       /::\  \
+	   /:/\:\  \     /:/\:\  \     /:/\ \  \     /:/\:\  \     /:|:|  |      /:/\:\  \
+	  /::\~\:\  \   /:/  \:\  \   _\:\~\ \  \   /:/  \:\  \   /:/|:|  |__   /::\~\:\  \
+	 /:/\:\ \:\__\ /:/__/_\:\__\ /\ \:\ \ \__\ /:/__/ \:\__\ /:/ |:| /\__\ /:/\:\ \:\__\
+	 \/_|::\/:/  / \:\  /\ \/__/ \:\ \:\ \/__/ \:\  \ /:/  / \/__|:|/:/  / \:\~\:\ \/__/
+	    |:|::/  /   \:\ \:\__\    \:\ \:\__\    \:\  /:/  /      |:/:/  /   \:\ \:\__\
+	    |:|\/__/     \:\/:/  /     \:\/:/  /     \:\/:/  /       |::/  /     \:\ \/__/
+	    |:|  |        \::/  /       \::/  /       \::/  /        /:/  /       \:\__\
+	     \|__|         \/__/         \/__/         \/__/         \/__/         \/__/
+
+
+	design & code : rudy 'rgsone' marc
+	http://rgsone.com
+
+-->
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<meta name="robots" content="index,follow">
+
+		<meta property="og:url" content="{{ ''|page }}">
+		<meta property="og:image" content="{{ 'assets/static/bsouetre-opengraph.png'|theme }}">
+		<meta property="og:description" content="{{ this.page.meta_description }}">
+		<meta property="og:title" content="{{ this.page.meta_title }}">
+		<meta property="og:site_name" content="Bruno Souêtre — Galeries">
+
+		<meta itemprop="name" content="{{ this.page.meta_title }}">
+		<meta itemprop="description" content="{{ this.page.meta_description }}">
+		<meta itemprop="image" content="{{ 'assets/static/bsouetre-schema.png'|theme }}">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="{{ this.page.meta_title }}">
+		<meta name="twitter:description" content="{{ this.page.meta_description }}">
+		<meta name="twitter:image" content="{{ 'assets/static/bsouetre-twittercard.png'|theme }}">
+
+		<link rel="shortcut icon" href="{{ 'favicon.ico'|app }}">
+		{% partial 'favicon' %}
+
+		<meta name="description" content="{{ this.page.meta_description }}">
+		<title>{{ this.page.meta_title }}</title>
+	{% if not ( this.environment == 'dev' ) %}
+		<link rel="stylesheet" href="{{ 'assets/css/style.css'|theme }}" media="all">
+	{% endif %}
+	{% if not ( this.environment == 'dev' ) %}
+		{% partial 'piwik' %}
+	{% endif %}
+	</head>
+	<body id="top">
+		{% page %}
+		{% if this.environment == 'dev' %}
+			<script src="http://localhost:1337/app.js"></script>
+		{% else %}
+			<script src="{{ 'assets/js/app.js'|theme }}" defer></script>
+		{% endif %}
+	</body>
+</html>

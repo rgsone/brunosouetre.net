@@ -1,0 +1,52 @@
+title = "bsouetre/project"
+url = "/projet/:name|^[a-z0-9\-]+$"
+layout = "base"
+meta_title = "Bruno Souêtre — Graphiste"
+meta_description = "Projet"
+is_hidden = 0
+
+[siteProjectPage]
+==
+<?php
+
+function onEnd()
+{
+	$this->meta_title = $this->project->title . ' | ' . $this->meta_title;
+	$this->meta_description = ' : ' . $this->project->title;
+}
+
+?>
+==
+{% partial 'svg' %}
+{% partial 'header' %}
+
+<section class="content projectContent">
+
+	<section class="projectTitle">
+	{% if project.show_date %}
+		<p class="projectDate">{{ project.date|date( alt_date_format ) }}</p>
+	{% endif %}
+		<h1>{{ project.title }}</h1>
+	</section>
+
+	<section class="projectTaxonomy">
+	{% if project.category %}
+		<p class="taxonomyCategory" style="color:{{ project.category.color }};">/ {{ project.category.name }}</p>
+	{% endif %}
+	{% if project.tags %}
+		<p class="taxonomyTags">
+			¬ {% for tag in project.tags %}{{ tag.name }}{%if not loop.last %}, {% endif %}{% endfor %}
+		</p>
+	{% endif %}
+	</section>
+
+	<div class="projectTaxoSep"></div>
+
+	<section class="projectContent">
+		{{ project.content|exmd }}
+	</section>
+
+</section>
+
+{% partial 'footer' %}
+{% partial 'back-to-top-button' %}

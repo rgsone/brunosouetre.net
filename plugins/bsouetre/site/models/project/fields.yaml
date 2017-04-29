@@ -1,0 +1,85 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+  title:
+    label: 'Titre'
+    required: true
+tabs:
+  fields:
+    content:
+      tab: 'Contenu'
+      label: 'Contenu de la page du projet'
+      required: true
+      type: ex_markdown_editor
+      size: giant
+      mode: tab
+    cover_thumb:
+      tab: 'Vignette'
+      label: 'Vignette'
+      commentAbove: 'Affichée sur l''accueil et dans les archives. Minimum 470px de largeur & 250px de hauteur. Formats acceptés : gif, jpg, jpeg, png'
+      type: fileupload
+      mode: image
+      fileTypes: gif,jpg,jpeg,png
+      mimeTypes: gif,jpg,jpeg,png
+      useCaption: false
+    published:
+      tab: 'Options de publication'
+      label: 'Publié sur le site'
+      commentAbove: 'Si publié, le projet sera listé dans les archives, le cas échéant non mais le projet restera accessible depuis son URL'
+      type: checkbox
+      default: true
+      required: true
+      span: auto
+    private:
+      tab: 'Options de publication'
+      label: 'Privé'
+      commentAbove: 'Si privé, le projet sera accessible que pour un utilisateur connecté au site (toi par exemple), pour le reste du monde il ne sera pas accessible'
+      type: checkbox
+      default: false
+      required: true
+      span: auto
+    featured:
+      tab: 'Options de publication'
+      label: 'Sélectionné sur la page d''accueil'
+      commentAbove: 'Coché pour afficher le projet sur la page d''accueil (en plus d''être affiché dans les archives)'
+      type: checkbox
+      default: false
+      required: true
+      span: auto
+secondaryTabs:
+  fields:
+    category:
+      label: 'Catégorie'
+      type: relation
+      nameFrom: name
+      emptyOption: 'Aucune catégorie associée'
+    tags:
+      label: 'Tags'
+      type: taglist
+      mode: relation
+      separator: comma
+      nameFrom: name
+    date:
+      label: 'Date'
+      type: datepicker
+      mode: date
+      minDate: 1980-01-01
+      maxDate: 2100-12-31
+    date_format:
+      label: 'Format de la date'
+      commentAbove: 'Permet de formater l''affichage de la date sur les pages du site.'
+      required: true
+      type: radio
+      options:
+        1: 'année (ex : 2017)'
+        2: 'mois/année (ex : 04/2017)'
+        3: 'jour/mois/année (ex : 24/10/2017)'
+      default: 2
+    show_date:
+      label: 'Afficher la date'
+      commentAbove: 'Affiche ou non la date du projet sur les différentes pages du site. Utile pour les projets sans date précise (par exemple une collection d''image ou aucune date n''est nécessaire). La date contnuera de servir à la classification par date.'
+      type: checkbox
+      default: true
+      required: true

@@ -1,0 +1,38 @@
+<header>
+	<nav>
+		<ul>
+
+		{% if not ( this.page.title == 'bsouetre/home' ) %}
+			<li>
+				<a href="{{ 'home'|page }}" title="Home">Home</a>
+			</li>
+		{% endif %}
+
+		{% if this.page.title == 'bsouetre/archives' %}
+			<li class="active">Archives</li>
+		{% else %}
+			<li><a href="{{ 'archives'|page }}" title="Les archives">Archives</a></li>
+		{% endif %}
+
+		{% if this.page.title == 'bsouetre/about' %}
+			<li class="active">À&nbsp;Propos</li>
+		{% else %}
+			<li><a href="{{ 'about'|page }}" title="À Propos">À&nbsp;Propos</a></li>
+		{% endif %}
+
+		{% if this.page.title == 'bsouetre/contact' %}
+			<li class="active">Contact</li>
+		{% else %}
+			<li><a href="{{ 'contact'|page }}" title="Contact">Contact</a></li>
+		{% endif %}
+
+			<li>
+				<a href="http://shop.brunosouetre.net" title="Visiter le shop !">Shop</a>
+			</li>
+
+		</ul>
+	</nav>
+	<div>
+		<div><img src="{{ 'assets/static/header-txt-graphiste.svg'|theme }}" alt="graphiste"></div>
+	</div>
+</header>

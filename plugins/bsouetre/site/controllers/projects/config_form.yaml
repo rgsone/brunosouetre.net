@@ -1,0 +1,25 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: 'Projet'
+
+form: $/bsouetre/site/models/project/fields.yaml
+modelClass: BSouetre\Site\Models\Project
+defaultRedirect: bsouetre/site/projects
+
+create:
+  title: 'Créer un projet'
+  redirect: bsouetre/site/projects/update/:id
+  redirectClose: bsouetre/site/projects
+  flashSave: 'Projet créé avec succés !'
+
+update:
+  title: 'Modifier le projet'
+  redirect: bsouetre/site/projects
+  redirectClose: bsouetre/site/projects
+  flashSave: 'Projet mis à jour avec succés !'
+  flashDelete: 'Projet supprimé avec succés !'
+
+preview:
+  title: 'Aperçu'

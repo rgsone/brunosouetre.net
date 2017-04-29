@@ -1,0 +1,80 @@
+/* 	======================================================================
+		|	STRUCTURE / CONTACT
+		======================================================================
+		====================================================================== */
+
+
+.contactContent {
+	> h1 {
+		text-align: center;
+
+		@media ( max-width: em( 900px ) ) {
+			font-size: 5rem;
+		}
+
+		@media ( max-width: em( 600px ) ) {
+			font-size: 3.6rem;
+		}
+	}
+
+	> .titleBottomSep {
+		margin-top: 10rem;
+		margin-bottom: 10rem;
+
+		@media ( max-width: em( 900px ) ) {
+			margin-top: 6rem;
+			margin-bottom: 6rem;
+		}
+
+		@media ( max-width: em( 600px ) ) {
+			margin-top: 4rem;
+			margin-bottom: 4rem;
+		}
+	}
+
+	> p {
+		text-align: center;
+		font-size: 3rem;
+
+		@media ( max-width: em( 900px ) ) {
+			font-size: 2.4rem;
+		}
+
+		@media ( max-width: em( 600px ) ) {
+			font-size: 1.8rem;
+		}
+
+		.contactMail {
+			text-transform: uppercase;
+			font-family: $typoTitleStack;
+			font-size: 4.6rem;
+			font-weight: 900;
+			color: $colorTypoBase;
+			text-decoration: none;
+			background-image: linear-gradient( $colorTypoLinkUnderlineHover, $colorTypoLinkUnderlineHover );
+			background-position: 0 100%;
+			background-size: 100% 36%;
+			background-repeat: no-repeat;
+			padding: 0 .2em;
+			transition: background-size 150ms ease-out;
+
+			@media ( max-width: em( 900px ) ) {
+				font-size: 3.6rem;
+			}
+
+			@media ( max-width: em( 600px ) ) {
+				font-size: 2.4rem;
+			}
+
+			@media ( max-width: em( 400px ) ) {
+				font-size: 2rem;
+			}
+
+			&:focus,
+			&:hover,
+			&:active {
+				background-size: 100% 100%;
+			}
+		}
+	}
+}
