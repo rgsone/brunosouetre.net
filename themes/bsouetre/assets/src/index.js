@@ -2,7 +2,7 @@
 import './style/app.scss';
 /* JS */
 import jump from 'jump.js';
-import LazyLoad from 'vanilla-lazyload/dist/lazyload';
+import LazyLoad from 'vanilla-lazyload/dist/lazyload.transpiled';
 import greeed from './js/greeed';
 
 // Hello !
