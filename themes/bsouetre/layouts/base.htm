@@ -43,6 +43,7 @@ description = "html base template"
 		<meta name="twitter:image" content="{{ 'assets/static/bsouetre-twittercard.png'|theme }}">
 
 		<link rel="shortcut icon" href="{{ 'favicon.ico'|app }}">
+		{% partial 'favicon' %}
 
 		<meta name="description" content="{{ this.page.meta_description }}">
 		<title>{{ this.page.meta_title }}</title>
