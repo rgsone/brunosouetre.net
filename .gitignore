@@ -20,13 +20,21 @@
 /vendor
 
 /.travis.yml
+/android-*.png
+/apple-*.png
 /artisan
+/browserconfig.xml
 /CHANGELOG.md
 /composer.json
 /composer.lock
+/favicon*
+!/favicon-base.png
 /index.php
+/manifest.json
+/mstile-*.png
 /phpunit.xml
 /README.md
+/safari-pinned-tab.svg
 /server.php
 /TODO.md
 
