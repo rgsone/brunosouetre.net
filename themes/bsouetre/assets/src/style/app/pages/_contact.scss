@@ -75,6 +75,10 @@
 			&:active {
 				background-size: 100% 100%;
 			}
+
+			> span:before {
+				content: "\0040"; // @ symbol
+			}
 		}
 	}
 }

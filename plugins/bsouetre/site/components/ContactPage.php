@@ -27,5 +27,11 @@ class ContactPage extends ComponentBase
 	public function onRun()
 	{
 		$this->page[ 'email' ] = Setting::get( 'email' );
+
+		$emailParts = explode( '@', Setting::get( 'email' ) );
+		$this->page[ 'obfuscatedEmail' ] = [
+			'localPart' => $emailParts[0],
+			'domain' => $emailParts[1]
+		];
 	}
 }

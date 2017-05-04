@@ -169,6 +169,38 @@
 					margin-top: 1.4rem;
 				}
 			}
+
+			.lazyContainer {
+				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
+
+				&.loading {
+					background-image: url( $imgUrlThumbLoader );
+					background-repeat: no-repeat;
+					background-position: center center;
+				}
+
+				> img {
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 50%;
+					opacity: 0;
+					transform: translate( -50%, 5rem );
+
+					&.loaded {
+						opacity: 1;
+						transform: translate( -50%, 0 );
+						transition: opacity 500ms ease 800ms, transform 300ms ease 800ms;
+					}
+				}
+			}
+
+			.aspectRatioBox {
+				width: 100%;
+				height: 0;
+			}
 		}
 
 	}

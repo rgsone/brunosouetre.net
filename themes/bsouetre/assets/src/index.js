@@ -35,6 +35,8 @@ class App
 		this._filtersCategoriesListSelector = 'ul[data-filter-type="category"] > li';
 		this._filtersTagsListSelector = 'ul[data-filter-type="tag"] > li';
 
+		this._emailObfuscationSelector = '.contactMail';
+
 		this._currentPage = '';
 	}
 
@@ -69,6 +71,7 @@ class App
 
 			this.initTopLink();
 			this.initTopLinkVisibilityManagement();
+			this.initLazyload();
 		}
 		// about
 		else if ( urlPath.match( /^a\-propos$/g ) )
@@ -82,7 +85,8 @@ class App
 		else if ( urlPath.match( /^contact$/g ) )
 		{
 			this._currentPage = 'contact';
-			// ....
+
+			this.initObfuscation()
 		}
 	}
 
@@ -280,6 +284,16 @@ class App
 			if ( id == currentId ) hasId = true;
 		});
 		return hasId;
+	}
+
+	initObfuscation()
+	{
+		const emailElem = document.querySelector( this._emailObfuscationSelector );
+		const emailLocalPart = emailElem.getAttribute( 'data-local' );
+		const emailDomain = emailElem.getAttribute( 'data-domain' );
+		const hrefValue = 'mailto:' + emailLocalPart + '@' + emailDomain;
+
+		emailElem.setAttribute( 'href', hrefValue );
 	}
 }
 

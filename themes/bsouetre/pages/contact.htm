@@ -13,7 +13,7 @@ is_hidden = 0
 <section class="content contactContent">
 	<h1>Me Contacter</h1>
 	<div class="titleBottomSep"></div>
-	<p><a class="contactMail" href="mailto:{{ email }}">{{ email }}</a></p>
+	<p><a class="contactMail" data-local="{{ obfuscatedEmail.localPart }}" data-domain="{{ obfuscatedEmail.domain }}">{{ obfuscatedEmail.localPart }}<span>{{ obfuscatedEmail.domain }}</span></a></p>
 	<p>•<br>91 bd Faidherbe F-59400 Cambrai<br>tél. 03 27 78 39 80 </p>
 </section>
 
