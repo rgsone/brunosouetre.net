@@ -71,6 +71,7 @@ class App
 
 			this.initTopLink();
 			this.initTopLinkVisibilityManagement();
+			this.initLazyload();
 		}
 		// about
 		else if ( urlPath.match( /^a\-propos$/g ) )
@@ -84,7 +85,7 @@ class App
 		else if ( urlPath.match( /^contact$/g ) )
 		{
 			this._currentPage = 'contact';
-			
+
 			this.initObfuscation()
 		}
 	}

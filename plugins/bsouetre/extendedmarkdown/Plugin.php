@@ -28,7 +28,7 @@ class Plugin extends PluginBase
 
 		$exParsedown = ExParsedownExtra::instance();
 
-		## figure block outside <p> block
+		## figure block outside <p> block with lazyload image
 
 		$exParsedown->addBlockType( '!', 'Figure', false, false );
 
@@ -49,7 +49,7 @@ class Plugin extends PluginBase
 					'element' => [
 						'name' => 'figure',
 						'text' => $text,
-						'handler' => 'line'
+						'handler' => 'inlineLazyImage'
 					]
 				];
 
