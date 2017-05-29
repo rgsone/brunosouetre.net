@@ -3,142 +3,92 @@
 		======================================================================
 		====================================================================== */
 
-
 header {
-	position: relative;
-	padding: 0 0 32rem;
-	background-color: $colorBgHeader;
-	background-image: url( $imgUrlBgHeaderBsouetre );
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: 130rem auto;
-	overflow: visible;
-
-	@media ( max-width: em( 1300px ) ) {
-		background-size: 100% auto;
-	}
-
-	@media ( max-width: em( 900px ) ) {
-		padding-bottom: 24rem;
-	}
-
-	@media ( max-width: em( 600px ) ) {
-		padding-bottom: 18rem;
-	}
-
-	@media ( max-width: em( 500px ) ) {
-		padding-bottom: 10rem;
-	}
-
-	> nav ul {
-		display: flex;
-		list-style: none;
-		padding: 0;
-		justify-content: center;
-
-		> li {
-
-			&.active {
-				padding: 3rem 2.6rem 2.6rem;
-				color: $colorTypoSiteNav;
-				font-weight: 700;
-				font-size: $typoSiteNavSize;
-				line-height: 1;
-				//text-transform: uppercase;
-				background-image: linear-gradient( $colorSiteNavHover, $colorSiteNavHover );
-				background-position: 0 0;
-				background-repeat: no-repeat;
-				background-size: 100% 14%;
-
-				@media ( max-width: em( 700px ) ) {
-					padding: 2.6rem 2rem 2rem;
-					font-size: 1.6rem;
-				}
-
-				@media ( max-width: em( 600px ) ) {
-					padding: 2.6rem 1.8rem 1.8rem;
-					font-size: 1.4rem;
-				}
-
-				@media ( max-width: em( 500px ) ) {
-					padding: 2rem 1.4rem 1.4rem;
-					font-size: 1.2rem;
-				}
-
-				@media ( max-width: em( 450px ) ) {
-					padding: 2rem .8rem 1.4rem;
-				}
-			}
-
-			a {
-				display: block;
-				padding: 3rem 2.6rem 2.6rem;
-				color: $colorTypoSiteNav;
-				font-size: $typoSiteNavSize;
-				line-height: 1;
-				text-decoration: none;
-				//text-transform: uppercase;
-				background-image: linear-gradient( $colorSiteNavHover, $colorSiteNavHover );
-				background-position: 0 0;
-				background-size: 100% 0;
-				background-repeat: no-repeat;
-				transition: background-size 150ms ease-out, color 100ms ease-out;
-
-				@media ( max-width: em( 700px ) ) {
-					padding: 2.6rem 2rem 2rem;
-					font-size: 1.6rem;
-				}
-
-				@media ( max-width: em( 600px ) ) {
-					padding: 2.6rem 1.8rem 1.8rem;
-					font-size: 1.4rem;
-				}
-
-				@media ( max-width: em( 500px ) ) {
-					padding: 2rem 1.4rem 1.4rem;
-					font-size: 1.2rem;
-				}
-
-				@media ( max-width: em( 450px ) ) {
-					padding: 2rem .8rem 1.4rem;
-				}
-
-				&:focus,
-				&:active,
-				&:hover {
-					background-size: 100% 100%;
-				}
-			}
-		}
-	}
-
 	> div {
-		position: absolute;
-		bottom: -13.8rem;
-		left: 0;
-		right: 0;
-
-		@media ( max-width: em( 900px ) ) {
-			bottom: -9.2rem;
-		}
-
-		@media ( max-width: em( 600px ) ) {
-			bottom: -4.6rem;
-		}
+		max-width: 140rem;
+		margin: 0 auto;
+		padding-top: 4rem;
+		display: flex;
+		justify-content: space-between;
+		border-top-width: .6rem;
+		border-top-style: solid;
+		border-top-color: $colorHeaderBorderTop;
 
 		> div {
-			max-width: 90rem;
-			margin: 0 auto;
+			width: 66.6666%;
+			display: flex;
+
+			@media ( max-width: em( 1400px ) ) {
+				padding-left: 1.4rem;
+			}
 
 			@media ( max-width: em( 900px ) ) {
-				max-width: 60rem;
+				width: 50%;
+				display: block;
 			}
 
-			@media ( max-width: em( 600px ) ) {
-				max-width: 30rem;
+			> div {
+				width: 50%;
+				padding: 0 .6rem;
+
+				@media ( max-width: em( 900px ) ) {
+					width: 100%;
+				}
+
+				&:first-child {
+					font-weight: 700;
+				}
+
+				&:last-child {
+					color: $colorTypoAlt;
+				}
+			}
+		}
+
+		> nav {
+			width: 33.3333%;
+			padding: 0 .6rem;
+
+			@media ( max-width: em( 900px ) ) {
+				width: 50%;
 			}
 
-			> img { width: 100%; }
+			> ul {
+				list-style: none;
+				padding: 0;
+
+				> li {
+					padding-bottom: .5rem;
+
+					&.active > span {
+						color: $colorBgMain;
+						padding: 0 .3em;
+						font-weight: 700;
+						background-image: linear-gradient( $colorTypoLinkUnderlineHover, $colorTypoLinkUnderlineHover );
+						background-repeat: no-repeat;
+						background-position: 0 100%;
+						background-size: 100% 100%;
+					}
+
+					a {
+						text-decoration: none;
+						color: $colorTypoBase;
+						padding: 0 .3em;
+						background-image: linear-gradient( $colorTypoLinkUnderlineHover, $colorTypoLinkUnderlineHover );
+						background-repeat: no-repeat;
+						background-position: 0 100%;
+						background-size: 100% .2em;
+						transition: background-size 200ms ease, color 200ms ease;
+
+						&:focus,
+						&:hover,
+						&:active {
+							background-size: 100% 100%;
+							color: $colorBgMain;
+						}
+					}
+				}
+			}
 		}
 	}
 }
