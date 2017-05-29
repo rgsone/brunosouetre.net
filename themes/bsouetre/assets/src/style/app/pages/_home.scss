@@ -5,6 +5,15 @@
 
 
 .homeContent {
+	padding-top: 12rem;
+
+	@media ( max-width: em( 900px ) ) {
+		padding-top: 8rem;
+	}
+
+	@media ( max-width: em( 450px ) ) {
+		padding-top: 6rem;
+	}
 
 	.homeHighlighted {
 		background-image: url( $imgUrlThumbLoader );

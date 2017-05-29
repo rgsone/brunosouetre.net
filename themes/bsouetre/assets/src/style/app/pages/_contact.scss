@@ -5,6 +5,16 @@
 
 
 .contactContent {
+	padding-top: 30rem;
+
+	@media ( max-width: em( 900px ) ) {
+		padding-top: 20rem;
+	}
+
+	@media ( max-width: em( 600px ) ) {
+		padding-top: 12rem;
+	}
+
 	> h1 {
 		text-align: center;
 

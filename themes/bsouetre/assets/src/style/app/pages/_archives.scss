@@ -6,11 +6,12 @@
 
 .archivesContent {
 	margin: 0 auto;
-	max-width: 160rem;
+	max-width: 140rem;
+	padding-top: 20rem;
 
-	@media ( max-width: em( 1600px ) ) {
-		padding-left: 6rem;
-		padding-right: 6rem;
+	@media ( max-width: em( 1400px ) ) {
+		padding-left: 2rem;
+		padding-right: 2rem;
 	}
 
 	@media ( max-width: em( 900px ) ) {
