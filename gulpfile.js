@@ -170,6 +170,7 @@ gulp.task( 'clean:dist', () => {
 		'dist/config/dev/**',
 		'dist/config/testing/**',
 		'dist/galeries/**/*',
+		'!dist/galeries/exemple/',
 		'dist/themes/bsouetre/assets/src/**',
 		'dist/themes/bsouetre-galeries/assets/src/**',
 		'dist/themes/bsouetre-shop/assets/src/**',
