@@ -66,7 +66,7 @@ class Gallery
 		$this->config['slug'] = $this->urlSlug = $urlSlug;
 		$this->configFilePath = $this->path . DIRECTORY_SEPARATOR . $this->configFileName;
 		$this->data['url'] = Page::url( 'gallery', [ 'name' => $this->urlSlug ] );
-		$this->cacheKey = crc32( 'galleries-gallery-images-map' );
+		$this->cacheKey = crc32( 'galleries-gallery-images-map' . '/' . $this->urlSlug );
 		$this->parseConf();
 	}
 
