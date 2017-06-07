@@ -28,11 +28,42 @@ class Plugin extends PluginBase
 
 		$exParsedown = ExParsedownExtra::instance();
 
-		## figure block outside <p> block with lazyload image
+		## figure block outside <p> block
+		## template: !![alt text](path/to/img.ext)
 
 		$exParsedown->addBlockType( '!', 'Figure', false, false );
 
 		$exParsedown->blockFigure = function( $Line, $Block = null )
+		{
+			if ( !isset( $Line[ 'text' ][ 1 ] ) || $Line[ 'text' ][ 1 ] !== '!'
+				|| !isset( $Line[ 'text' ][ 2 ] ) || $Line[ 'text' ][ 2 ] !== '[' )
+			{
+				return;
+			}
+
+			# remove first '!' and trim
+			$text = trim( substr_replace( $Line[ 'text' ], '', 0, 1 ) );
+
+			if ( preg_match( '/^!\[(.*)\]\((.*)\)$/', $text ) )
+			{
+				$Block = [
+					'element' => [
+						'name' => 'figure',
+						'text' => $text,
+						'handler' => 'line'
+					]
+				];
+
+				return $Block;
+			}
+		};
+
+		## figure block outside <p> block with lazyload image
+		## template: !>[alt text](path/to/img.ext)
+
+		$exParsedown->addBlockType( '!', 'LazyLoadFigure', false, false );
+
+		$exParsedown->blockLazyLoadFigure = function( $Line, $Block = null )
 		{
 			if ( !isset( $Line[ 'text' ][ 1 ] ) || $Line[ 'text' ][ 1 ] !== '>'
 				|| !isset( $Line[ 'text' ][ 2 ] ) || $Line[ 'text' ][ 2 ] !== '[' )
@@ -58,6 +89,7 @@ class Plugin extends PluginBase
 		};
 
 		## image caption ( <p class="caption"></p>)
+		## template: |> text
 
 		$exParsedown->addBlockType( '|', 'Caption', false, false );
 

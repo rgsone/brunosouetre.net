@@ -15,33 +15,6 @@
 		padding-top: 12rem;
 	}
 
-	> h1 {
-		text-align: center;
-
-		@media ( max-width: em( 900px ) ) {
-			font-size: 5rem;
-		}
-
-		@media ( max-width: em( 600px ) ) {
-			font-size: 3.6rem;
-		}
-	}
-
-	> .titleBottomSep {
-		margin-top: 10rem;
-		margin-bottom: 10rem;
-
-		@media ( max-width: em( 900px ) ) {
-			margin-top: 6rem;
-			margin-bottom: 6rem;
-		}
-
-		@media ( max-width: em( 600px ) ) {
-			margin-top: 4rem;
-			margin-bottom: 4rem;
-		}
-	}
-
 	> p {
 		text-align: center;
 		font-size: 3rem;

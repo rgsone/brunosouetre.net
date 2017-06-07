@@ -26,16 +26,18 @@ is_hidden = 0
 </header>
 <section>
 	<ul class="galleriesList">
-	{% for gallery in galleries %}
-		<li class="galleriesList-item">
-			<a href="{{ gallery.url }}">
-				<div>
-					<svg width="25px" height="20px" class="icon40" style="fill: {{ gallery.color }};"><use xlink:href="#icon-folder-plain"></use></svg>
-				</div>
-				<h3>{{ gallery.title }} <span style="color: {{ gallery.color }};">&nbsp;/ {{ gallery.getImageCount() }} image{% if gallery.getImageCount() > 1 %}s{% endif %}</span></h3>
-			</a>
-		</li>
-	{% endfor %}
+	{% if galleries %}
+		{% for gallery in galleries %}
+			<li class="galleriesList-item">
+				<a href="{{ gallery.url }}">
+					<div>
+						<svg width="25px" height="20px" class="icon40" style="fill: {{ gallery.color }};"><use xlink:href="#icon-folder-plain"></use></svg>
+					</div>
+					<h3>{{ gallery.title }} <span style="color: {{ gallery.color }};">&nbsp;/ {{ gallery.getImageCount() }} image{% if gallery.getImageCount() > 1 %}s{% endif %}</span></h3>
+				</a>
+			</li>
+		{% endfor %}
+	{% endif %}
 	</ul>
 </section>
 <footer>

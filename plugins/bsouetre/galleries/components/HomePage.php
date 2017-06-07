@@ -28,8 +28,16 @@ class HomePage extends ComponentBase
 		$galleryList->setCacheTtl( Config::get( 'bsouetre.galleries::cacheTTL.galleries', 1 ) );
 		$galleries = $galleryList->listGalleries( Config::get( 'app.debug', false ) );
 
-		$this->page[ 'galleries' ] = $galleries->filter( function( $item ) {
-			return ( $item->published == true && $item->listed == true );
-		});
+		// TODO : check if $galleries == null before call filter
+		// TODO : check if one or more galleries exist in template
+
+		if ( null !== $galleries )
+		{
+			$galleries = $galleries->filter( function( $item ) {
+				return ( $item->published == true && $item->listed == true );
+			});
+		}
+
+		$this->page[ 'galleries' ] = $galleries;
 	}
 }

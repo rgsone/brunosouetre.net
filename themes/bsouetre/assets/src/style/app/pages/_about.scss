@@ -5,7 +5,10 @@
 
 
 .aboutContent {
+	max-width: 140rem;
 	padding-top: 30rem;
+	margin-left: auto;
+	margin-right: auto;
 
 	@media ( max-width: em( 900px ) ) {
 		padding-top: 20rem;
@@ -16,10 +19,13 @@
 	}
 
 	> h1 {
-		text-align: center;
+		max-width: 66.6666%;
+		margin: 0 auto;
 
 		@media ( max-width: em( 900px ) ) {
 			font-size: 5rem;
+			max-width: none;
+			padding: 0 2rem;
 		}
 
 		@media ( max-width: em( 600px ) ) {
@@ -28,52 +34,37 @@
 	}
 
 	> .titleBottomSep {
+		max-width: 66.6666%;
+		height: .4rem;
 		margin-top: 8rem;
-		margin-bottom: 10rem;
+		margin-bottom: 8rem;
 
 		@media ( max-width: em( 900px ) ) {
-			margin-top: 6rem;
-			margin-bottom: 8rem;
+			margin-top: 4rem;
+			margin-bottom: 4rem;
+			margin-left: 2rem;
+			margin-right: 2rem;
+			max-width: none;
+			height: .2rem;
 		}
 
 		@media ( max-width: em( 600px ) ) {
-			margin-top: 5rem;
-			margin-bottom: 6rem;
-		}
-	}
-
-	.aboutFigure {
-		display: flex;
-		justify-content: center;
-
-		> div {
-			vertical-align: top;
-			margin: 0 1rem;
-
-			@media ( max-width: em( 600px ) ) {
-				margin: 0 .5rem;
-			}
-
-			@media ( max-width: em( 400px ) ) {
-				margin: 0 .3rem;
-			}
-
-			&:first-child {
-				margin-left: 0;
-			}
-
-			&:last-child {
-				margin-right: 0;
-			}
+			margin-top: 3rem;
+			margin-bottom: 3rem;
 		}
 	}
 
 	.aboutBio {
-		max-width: $measureAboutContentMaxWidth;
-		margin: -8rem auto 0;
+		max-width: 66.6666%;
+		margin: 0 auto;
+
+		@media ( max-width: em( 900px ) ) {
+			max-width: none;
+			padding: 0 2rem;
+		}
 
 		> p {
-			padding: 0 2rem;
+			padding: 0;
 			font-size: $typoAboutBioSize;
 			font-weight: 700;
 			color: $colorTypoAlt;
@@ -105,7 +96,7 @@
 	}
 
 	.aboutLinks {
-		max-width: $measureAboutContentMaxWidth;
+		max-width: 140rem;
 		margin: 16rem auto 0;
 
 		@media ( max-width: em( 600px ) ) {
