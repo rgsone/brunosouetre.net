@@ -36,10 +36,6 @@ is_hidden = 0
 				<a href="{{ project.url }}" title="{{ project.title }}">
 					<div style="border-color:{{ project.category.color }};">
 						<p class="itemCategory" style="color:{{ project.category.color }};">{{ project.category.name }}</p>
-						<h4>{{ project.title }}</h4>
-						{% if project.show_date %}
-							<p class="itemDate">— {{ project.date|date( 'Y' ) }}</p>
-						{% endif %}
 					</div>
 				</a>
 			</li>
