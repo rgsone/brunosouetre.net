@@ -166,7 +166,7 @@
 					left: 0;
 					right: 0;
 					margin: .6rem;
-					background-color: rgba( $colorTypoLinkUnderlineHover, .94 );
+					//background-color: rgba( $colorTypoLinkUnderlineHover, .94 );
 					opacity: 0;
 					transition: opacity 200ms ease;
 
@@ -186,7 +186,7 @@
 						left: 0;
 						top: 50%;
 						transform: translateY( -50% );
-						color: $colorTypoBase;
+						color: $colorTypoLinkHover;
 					}
 				}
 			}

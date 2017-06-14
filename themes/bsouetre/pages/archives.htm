@@ -64,7 +64,7 @@ is_hidden = 0
 					style="min-width:{{ project.getThumbWidthForHeight( 220 ) }}px;">
 				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ project.cover_thumb.getThumb( 0, 260 )|app }}" class="lazyImg" alt="Vignette : {{ project.title}}">
 				<noscript><img src="{{ project.cover_thumb.getThumb( 0, 260 )|app }}" alt="Vignette : {{ project.title}}"></noscript>
-				<a href="{{ project.url }}" title="{{ project.title }}">
+				<a href="{{ project.url }}" title="{{ project.title }}" style="background-color:{{ project.category.color }};">
 					<h4>{{ project.title }}</h4>
 				</a>
 			</li>
