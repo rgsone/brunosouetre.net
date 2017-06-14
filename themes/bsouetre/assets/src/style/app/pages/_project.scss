@@ -4,7 +4,7 @@
 		====================================================================== */
 
 .projectContent {
-	padding-top: 30rem;
+	padding-top: 24rem;
 
 	@media ( max-width: em( 900px ) ) {
 		padding-top: 20rem;
@@ -52,19 +52,7 @@
 	}
 
 	.projectTaxonomy {
-		margin-top: 12rem;
-
-		@media ( max-width: em( 900px ) ) {
-			margin-top: 8rem;
-		}
-
-		@media ( max-width: em( 600px ) ) {
-			margin-top: 6rem;
-		}
-
-		@media ( max-width: em( 400px ) ) {
-			margin-top: 4rem;
-		}
+		margin-top: 4rem;
 
 		> p {
 			max-width: 90rem;
