@@ -28,6 +28,40 @@ class Plugin extends PluginBase
 
 		$exParsedown = ExParsedownExtra::instance();
 
+		## underline inline block (<span style="text-decoration: underline;">text</span>)
+		## template: --text--
+
+		$exParsedown->addInlineType( '-', 'UnderlineText' );
+
+		$exParsedown->inlineUnderlineText = function( $excerpt )
+		{
+			if ( !isset( $excerpt['text'][1] ) ) return;
+
+			if ( $excerpt['text'][0] === '-' && $excerpt['text'][1] === '-'
+				 && preg_match( '/^--(.+)--/us', $excerpt['text'], $matches )
+			)
+			{
+				$tag = 'span';
+				$attrStyleValue = 'text-decoration:underline;';
+			}
+			else
+			{
+				return;
+			}
+
+			return array(
+				'extent' => strlen($matches[0]),
+				'element' => array(
+					'name' => $tag,
+					//'handler' => 'line',
+					'text' => $matches[1],
+					'attributes' => array(
+						'style' => $attrStyleValue
+					)
+				),
+			);
+		};
+
 		## figure block outside <p> block
 		## template: !![alt text](path/to/img.ext)
 
