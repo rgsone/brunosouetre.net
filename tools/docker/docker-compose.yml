@@ -1,7 +1,7 @@
 version: '2'
 services:
   web:
-    image: webdevops/php-apache-dev:debian-8
+    image: webdevops/php-apache-dev:debian-9
     ports:
       - "80:80"
     volumes:
