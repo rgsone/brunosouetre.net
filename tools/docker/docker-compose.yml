@@ -11,4 +11,4 @@ services:
     environment:
       - ALLOW_OVERRIDE=true
       - WEB_DOCUMENT_ROOT=/var/www/bsouetre
-      - WEB_ALIAS_DOMAIN=bsouetre.dev
+      - WEB_ALIAS_DOMAIN=bsouetre.local
