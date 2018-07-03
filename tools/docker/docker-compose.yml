@@ -1,7 +1,7 @@
 version: '2'
 services:
   web:
-    image: webdevops/php-apache-dev:debian-8
+    image: webdevops/php-apache-dev:debian-9
     ports:
       - "80:80"
     volumes:
@@ -11,4 +11,4 @@ services:
     environment:
       - ALLOW_OVERRIDE=true
       - WEB_DOCUMENT_ROOT=/var/www/bsouetre
-      - WEB_ALIAS_DOMAIN=bsouetre.dev
+      - WEB_ALIAS_DOMAIN=bsouetre.local
