@@ -22,9 +22,9 @@ class ExtendedMarkdownEditor extends MarkdownEditor
 
 	public function onRefresh()
 	{
-		$value = post( $this->formField->getName() );
-		$previewHtml = ExParsedownExtra::parseEx( $value );
+		$value = post($this->formField->getName());
+		$previewHtml = ExParsedownExtra::parseEx($value);
 
-		return [ 'preview' => $previewHtml ];
+		return ['preview' => $previewHtml];
 	}
 }
