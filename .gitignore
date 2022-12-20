@@ -18,6 +18,7 @@
 /themes/bsouetre-shop/assets/js
 /themes/bsouetre-shop/assets/static
 /vendor
+/plugins/bedard
 
 /.travis.yml
 /android-*.png
