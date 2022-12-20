@@ -24,7 +24,7 @@ return [
     |
     */
 
-    'edgeUpdates' => false,
+    'edgeUpdates' => env('EDGE_UPDATES', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -36,7 +36,7 @@ return [
     |
     */
 
-    'backendUri' => env( 'BACKEND_URI' ),
+    'backendUri' => env('BACKEND_URI'),
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ return [
     |
     */
 
-    'disableCoreUpdates' => true,
+    'disableCoreUpdates' => env('DISABLE_CORE_UPDATES', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -110,7 +110,7 @@ return [
     |
     */
 
-    'enableRoutesCache' => env( 'ROUTES_CACHE', true ),
+    'enableRoutesCache' => env('ROUTES_CACHE', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -150,7 +150,7 @@ return [
     |
     */
 
-    'enableAssetCache' => env( 'ASSET_CACHE', true ),
+    'enableAssetCache' => env('ASSET_CACHE', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -265,7 +265,7 @@ return [
     |
     */
 
-    'linkPolicy' => env( 'LINK_POLICY', 'detect' ),
+    'linkPolicy' => env('LINK_POLICY', 'detect'),
 
     /*
     |--------------------------------------------------------------------------
@@ -301,6 +301,6 @@ return [
     |
     */
 
-    'enableCsrfProtection' => env( 'ENABLE_CSRF', true ),
+    'enableCsrfProtection' => env('ENABLE_CSRF', true),
 
 ];
