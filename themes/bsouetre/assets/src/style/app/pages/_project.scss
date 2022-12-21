@@ -204,6 +204,16 @@
 			}
 		}
 
+		> div.yt-video-container {
+			max-width: 120rem;
+			margin: 3rem auto;
+
+			> iframe {
+				width: 100%;
+				aspect-ratio: 16/9;
+			}
+		}
+
 	}
 
 }
