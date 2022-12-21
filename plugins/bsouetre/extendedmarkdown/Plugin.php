@@ -31,21 +31,16 @@ class Plugin extends PluginBase
 		## underline inline block (<span style="text-decoration: underline;">text</span>)
 		## template: --text--
 
-		$exParsedown->addInlineType( '-', 'UnderlineText' );
-
-		$exParsedown->inlineUnderlineText = function( $excerpt )
+		$exParsedown->addInlineType('-', 'UnderlineText');
+		$exParsedown->inlineUnderlineText = function($excerpt)
 		{
-			if ( !isset( $excerpt['text'][1] ) ) return;
+			if (!isset($excerpt['text'][1])) return;
 
-			if ( $excerpt['text'][0] === '-' && $excerpt['text'][1] === '-'
-				 && preg_match( '/^--(.+)--/us', $excerpt['text'], $matches )
-			)
-			{
+			if ($excerpt['text'][0] === '-' && $excerpt['text'][1] === '-'
+				 && preg_match('/^--(.+)--/us', $excerpt['text'], $matches)) {
 				$tag = 'span';
 				$attrStyleValue = 'text-decoration:underline;';
-			}
-			else
-			{
+			} else {
 				return;
 			}
 
@@ -55,9 +50,7 @@ class Plugin extends PluginBase
 					'name' => $tag,
 					//'handler' => 'line',
 					'text' => $matches[1],
-					'attributes' => array(
-						'style' => $attrStyleValue
-					)
+					'attributes' => array('style' => $attrStyleValue)
 				),
 			);
 		};
@@ -65,21 +58,18 @@ class Plugin extends PluginBase
 		## figure block outside <p> block
 		## template: !![alt text](path/to/img.ext)
 
-		$exParsedown->addBlockType( '!', 'Figure', false, false );
-
-		$exParsedown->blockFigure = function( $Line, $Block = null )
+		$exParsedown->addBlockType('!', 'Figure', false, false);
+		$exParsedown->blockFigure = function($Line, $Block = null)
 		{
-			if ( !isset( $Line[ 'text' ][ 1 ] ) || $Line[ 'text' ][ 1 ] !== '!'
-				|| !isset( $Line[ 'text' ][ 2 ] ) || $Line[ 'text' ][ 2 ] !== '[' )
-			{
+			if (!isset($Line['text'][1]) || $Line['text'][1] !== '!' ||
+				!isset($Line['text'][2]) || $Line['text'][2] !== '[') {
 				return;
 			}
 
 			# remove first '!' and trim
-			$text = trim( substr_replace( $Line[ 'text' ], '', 0, 1 ) );
+			$text = trim(substr_replace($Line['text'], '', 0, 1));
 
-			if ( preg_match( '/^!\[(.*)\]\((.*)\)$/', $text ) )
-			{
+			if (preg_match('/^!\[(.*)\]\((.*)\)$/', $text)) {
 				$Block = [
 					'element' => [
 						'name' => 'figure',
@@ -95,21 +85,18 @@ class Plugin extends PluginBase
 		## figure block outside <p> block with lazyload image
 		## template: !>[alt text](path/to/img.ext)
 
-		$exParsedown->addBlockType( '!', 'LazyLoadFigure', false, false );
-
-		$exParsedown->blockLazyLoadFigure = function( $Line, $Block = null )
+		$exParsedown->addBlockType('!', 'LazyLoadFigure', false, false);
+		$exParsedown->blockLazyLoadFigure = function($Line, $Block = null)
 		{
-			if ( !isset( $Line[ 'text' ][ 1 ] ) || $Line[ 'text' ][ 1 ] !== '>'
-				|| !isset( $Line[ 'text' ][ 2 ] ) || $Line[ 'text' ][ 2 ] !== '[' )
-			{
+			if (!isset($Line['text'][1] ) || $Line['text'][1] !== '>' ||
+				!isset($Line['text'][2] ) || $Line['text'][2] !== '[') {
 				return;
 			}
 
 			# remove '>' and trim
-			$text = trim( substr_replace( $Line[ 'text' ], '', 1, 1 ) );
+			$text = trim(substr_replace($Line['text'], '', 1, 1));
 
-			if ( preg_match( '/^!\[(.*)\]\((.*)\)$/', $text ) )
-			{
+			if (preg_match('/^!\[(.*)\]\((.*)\)$/', $text)) {
 				$Block = [
 					'element' => [
 						'name' => 'figure',
@@ -125,24 +112,46 @@ class Plugin extends PluginBase
 		## image caption ( <p class="caption"></p>)
 		## template: |> text
 
-		$exParsedown->addBlockType( '|', 'Caption', false, false );
-
-		$exParsedown->blockCaption = function( $Line, $Block = null )
+		$exParsedown->addBlockType('|', 'Caption', false, false);
+		$exParsedown->blockCaption = function($Line, $Block = null)
 		{
-			if ( !isset( $Line[ 'text' ][ 1 ] ) || $Line[ 'text' ][ 1 ] !== '>'
-				|| !isset( $Line[ 'text' ][ 2 ] ) || $Line[ 'text' ][ 2 ] !== ' ' )
-			{
+			if (!isset($Line['text'][1] ) || $Line['text'][1] !== '>' ||
+				!isset($Line['text'][2] ) || $Line['text'][2] !== ' ') {
 				return;
 			}
 
-			if ( preg_match( '/^\|>[ ]{1}(.*)/', $Line[ 'text' ], $matches ) )
-			{
+			if (preg_match('/^\|>[ ]{1}(.*)/', $Line['text'], $matches)) {
 				$Block = [
 					'element' => [
 						'name' => 'p',
-						'attributes' => [ 'class' => 'caption' ],
+						'attributes' => ['class' => 'caption'],
 						'text' => $matches[1],
 						'handler' => 'line'
+					]
+				];
+
+				return $Block;
+			}
+		};
+
+		## youtube block
+		## template: !yt[videoId]
+
+		$exParsedown->addBlockType('!', 'Youtube', false, false);
+		$exParsedown->blockYoutube = function($Line, $Block = null)
+		{
+			$prefix = substr($Line['text'], 1, 3);
+			if (empty($prefix) || $prefix !== 'yt[') return;
+
+			# remove '!yt' and trim
+			$text = trim(substr_replace($Line['text'], '', 0, 3));
+			if (preg_match('/^\[([0-9a-zA-Z_\-]+)\]$/', $text)) {
+				$Block = [
+					'element' => [
+						'name' => 'div',
+						'attributes' => ['class' => 'yt-video-container'],
+						'text' => $text,
+						'handler' => 'mediaYoutube'
 					]
 				];
 
