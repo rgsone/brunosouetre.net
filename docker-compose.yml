@@ -5,9 +5,9 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./../..:/var/www/bsouetre
-      - ./php.ini:/opt/docker/etc/php/php.ini
-      - ./bsouetre.conf:/opt/docker/etc/httpd/vhost.common.d/50-bsouetre.conf
+      - ./:/var/www/bsouetre
+      - ./docker/php.ini:/opt/docker/etc/php/php.ini
+      - ./docker/bsouetre.conf:/opt/docker/etc/httpd/vhost.common.d/50-bsouetre.conf
     environment:
       - ALLOW_OVERRIDE=true
       - WEB_DOCUMENT_ROOT=/var/www/bsouetre
