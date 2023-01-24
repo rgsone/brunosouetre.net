@@ -40,4 +40,5 @@
 /TODO.md
 
 .env
+.env.prod
 .gitignore
