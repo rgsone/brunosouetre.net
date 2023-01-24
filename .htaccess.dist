@@ -500,7 +500,12 @@ FileETag None
     ##
     RewriteCond %{REQUEST_FILENAME} -f
     RewriteCond %{REQUEST_FILENAME} !/.well-known/*
+    RewriteCond %{REQUEST_FILENAME} !/apple-touch-icon.png
     RewriteCond %{REQUEST_FILENAME} !/favicon.ico
+    RewriteCond %{REQUEST_FILENAME} !/icon.svg
+    RewriteCond %{REQUEST_FILENAME} !/icon-192.png
+    RewriteCond %{REQUEST_FILENAME} !/icon-512.png
+    RewriteCond %{REQUEST_FILENAME} !/manifest.webmanifest
     RewriteCond %{REQUEST_FILENAME} !/storage/app/uploads/.*
     RewriteCond %{REQUEST_FILENAME} !/storage/app/media/.*
     RewriteCond %{REQUEST_FILENAME} !/storage/temp/public/.*
