@@ -3,7 +3,6 @@ import {defineConfig, loadEnv} from "vite";
 export default defineConfig(({command, mode }) => {
 
 	const basePath = command === 'serve' ? '/' : '/themes/bsouetre/assets/';
-	console.log(command);
 
 	return {
 

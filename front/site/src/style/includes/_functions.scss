@@ -22,8 +22,16 @@
 /**
  * Convert px to rem
  */
-@function rem($px, $ctx: $browserContextSize) {
-	@return em($px, $ctx) * 1rem;
+@function em($px, $ctx: $browserContextSize) {
+	@if unitless($px) {
+		$px: $px * 1px;
+	}
+
+	@if unitless($ctx) {
+		$ctx: $ctx * 1px;
+	}
+
+	@return math.div($px, $ctx) * 1rem;
 }
 
 //// ===========================================
