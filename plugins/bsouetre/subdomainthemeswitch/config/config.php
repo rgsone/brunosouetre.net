@@ -11,6 +11,6 @@ return [
 	],
 	'allowed_domains' => [
 		'brunosouetre.net',
-		'bsouetre.dev'
+		'bsouetre.local'
 	]
 ];

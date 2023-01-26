@@ -27,35 +27,30 @@ class Plugin extends PluginBase
     public function boot()
     {
     	# if backend > skip
-		if ( App::runningInBackend() ) return;
+		if (App::runningInBackend()) return;
 
 		$currentHost = Request::getHost();
-		$allowedDomains = Config::get( 'bsouetre.subdomainthemeswitch::allowed_domains' );
-		$subdomains = Config::get( 'bsouetre.subdomainthemeswitch::subdomains' );
+		$allowedDomains = Config::get('bsouetre.subdomainthemeswitch::allowed_domains');
+		$subdomains = Config::get('bsouetre.subdomainthemeswitch::subdomains');
 		$matchDomain = false;
 
 		# check if current host match allowed domain
-		foreach ( $allowedDomains as $domain )
-		{
-			if ( preg_match( '/' . $domain . '$/i', $currentHost ) )
-			{
+		foreach ($allowedDomains as $domain) {
+			if (preg_match('/'.$domain.'$/i', $currentHost)) {
 				$matchDomain = true;
 				break;
 			}
 		}
 
 		# no match > skip
-		if ( !$matchDomain ) return;
+		if (!$matchDomain) return;
 
 		# check if subdomain match
-		Event::listen( 'cms.theme.getActiveTheme', function () use ( $subdomains, $currentHost ) {
-
-			foreach ( $subdomains as $subdomain => $themeName )
-			{
+		Event::listen('cms.theme.getActiveTheme', function () use ($subdomains, $currentHost) {
+			foreach ($subdomains as $subdomain => $themeName) {
 				# check if match defined subdomain
-				if ( preg_match( '/' . $subdomain . '\./i', $currentHost ) ) return $themeName;
+				if (preg_match('/'.$subdomain.'\./i', $currentHost)) return $themeName;
 			}
-
 		});
     }
 }

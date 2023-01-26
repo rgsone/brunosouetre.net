@@ -2,15 +2,14 @@
 /.idea
 /bootstrap
 /dist
+/front/*/node_modules
 /galeries/*
 !/galeries/.gitkeep
 /modules
 /node_modules
 /storage
 /tests
-/themes/bsouetre/assets/css
-/themes/bsouetre/assets/js
-/themes/bsouetre/assets/static
+/themes/bsouetre/assets/
 /themes/bsouetre-galeries/assets/css
 /themes/bsouetre-galeries/assets/js
 /themes/bsouetre-galeries/assets/static
@@ -40,4 +39,5 @@
 /TODO.md
 
 .env
+.env.prod
 .gitignore
