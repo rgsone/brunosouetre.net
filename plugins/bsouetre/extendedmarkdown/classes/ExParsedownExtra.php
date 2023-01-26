@@ -15,6 +15,8 @@ class ExParsedownExtra extends ParsedownExtra
 		return static::instance()->text($text);
 	}
 
+	/////////////////////////
+
 	protected function inlineLazyImage($Excerpt)
 	{
 		$img = $this->inlineImage(['text' => $Excerpt, 'context' => $Excerpt]);
@@ -38,6 +40,8 @@ class ExParsedownExtra extends ParsedownExtra
 		return $markup;
 	}
 
+	/////////////////////////
+
 	protected function mediaYoutube($Excerpt)
 	{
 		$videoId = trim($Excerpt, "[]");
@@ -50,4 +54,81 @@ YT;
 
 		return $markup;
 	}
+
+	/////////////////////////
+
+	protected function mediaVideo($Excerpt)
+	{
+		$matches = [];
+		preg_match('/^\[([a-zA-Z,]*)\]\(([a-zA-Z0-9\/\-_%\.~]+\.(mp4|ogg|webm))\)$/', $Excerpt, $matches);
+
+		$options = empty($matches[1]) ? [] : explode(',', $matches[1]);
+		$src = $matches[2];
+		$fileExt = $matches[3];
+		$mimetype = $this->getVideoMimetype($fileExt);
+		$attributes = $this->getAttributes($options);
+
+		// ref : https://webplatform.github.io/docs/html/elements/video/
+		// ref : https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
+		// options : autoplay, controls, loop, muted
+
+		$markup = <<<HTML
+	<video ${attributes} src="${src}" type="${mimetype}">
+		<p>Votre navigateur ne supporte pas la balise vidéo</p>
+	</video>
+HTML;
+
+		return $markup;
+	}
+
+	protected function getVideoMimetype($fileExt)
+	{
+		$mimetype = '';
+
+		if ($fileExt === 'mp4') $mimetype = 'video/mp4';
+		else if ($fileExt === 'ogg') $mimetype = 'video/ogg';
+		else if ($fileExt === 'webm') $mimetype = 'video/webm';
+
+		return $mimetype;
+	}
+
+	protected function getAttributes($options)
+	{
+		$attr = 'preload="metadata" ';
+		$opts = array_unique($options);
+
+		// if no options, add simply controls
+		if (empty($opts)) {
+			$opts[] = 'controls';
+		}
+		
+		// add muted options if autoplay option id defined and muted doesn't exists
+		if (in_array('autoplay', $opts, true) &&
+			!in_array('muted', $opts, true)) {
+			$opts[] = 'muted';
+		}
+
+		foreach ($opts as $opt) {
+			switch ($opt) {
+				case 'autoplay':
+					$attr .= 'autoplay ';
+					break;
+				case 'controls':
+					$attr .= 'controls ';
+					break;
+				case 'loop':
+					$attr .= 'loop ';
+					break;
+				case 'muted':
+					$attr .= 'muted ';
+					break;
+			}
+		}
+
+
+
+		return trim($attr);
+	}
+
+	/////////////////////////
 }
