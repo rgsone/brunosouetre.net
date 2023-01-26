@@ -1,0 +1,24 @@
+{
+  "name": "bsouetre.net",
+  "version": "1.0.0",
+  "description": "bsouetre.net front",
+  "author": "rgsone",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "watch": "vite build --watch",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "baguettebox.js": "^1.8.2",
+    "blazy": "^1.8.2",
+    "jump.js": "^1.0.2",
+    "normalize.css": "^6.0.0",
+    "vanilla-lazyload": "^7.2.1"
+  },
+  "devDependencies": {
+    "sass": "^1.57.1",
+    "vite": "^4.0.4"
+  }
+}

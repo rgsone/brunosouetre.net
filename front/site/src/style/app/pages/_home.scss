@@ -16,7 +16,7 @@
 	}
 
 	.homeHighlighted {
-		background-image: url( $imgUrlThumbLoader );
+		background-image: var(--svgThumbLoaderUrl);
 		background-repeat: no-repeat;
 		background-position: center center;
 
@@ -160,7 +160,7 @@
 				overflow: hidden;
 
 				&.loading {
-					background-image: url( $imgUrlThumbLoader );
+					background-image: var(--svgThumbLoaderUrl);
 					background-repeat: no-repeat;
 					background-position: center center;
 					background-color: darken( $colorBgMain, 4% );

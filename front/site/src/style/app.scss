@@ -115,14 +115,18 @@ $measureArchivesListItemBaseHeight: 220px;
 
 //////-> IMGURL
 
-$imgUrlBgHeaderBsouetre: '../static/img/header-txt-bsouetre.svg';
-$imgUrlThumbLoader: '../static/img/thumb-loader.svg';
+//$imgUrlBgHeaderBsouetre: '../static/img/header-txt-bsouetre.svg';
+//$imgUrlThumbLoader: "../static/img/thumb-loader.svg";
 
+:root {
+	--svgThumbLoaderUrl: url('/img/thumb-loader.svg');
+}
 
 /*	== includes =======================================
 		=================================================== */
 
-@import "includes/helpers";
+@import "includes/mixins";
+@import "includes/functions";
 
 /*	== styles =========================================
 		=================================================== */

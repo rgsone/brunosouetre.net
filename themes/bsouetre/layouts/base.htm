@@ -49,16 +49,14 @@ description = "html base template"
 
 		<meta name="description" content="{{ this.page.meta_description }}">
 		<title>{{ this.page.meta_title }}</title>
-	{% if not ( this.environment == 'dev' ) %}
-		<link rel="stylesheet" href="{{ 'assets/css/style.css'|theme }}" media="all">
-	{% endif %}
+
+		{{vite_assets_resolver(
+			'http://bsouetre.local:5173/@vite/client',
+			'http://bsouetre.local:5173/app.js',
+			'app.js'
+		)}}
 	</head>
 	<body id="top">
 		{% page %}
-	{% if this.environment == 'dev' %}
-		<script src="http://localhost:1337/app.js"></script>
-	{% else %}
-		<script src="{{ 'assets/js/app.js'|theme }}" defer></script>
-	{% endif %}
 	</body>
 </html>
