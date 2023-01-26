@@ -158,6 +158,31 @@ class Plugin extends PluginBase
 				return $Block;
 			}
 		};
+
+		## local video block
+		## template: !video[option,option,option](path/to/video.mp4)
+
+		$exParsedown->addBlockType('!', 'Video', false, false);
+		$exParsedown->blockVideo = function($Line, $Block = null)
+		{
+			$prefix = substr($Line['text'], 1, 6);
+			if (empty($prefix) || $prefix !== 'video[') return;
+
+			# remove '!video' and trim
+			$text = trim(substr_replace($Line['text'], '', 0, 6));
+			if (preg_match('/^\[([a-zA-Z,]*)\]\(([a-zA-Z0-9\/\-_%\.~]+\.(mp4|ogg|webm))\)$/', $text)) {
+				$Block = [
+					'element' => [
+						'name' => 'div',
+						'attributes' => ['class' => 'video-container'],
+						'text' => $text,
+						'handler' => 'mediaVideo'
+					]
+				];
+
+				return $Block;
+			}
+		};
 	}
 
 	public function registerFormWidgets()
