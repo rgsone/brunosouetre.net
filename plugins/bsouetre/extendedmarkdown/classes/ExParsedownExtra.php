@@ -60,7 +60,7 @@ YT;
 	protected function mediaVideo($Excerpt)
 	{
 		$matches = [];
-		preg_match('/^\[([a-zA-Z,]*)\]\(([a-zA-Z0-9\/\-_%\.~]+\.(mp4|ogg|webm))\)$/', $Excerpt, $matches);
+		preg_match('/^\[([a-zA-Z0-9:,]*)\]\(([a-zA-Z0-9\/\-_%\.~]+\.(mp4|ogg|webm))\)$/', $Excerpt, $matches);
 
 		$options = empty($matches[1]) ? [] : explode(',', $matches[1]);
 		$src = $matches[2];
@@ -70,7 +70,7 @@ YT;
 
 		// ref : https://webplatform.github.io/docs/html/elements/video/
 		// ref : https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
-		// options : autoplay, controls, loop, muted
+		// options : autoplay, controls, loop, muted, mw:xxx
 
 		$markup = <<<HTML
 	<video ${attributes} src="${src}" type="${mimetype}">
@@ -121,6 +121,11 @@ HTML;
 					break;
 				case 'muted':
 					$attr .= 'muted ';
+					break;
+				case (substr($opt, 0, 3) === 'mw:'):
+					$matches = [];
+					$hasMatches = preg_match('/^mw:([0-9]{1,5})$/', $opt, $matches) === 1;
+					$attr .= $hasMatches ? "style=\"max-width:${matches[1]}px\" " : '';
 					break;
 			}
 		}

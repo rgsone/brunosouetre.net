@@ -217,6 +217,8 @@
 		> div.video-container {
 			max-width: 1280px;
 			margin: 3rem auto;
+			display: flex;
+			justify-content: center;
 
 			> video {
 				width: 100%;
