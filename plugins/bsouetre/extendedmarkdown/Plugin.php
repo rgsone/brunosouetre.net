@@ -170,7 +170,7 @@ class Plugin extends PluginBase
 
 			# remove '!video' and trim
 			$text = trim(substr_replace($Line['text'], '', 0, 6));
-			if (preg_match('/^\[([a-zA-Z,]*)\]\(([a-zA-Z0-9\/\-_%\.~]+\.(mp4|ogg|webm))\)$/', $text)) {
+			if (preg_match('/^\[([a-zA-Z0-9:,]*)\]\(([a-zA-Z0-9\/\-_%\.~]+\.(mp4|ogg|webm))\)$/', $text)) {
 				$Block = [
 					'element' => [
 						'name' => 'div',
