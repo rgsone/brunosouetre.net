@@ -47,10 +47,12 @@ class ExParsedownExtra extends ParsedownExtra
 		$videoId = trim($Excerpt, "[]");
 
 		$markup = <<<YT
-<iframe frameborder="0" type="text/html" 
-		src="https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&mute=1&playlist=${videoId}&controls=0&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&color=white">
+<iframe frameborder="0" 
+		type="text/html" 
+		src="https://www.youtube.com/embed/${videoId}?autoplay=0&loop=0&mute=0&playlist=${videoId}&controls=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&color=white">
 </iframe>
 YT;
+		// src="https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&mute=1&playlist=${videoId}&controls=0&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&color=white">
 
 		return $markup;
 	}
